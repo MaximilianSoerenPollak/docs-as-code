@@ -12,14 +12,8 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-Standards
-=========
-
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
 
-   iso26262
-   isopas8926
-   iso26262/index
-   aspice/index
+   aspice
