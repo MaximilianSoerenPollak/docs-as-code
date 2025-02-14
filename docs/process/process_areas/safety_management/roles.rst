@@ -16,9 +16,9 @@ Roles
 -----
 
 .. role:: Safety Manager
-   :id: RL__safety_manager
+   :id: rl__safety_manager
    :status: valid
-   :contains: RL_committer
+   :contains: rl__committer
 
    The safety manager is responsible for making sure that ISO26262 is complied to in the project. He/She shall lead and monitor the safety relevant activities of the project.
 
@@ -50,10 +50,24 @@ Roles
    * Verify, that the preconditions for the "release for production", which are  part of the release notes, are fulfilled, and the correctness, completeness and consistency of the release notes
    * Coaching the project team w.r.t all questions related to functional safety
    * Planning of safety audit
+   * Approval of OSS component classification and safety analyses (incl. DFA)
+   * Creating the safety manuals on platform and module level
+   * Checking that every person in his team has sufficient safety skills for his role
+
+   Authority
+
+   * Escalation of planning topics to the project manager defined in the safety plan
+   * Initiate the publication of a safety anomaly
+   * Recommend the Release of a SW platform or a module
+   * Refusing the approval of work products as defined in the workflows
+   * Refusing the approval of his team's role nomination (i.e. requesting that the role will be withdrawn)
+
+
+
 
 
 .. role:: External Auditor
-   :id: RL__external_auditor
+   :id: rl__external_auditor
    :status: valid
 
    Required skills, Knowledge of standards, Experience
@@ -64,4 +78,8 @@ Roles
    Responsibility
 
    * Performing and reporting of safety audit
-   * Performing of confirmation reviews on safety plans and safety analysis (incl. DFA)
+   * Performing of confirmation reviews on safety plans, safety case and safety analysis (incl. DFA)
+
+   Authority
+
+   * Decision on the passing or failing of an audit

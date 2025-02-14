@@ -16,9 +16,9 @@ Safety Case Confirmation Review Checklist
 =========================================
 
 .. gd_chklst:: Safety Case Confirmation Review Checklist
-   :id: GD_CHKLST__safety_case
+   :id: gd_chklst__safety_case
    :status: valid
-   :complies: STD_REQ_ISO26262__management_45, STD_REQ_ISO26262__management_46, STD_REQ_ISO26262__management_47, STD_REQ_ISO26262__management_48, STD_REQ_ISO26262__management_49, STD_REQ_ISO26262__management_50, STD_REQ_ISO26262__management_51, STD_REQ_ISO26262__management_52
+   :complies: std_req_iso26262__management_45, std_req_iso26262__management_46, std_req_iso26262__management_47, std_req_iso26262__management_48, std_req_iso26262__management_49, std_req_iso26262__management_50, std_req_iso26262__management_51, std_req_iso26262__management_52
 
    **1. Purpose**
 

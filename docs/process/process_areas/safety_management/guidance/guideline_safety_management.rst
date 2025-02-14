@@ -18,9 +18,9 @@ Safety Management Guideline
 ===========================
 
 .. gd_guidl:: Safety plan definitions
-   :id: GD_GUIDL__saf_plan_definitions
+   :id: gd_guidl__saf_plan_definitions
    :status: valid
-   :complies: STD_REQ_ISO26262__management_35, STD_REQ_ISO26262__management_36, STD_REQ_ISO26262__management_37, STD_REQ_ISO26262__management_38, STD_REQ_ISO26262__management_39
+   :complies: std_req_iso26262__management_35, std_req_iso26262__management_36, std_req_iso26262__management_37, std_req_iso26262__management_38, std_req_iso26262__management_39
 
    | **Overall safety management:**
    | Safety culture:
@@ -32,6 +32,12 @@ Safety Management Guideline
    | Quality Management:
    | ASPICE standard is selected for quality management. Processes will always link to the :ref:`standard_iso26262` standard and to the ASPICE (todo, add link) standard.
    |
+   | Competence management:
+   | The :need:`rl__safety_manager` on SW platform level is responsible to define a competence management for the whole platform.
+   | Expectation is that the safety competence of the persons nominated for the roles is already given and only has to be checked.
+   | The exception from this are the committers, for these no safety competence needs to be enforced.
+   | So the module safety managers shall consult the :ref:`safety_management` and perform accordingly in their module project.
+   |
    | Communication:
    | Development teams are interdisciplinary, so the regular (sprint) planning and review meetings enable communication (as defined in :ref:`project_management_plan`). Another main communication means are the Pull Request reviews.
    | Also the standard Eclipse Foundation communication strategies are used (e.g. mailing lists)
@@ -40,7 +46,7 @@ Safety Management Guideline
    | As the SW platform organization does not have own vehicles in the field, it relies on feedback from OEMs and Distributors on bugs discovered in the field. The need for this feedback is part of each safety manual.
    | But also during development of change requests to existing features, bug reporting by the Open Source community or integration of existing SW components into new features may lead to the discovery of new safety anomalies.
    | Safety anomalies can also be deviations from the development process with impact on safety.
-   | If these are known at the time of creation of a release they will be part of the :need:`WP__module_safety_case` or :need:`WP__platform_safety_case` for the SEooC.
+   | If these are known at the time of creation of a release they will be part of the :need:`wp__module_safety_case` or :need:`wp__platform_safety_case` for the SEooC.
    | Safety anomalies relevant for already delivered releases will be identified as such and communicated (as defined in Problem Resolution part of :need:`WP_PLATFORM_MGMT`) via the :need:`WP_ISSUE_TRACK_SYSTEM` (which is also Open Source).
    |
    | **Tailoring safety activities:**
@@ -60,8 +66,8 @@ Safety Management Guideline
    | * UID of the resulting work products - stated in the issue title
    |
    | The planning of safety activities is divided into the
-   | * platform SEooC planning, dealing with all work products needed only once for the platform. This is included in :need:`WP__platform_safety_plan`
-   | * module SEooC planning, dealing with all work products needed for each module development (initiated by a contribution request), included in :need:`WP__module_safety_plan`. This module safety planning also includes the planning of OSS component qualification based on :need:`GD_GUIDL__component_classification`.
+   | * platform SEooC planning, dealing with all work products needed only once for the platform. This is included in :need:`wp__platform_safety_plan`
+   | * module SEooC planning, dealing with all work products needed for each module development (initiated by a contribution request), included in :need:`wp__module_safety_plan`. This module safety planning also includes the planning of OSS component qualification based on :need:`gd_guidl__component_classification`.
    | A template exists to guide this: :need:`GD_TEMP__module_safety_plan`.
    |
    | **Planning supporting processes:**
@@ -76,7 +82,7 @@ Safety Management Guideline
    | Verification planning is documented in :need:`WP_VERIFICATION_PLAN`
    |
    | **Scheduling of confirmation reviews, audit and assessment:**
-   | Scheduling is done in the same way as for all work products definition by issues. The respective work products are :need:`WP__cmr_reports` and  :need:`WP__audit_report`
+   | Scheduling is done in the same way as for all work products definition by issues. The respective work products are :need:`wp__cmr_reports` and  :need:`wp__audit_report`
    |
    | **Planning of dependent failures and safety analyses:**
    | In cases where the components consist of sub-components there will be more than one architecture level. DFA and Safety analysis will then be done on these multiple levels. See the respective work products:
@@ -87,21 +93,25 @@ Safety Management Guideline
    | Tool Management planning is part of the :need:`WP_PLATFORM_MGMT`. The respective work product to be planned as an issue of the generic safety plan is the :need:`WP_TOOL_EVAL`, which contains tool evaluation and if applicable qualification of the SW platform toolchain.
    | Components developed in C++ and Rust will have different toolchains. Both will be qualified once for the SW platform. Tool requirements will be documented in :need:`WP_TOOL_REQ`
    |
+   | **(OSS) Component qualification planning:**
+   | Based on the component classification as described in :need:`gd_guidl__component_classification`,
+   | the qualification of the component is planned as part of the :need:`GD_TEMP__module_safety_plan`.
+   | The template contains guidance how to do this and to document in the "OSS (sub-)component <name> Workproducts" list.
 
 .. gd_guidl:: Safety manual generation
-   :id: GD_GUIDL__saf_man
+   :id: gd_guidl__saf_man
    :status: valid
-   :complies: STD_REQ_ISO26262__system_1, STD_REQ_ISO26262__system_2, STD_REQ_ISO26262__system_3, STD_REQ_ISO26262__system_4, STD_REQ_ISO26262__system_5, STD_REQ_ISO26262__system_6, STD_REQ_ISO26262__software_4, STD_REQ_ISO26262__software_5, STD_REQ_ISO26262__software_8, STD_REQ_ISO26262__support_65
+   :complies: std_req_iso26262__system_1, std_req_iso26262__system_2, std_req_iso26262__system_3, std_req_iso26262__system_4, std_req_iso26262__system_5, std_req_iso26262__system_6, std_req_iso26262__software_4, std_req_iso26262__software_5, std_req_iso26262__software_8, std_req_iso26262__support_65
 
    | The safety manual collects several workproducts and adds some additional content mainly to instruct the user of
    | a SEooC (in this project on platform and module level) to safely use it in the context of the user's own safety
    | element.
-   | Its main content is described in :need:`WP__platform_safety_manual` and :need:`WP__module_safety_manual`
+   | Its main content is described in :need:`wp__platform_safety_manual` and :need:`wp__module_safety_manual`
    | A template exists to guide the definition of the safety manual on platform and module level (:need:`GD_TEMP__safety_manual`).
 
 .. gd_guidl:: Safety case automated generation
-   :id: GD_GUIDL__saf_case
+   :id: gd_guidl__saf_case
    :status: valid
-   :complies: STD_REQ_ISO26262__management_43, STD_REQ_ISO26262__management_44
+   :complies: std_req_iso26262__management_43, std_req_iso26262__management_44
 
    | The safety case shall be generated progressively and automatically compiling the work products.

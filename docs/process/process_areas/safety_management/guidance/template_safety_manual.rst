@@ -16,9 +16,9 @@ Safety Manual Template
 ======================
 
 .. gd_temp:: Safety Manual Template
-   :id: GD_TEMP__safety_manual
+   :id: gd_temp__safety_manual
    :status: valid
-   :complies: STD_REQ_ISO26262__system_1, STD_REQ_ISO26262__system_2, STD_REQ_ISO26262__system_3, STD_REQ_ISO26262__system_4, STD_REQ_ISO26262__system_5, STD_REQ_ISO26262__system_6, STD_REQ_ISO26262__software_4, STD_REQ_ISO26262__software_5, STD_REQ_ISO26262__software_8, STD_REQ_ISO26262__support_65
+   :complies: std_req_iso26262__system_1, std_req_iso26262__system_2, std_req_iso26262__system_3, std_req_iso26262__system_4, std_req_iso26262__system_5, std_req_iso26262__system_6, std_req_iso26262__software_4, std_req_iso26262__software_5, std_req_iso26262__software_8, std_req_iso26262__support_65
 
 This document implements <add "need" link>
 

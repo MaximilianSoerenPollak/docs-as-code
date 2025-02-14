@@ -16,9 +16,9 @@ Work products
 -------------
 
 .. workproduct:: Platform Safety Plan
-   :id: WP__platform_safety_plan
+   :id: wp__platform_safety_plan
    :status: valid
-   :complies: STD_WP_ISO26262__management_1, STD_WP_ISO26262__management_2, STD_WP_ISO26262__management_7, STD_WP_ISO26262__support_9
+   :complies: std_wp_iso26262__management_1, std_wp_iso26262__management_2, std_wp_iso26262__management_7, std_wp_iso26262__support_9
 
    Plan to manage and guide the execution of the safety activities of a project including dates, milestones, tasks, deliverables, responsibilities (including the Safety Manager appointment)  and resources.
 
@@ -31,9 +31,9 @@ Work products
    * Project/Platform (contains definitions how safety planning is performed generally in the project)
 
 .. workproduct:: Module Safety Plan
-   :id: WP__module_safety_plan
+   :id: wp__module_safety_plan
    :status: valid
-   :complies: STD_WP_ISO26262__management_2, STD_WP_ISO26262__management_7, STD_WP_ISO26262__support_9, STD_WP_ISO26262__support_18, STD_WP_ISO26262__support_19
+   :complies: std_wp_iso26262__management_2, std_wp_iso26262__management_7, std_wp_iso26262__support_9, std_wp_iso26262__support_18, std_wp_iso26262__support_19
 
    Plan to manage and guide the execution of the safety activities of a project including dates, milestones, tasks, deliverables, responsibilities (including the Safety Manager appointment) and resources.
 
@@ -44,43 +44,44 @@ Work products
    * Module (contains activities planning based on a Contribution Request)
 
 .. workproduct:: Platform Safety Case
-   :id: WP__platform_safety_case
+   :id: wp__platform_safety_case
    :status: valid
-   :complies: STD_WP_ISO26262__management_8
+   :complies: std_wp_iso26262__management_8
 
    Compiled Safety Relevant Work Products. For Platform SEooC.
 
    Note that the platform safety case does not contain the argument that the platform is safe.
 
 .. workproduct:: Module Safety Case
-   :id: WP__module_safety_case
+   :id: wp__module_safety_case
    :status: valid
-   :complies: STD_WP_ISO26262__management_8
+   :complies: std_wp_iso26262__management_8
 
    Compiled Safety Relevant Work Products. For Module SEooC.
 
    Note that the module safety case does not contain the argument that the module is safe.
 
 .. workproduct:: Confirmation Review Reports
-   :id: WP__cmr_reports
+   :id: wp__cmr_reports
    :status: valid
-   :complies: STD_WP_ISO26262__management_9
+   :complies: std_wp_iso26262__management_9
 
    Confirmation that a work product provides sufficient and convincing evidence of their contribution to the achievement of functional safety considering the corresponding objectives and requirements of ISO 26262.
 
-   Will contain confirmation review report for Safety Plan, Safety Analyses and Dependent Failure Analyses (DFA)
+   Will contain confirmation review report for Safety Plan, Safety Case, Safety Analyses and Dependent Failure Analyses (DFA)
+   Note that the Safety Case confirmation review will always be incomplete because the safety argument is planned to be missing in the safety case.
 
 .. workproduct:: Functional Safety Audit Report
-   :id: WP__audit_report
+   :id: wp__audit_report
    :status: valid
-   :complies: STD_WP_ISO26262__management_9
+   :complies: std_wp_iso26262__management_9
 
    Examination of an implemented process with regard to the process objectives and that those match the ISO 26262.
 
 .. workproduct:: Platform Safety Manual
-   :id: WP__platform_safety_manual
+   :id: wp__platform_safety_manual
    :status: valid
-   :complies: STD_WP_ISO26262__software_2, STD_WP_ISO26262__system_1
+   :complies: std_wp_iso26262__software_2, std_wp_iso26262__system_1
 
    The safety manual describes:
 
@@ -94,9 +95,9 @@ Work products
    This is on platform level. Only one manual for the entire platform.
 
 .. workproduct:: Module Safety Manual
-   :id: WP__module_safety_manual
+   :id: wp__module_safety_manual
    :status: valid
-   :complies: STD_WP_ISO26262__software_2, STD_WP_ISO26262__system_1, STD_WP_ISO26262__support_18
+   :complies: std_wp_iso26262__software_2, std_wp_iso26262__system_1, std_wp_iso26262__support_18
 
    The safety manual describes:
 
@@ -110,9 +111,9 @@ Work products
    This is on module level. One manual per each module.
 
 .. workproduct:: Software component classification
-   :id: WP__sw_component_class
+   :id: wp__sw_component_class
    :status: valid
-   :complies: STD_WP_ISO26262__support_18
+   :complies: std_wp_iso26262__support_18
 
    The classification shall include:
 
@@ -123,9 +124,9 @@ Work products
    * finally a SW component classification as input for the safety planning (which is to cover the determined gaps, if any, by additional verification measures).
 
 .. workproduct:: Tailoring Documents
-   :id: WP_tailoring
+   :id: wp__tailoring
    :status: valid
-   :complies: STD_WP_ISO26262__management_7
+   :complies: std_wp_iso26262__management_7
 
    This work product argues why some work products are not needed in the project.
 

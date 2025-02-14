@@ -21,7 +21,7 @@ Concept
 -------
 
 .. doc_concept:: Safety Management Concept
-   :id: DOC_CONCEPT__safety_management
+   :id: doc_concept__safety_management
    :status: valid
 
 In this section a concept for the safety management will be discussed. Inputs for this concepts are mainly the requirements of ISO26262 "Part 2: Management of functional safety"
@@ -38,16 +38,17 @@ Inputs
 Stakeholders
 ^^^^^^^^^^^^
 
-#. :need:`Technical Lead <RL_technical_lead>`
+#. :need:`Technical Lead <rl__technical_lead>`
 
    * planning of development for module and for platform projects
    * status reporting of safety activities
 
-#. :need:`Safety Manager <RL__safety_manager>`
+#. :need:`Safety Manager <rl__safety_manager>`
 
-   * he is the main responsible for the safety management work products. See his role definition.
+   * he is the main responsible for the safety management work products (as in :doc:`workproducts`).
+     See also his role definition in :doc:`roles`.
 
-#. :need:`External Auditor <RL__external_auditor>`
+#. :need:`External Auditor <rl__external_auditor>`
 
    * understand activities planning, processes definition and execution
 
@@ -70,14 +71,14 @@ Safety Management Work Products
 
 Apart from the safety plans the main work products of safety management are (see also the link to workflows below):
 
-* :need:`Safety Manual <WP__platform_safety_manual>` - the safety manual defines the requirements for safe usage or integration of the SW platform (or its individual modules)
-* :need:`Confirmation Reviews <WP__cmr_reports>` - on safety plan, safety case and safety analyses, according to ISO 26262 requirements
-* :need:`Draft Safety Case <WP__platform_safety_case>` - the safety case compiled is draft as it does not contain the safety argumentation. By this the S-CORE project ensures it does not take over liability for the SW platform (or its individual modules). But it enables the distributor to integrate the SW platform (or its individual modules) in his safety case.
+* :need:`Safety Manual <wp__platform_safety_manual>` - the safety manual defines the requirements for safe usage or integration of the SW platform (or its individual modules)
+* :need:`Confirmation Reviews <wp__cmr_reports>` - on safety plan, safety case and safety analyses, according to ISO 26262 requirements
+* :need:`Draft Safety Case <wp__platform_safety_case>` - the safety case compiled is draft as it does not contain the safety argumentation. By this the S-CORE project ensures it does not take over liability for the SW platform (or its individual modules). But it enables the distributor to integrate the SW platform (or its individual modules) in his safety case.
 
 Safety Management Tooling
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For the safety planning and safety manual, spinx-needs will be used for referencing.
+For the safety planning and safety manual, sphinx-needs will be used for referencing.
 
 For the activities planning (who, when) we use github issues and monitor these in github projects.
 
@@ -91,7 +92,7 @@ Getting started
    :status: valid
 
 
-In case you are appointed as a :need:`Safety Manager <RL__safety_manager>` in the S-CORE project:
+In case you are appointed as a :need:`Safety Manager <rl__safety_manager>` by the :need:`rl__project_lead` in the S-CORE project:
 
 * Contact the :need:`Technical Lead <RL_technical_lead>` for your SEooC to establish planning and reporting (the TL should already have established a Github project for planning)
 * Create your safety plan according to :need:`WF__cr_mt_safety_plan`

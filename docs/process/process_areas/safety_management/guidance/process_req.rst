@@ -16,18 +16,18 @@ Safety Management Process Requirements
 ======================================
 
 .. gd_req:: Safety Management Process Requirement 1
-   :id: GD_REQ__sm_doc_status
+   :id: gd_req__sm_doc_status
    :status: valid
-   :complies: STD_REQ_ISO26262__management_38
+   :complies: std_req_iso26262__management_38
 
    Safety plans shall contain documents references where the status is derived automatically.
 
    Note: This can be done by defining the document as a sphinx-need and using :ndf:`copy('status', need_id='<need_id>')
 
 .. gd_req:: Safety Management Process Requirement 2
-   :id: GD_REQ__sm_wp_status
+   :id: gd_req__sm_wp_status
    :status: valid
-   :complies: STD_REQ_ISO26262__management_38
+   :complies: std_req_iso26262__management_38
 
    Safety plans shall contain work product references where the accumulated status is derived automatically.
 

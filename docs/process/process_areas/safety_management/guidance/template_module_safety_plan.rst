@@ -16,9 +16,9 @@ Module Safety Plan Template
 ===========================
 
 .. gd_temp:: Module Safety Plan Template
-   :id: GD_TEMP__module_safety_plan
+   :id: gd_temp__module_safety_plan
    :status: valid
-   :complies: STD_REQ_ISO26262__management_35, STD_REQ_ISO26262__management_36, STD_REQ_ISO26262__management_37, STD_REQ_ISO26262__management_38, STD_REQ_ISO26262__management_39
+   :complies: std_req_iso26262__management_35, std_req_iso26262__management_36, std_req_iso26262__management_37, std_req_iso26262__management_38, std_req_iso26262__management_39
 
 This document implements <add "need" link>
 
@@ -57,42 +57,42 @@ This document implements <add "need" link>
           - Link to WP
           - WP status
 
-        * - :need:`WP__module_safety_plan`
+        * - :need:`wp__module_safety_plan`
           - :ref:`guideline_safety_management`
           - <automated>
           - <Link to issue>
           - this document
           - see above
 
-        * - :need:`WP__module_safety_case`
+        * - :need:`wp__module_safety_case`
           - :ref:`guideline_safety_management`
           - <automated>
           - <Link to issue>
           - <Link to WP>
           - <automated>
 
-        * - :need:`WP__cmr_reports` (module Safety Plan)
-          - :need:`GD_CHKLST__safety_plan`
+        * - :need:`wp__cmr_reports` (module Safety Plan)
+          - :need:`gd_chklst__safety_plan`
           - <automated>
           - <Link to issue>
           - <Link to WP>
           - <automated>
 
-        * - :need:`WP__cmr_reports` (module Safety Case)
-          - :need:`GD_CHKLST__safety_case`
+        * - :need:`wp__cmr_reports` (module Safety Case)
+          - :need:`gd_chklst__safety_case`
           - <automated>
           - <Link to issue>
           - <Link to WP>
           - <automated>
 
-        * - :need:`WP__cmr_reports` (module's Safety Analyses & DFA)
+        * - :need:`wp__cmr_reports` (module's Safety Analyses & DFA)
           - Safety Analysis CMR tbd
           - <automated>
           - <Link to issue>
           - <Link to WP>
           - <automated>
 
-        * - :need:`WP_audit_report`
+        * - :need:`wp__audit_report`
           - performed by external experts
           - n/a
           - <Link to issue>
@@ -113,8 +113,8 @@ This document implements <add "need" link>
           - <Link to WP>
           - <automated>
 
-        * - :need:`WP__module_safety_manual`
-          - :need:`GD_TEMP__safety_manual`
+        * - :need:`wp__module_safety_manual`
+          - :need:`gd_temp__safety_manual`
           - <automated>
           - <Link to issue>
           - <Link to WP>
@@ -229,8 +229,8 @@ This document implements <add "need" link>
           - <Link to WP>
           - <automated>
 
-        * - :need:`WP__sw_component_class`
-          - :need:`GD_GUIDL__component_classification`
+        * - :need:`wp__sw_component_class`
+          - :need:`gd_guidl__component_classification`
           - <automated>
           - <Link to issue>
           - <Link to WP>
@@ -243,7 +243,7 @@ This document implements <add "need" link>
 |    - component, then the below table shall match the above, adding the reasoning for tailoring of work products according to the OSS component classification.
 |    - sub-component, then no workproducts additional to the component’s will be planned and activities below are part of the component’s issues.
 
-.. list-table:: OSS (sub-)omponent <name> Workproducts
+.. list-table:: OSS (sub-)component <name> Workproducts
         :header-rows: 1
 
         * - Workproduct Id
@@ -298,6 +298,6 @@ This document implements <add "need" link>
           - <Link to issue>
           - Always needed (for Q and QR classification)
 
-        * - :need:`WP__sw_component_class`
+        * - :need:`wp__sw_component_class`
           - <Link to issue>
           - Always needed as basis for tailoring.
