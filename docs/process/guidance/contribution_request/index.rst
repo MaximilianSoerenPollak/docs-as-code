@@ -29,7 +29,7 @@ For simple contributions, like fixing bugs or improvements, just creating a *PR*
 
 For more complex contributions, like adding a new feature:
 
-* open a *GitHub Issue* (:need:`GD_GUIDL__Issue_Guideline`)
+* open a *GitHub Issue* (:need:`gd_guidl__issue_guideline`)
 * create a PR
 * add the PR to that *GitHub Issue*
 
@@ -49,11 +49,11 @@ The *SCORE* project defines a Contribution Request (**COR**) as any defined and 
 
 Summary:
 
-* You want to report something (like a bug) or start a discussion where you do not know the code solution yet, open a *GitHub Issue* (:need:`GD_GUIDL__Issue_Guideline`).
-* You want to manage complex coordination problems (planning activities) that require collaboration across multiple stakeholders, open a *GitHub Issue* (:need:`GD_GUIDL__Issue_Guideline`).
-* You want to propose a scope change of a feature or a new feature, open a *GitHub Issue* (:need:`GD_GUIDL__Issue_Guideline`) and add required PRs to that *GitHub Issue*.
-* You want to report a bug or problem including a code solution? Start with a *PR* (:need:`GD_GUIDL__Pull_Request_Guideline`).
-* You want to propose an improvement (also to a process or other work products) including a code solution? Start with a *PR* (:need:`GD_GUIDL__Pull_Request_Guideline`).
+* You want to report something (like a bug) or start a discussion where you do not know the code solution yet, open a *GitHub Issue* (:need:`gd_guidl__issue_guideline`).
+* You want to manage complex coordination problems (planning activities) that require collaboration across multiple stakeholders, open a *GitHub Issue* (:need:`gd_guidl__issue_guideline`).
+* You want to propose a scope change of a feature or a new feature, open a *GitHub Issue* (:need:`gd_guidl__issue_guideline`) and add required prs to that *github issue*.
+* You want to report a bug or problem including a code solution? Start with a *PR* (:need:`gd_guidl__pull_request_guideline`).
+* You want to propose an improvement (also to a process or other work products) including a code solution? Start with a *PR* (:need:`gd_guidl__pull_request_guideline`).
 
 Whenever your *PR*  gets too big or involves committs of several contributors , we strongly encourage to open and link a *GitHub Issue*, so this can get better planned.
 
@@ -87,7 +87,7 @@ The figure below shows a simplified workflow for a PR.
 
   Simple *PR* based contribution request workflow overview
 
-Content in general may contain features, requirements, architectural designs, modules, components, detailed designs, implementations and source code, tests, process descriptions, any documentations, guidelines, tutorials, tools, or infrastructure topics and more of the *SCORE* project. In case of doubt or for any other input we strongly encourage to open a *GitHub Issue* (:need:`GD_GUIDL__Issue_Guideline`) first.
+Content in general may contain features, requirements, architectural designs, modules, components, detailed designs, implementations and source code, tests, process descriptions, any documentations, guidelines, tutorials, tools, or infrastructure topics and more of the *SCORE* project. In case of doubt or for any other input we strongly encourage to open a *GitHub Issue* (:need:`gd_guidl__issue_guideline`) first.
 
 The *PR* should provide all required information of the new or changed content. Therefore the *SCORE* project provides content specific templates, which the contributor (:need:`Contributor <rl__contributor>`) must use for his *PR* (ToDo link here to the templates overview). Templates may be *PR* templates, *GitHub Issue* templates and also additional document or work product templates.
 
