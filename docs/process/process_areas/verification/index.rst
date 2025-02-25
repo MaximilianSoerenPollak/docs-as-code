@@ -58,7 +58,7 @@ Verification artifacts in form of test cases and specification are created by:
 Inspection activities on requiremment, architecture and detailed design are withn these process areas.
 
    * :ref:`requirements_engineering`
-   * :ref:`arch_design_process`
+   * `arch_design_process` ``[TODO: Add ref once arch PR is merged]``
    * Detailed Design
 
 The tool evaluation, verification and reporting is handled by:
