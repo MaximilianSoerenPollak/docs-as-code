@@ -71,7 +71,7 @@ Test Linking to Requirements
       }
 
 .. gd_req:: Linking Requirements to Tests (Python)
-    :id: gd_req__linking_tests_python
+    :id: gd_req__link_tests_python
     :status: valid
     :complies: std_req__iso26262__support_8
 

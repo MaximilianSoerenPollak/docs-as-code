@@ -124,7 +124,7 @@ Inspection is handled in the respective process areas
 
      * :ref:`requirements_engineering` implementing :need:`wp__requirements__inspect`
 
-     * :ref:`arch_design_process` implementing :need:`wp__sw_arch_verification`
+     * arch_design_process ``[make proper ref after Arch PR merge]`` implementing :need:`wp__sw_arch_verification`
 
      * Detailed design implementing :need:`wp__sw_code_inspect`
 

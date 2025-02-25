@@ -160,7 +160,7 @@ Workflow for Verification Guidance
 
     Requirements Workflow
 
-:numref:`requirement_verification_workflow` displays the whole workflow including the traceability concept for the
+The :ref:`requirement_verification_workflow` above displays the whole workflow including the traceability concept for the
 requirements where requirements shall be linked to test cases on the respective level. However also a statement
 concerning the completeness of the test suite shall be generated. This means that also a linkage document shall be
 generated including:
