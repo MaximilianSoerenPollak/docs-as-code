@@ -101,7 +101,7 @@ This section describes in detail which steps need to be performed to create a re
    * - :ref:`1. <create_parent_requirement>`
      - Create parent requirement
      - :need:`[[title]] <rl__contributor>`
-   * - :ref:`2. <review parent requirement>`
+   * - :ref:`2. <review_parent_requirement>`
      - Review parent requirement
      - :need:`[[title]] <rl__committer>`
    * - 3.
@@ -147,7 +147,7 @@ Following roles should be included in the review:
 
 * :need:`[[title]] <rl__safety_manager>`
 * :need:`[[title]] <rl__security_manager>`
-* :need:`[[title]] <rl__tester>`
+* :need:`[[title]] <rl__committer>`
 
 .. _derive_child_requirement:
 
@@ -188,7 +188,7 @@ Following roles should be included in the review:
 
 * :need:`[[title]] <rl__safety_manager>`
 * :need:`[[title]] <rl__security_manager>`
-* :need:`[[title]] <rl__tester>`
+* :need:`[[title]] <rl__committer>`
 
 
 Workflow for Creating and Linking Assumption of Use (AoU)
