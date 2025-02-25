@@ -184,12 +184,6 @@ Platform development
    Build configuration capable to create the SEooC Library for the reference HW, platform level.
    Note: Embedded software in the sense of the Iso (i.e. deployed on the production HW) is not part of our delivery.
 
-See verification work product: :need:`wp__verification__feat_int_test`
-
-See verification work product: :need:`wp__verification__platform_test`
-
-See verification work product: :need:`wp__verification__platform_ver_report`
-
 .. workproduct:: Platform Release Notes
    :id: wp__platform_sw_release_note
    :status: draft
@@ -201,20 +195,6 @@ See verification work product: :need:`wp__verification__platform_ver_report`
 Component development
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. workproduct:: Component Requirements
-   :id: wp__sw_component_req
-   :status: draft
-   :tags: requirements_management
-
-   | SW Requirements for own and OSS qualified components/libraries. QM and ASIL requirements are distinguished by attributes/tags.
-
-.. workproduct:: Component Assumptions of Use
-   :id: wp__sw_component_aou
-   :status: draft
-   :tags: safety
-
-   SW Safety Requirements for the user of the component, exportable requirements for the user to integrate in their req mgt system.
-
 .. workproduct:: Hardware-software interface (HSI) specification
    :id: wp__hsi
    :status: draft
@@ -222,16 +202,6 @@ Component development
 
    | The HSI specification shall specify the hardware and software interaction and be consistent with the technical safety concept.
    | The HSI specification shall include the component's hardware parts that are controlled by software and hardware resources that support the execution of the software.
-
-.. workproduct:: Requirements Inspection
-   :id: wp__sw_req_inspect
-   :status: draft
-   :complies: std_wp__iso26262__software_4
-
-   | Depends on requirements management tooling, expect text based requirements maintained in git.
-   | - github review with integrated inspection checklist, only valid requirements get merged
-   |
-   | Compare also `Gitub documentationt <https://docs.github.com/en>`_
 
 .. workproduct:: Component Architecture
    :id: wp__sw_component_architecture
@@ -277,18 +247,12 @@ Component development
    Implementation includes source code and detailed design (e.g. in form of comments or linked graphical representations) and SW configuration (e.g. #ifdef)
    The "how to" is described in the SW Development Plan guidelines
 
-See verification work product: :need:`wp__verification__sw_unit_test`
-
 .. workproduct:: Code Inspection
    :id: wp__sw_code_inspect
    :status: draft
    :complies: std_wp__iso26262__software_12
 
    github review with integrated inspection checklist (includes manual checking of coding guidelines)
-
-See verification work product: :need:`wp__verification__module_ver_report`
-
-See verification work product: :need:`wp__verification__comp_int_test`
 
 .. workproduct:: Module Build Configuration
    :id: wp__module_sw_build_config
@@ -305,15 +269,9 @@ See verification work product: :need:`wp__verification__comp_int_test`
 
    Release notes describe the qualified SW version including known bugs from own testing and field reporting, with clear statement, that these bugs do not lead to violation of any safety requirements or with corresponding workaround measures. Module level.
 
-See verification work product: :need:`wp__verification__component_test`
-
 
 Supporting activities
 ---------------------
-
-See verification work product: :need:`wp__verification__plan`
-
-See verification work product: :need:`wp__verification__specification`
 
 .. workproduct:: Software tool criteria evaluation report
    :id: wp__tool_eval
