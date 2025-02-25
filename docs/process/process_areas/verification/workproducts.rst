@@ -116,3 +116,21 @@ Generic
    The verification specification must outline the verification methods, including review or
    analysis checklists, simulation scenarios.
    Test cases, test data, and test objects are part of the respective test WPs.
+
+Insepction
+^^^^^^^^^^
+
+Inspection is handled in the respective process areas
+
+     * :ref:`requirements_engineering` implementing :need:`wp__requirements__inspect`
+
+     * :ref:`arch_design_process` implementing :need:`wp__sw_arch_verification`
+
+     * Detailed design implementing :need:`wp__sw_code_inspect`
+
+Tool Evaluation
+^^^^^^^^^^^^^^^
+
+As part of tool qualification as supporting function it is handled as follows
+
+     * :need:`rl__infrastructure_tooling_community` implementing :need:`wp__tool_eval`

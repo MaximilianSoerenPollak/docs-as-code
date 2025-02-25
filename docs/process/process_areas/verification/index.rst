@@ -24,16 +24,15 @@ Getting started
    :id: doc_getstrt__verification__process
    :status: valid
 
-Read the :doc:`./guidance/verification_guidance`.
+   | Read the :doc:`./guidance/verification_guidance`.
 
-Workflows
----------
+Concept
+-------
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   workproducts
+   guidance/verification_guidance
 
 Guidance
 --------
@@ -42,7 +41,43 @@ Guidance
    :maxdepth: 1
    :glob:
 
-   guidance/verification_guidance
+   guidance/verification_templates
    guidance/verification_process_toolreqs
    guidance/verification_report_template
-   guidance/verification_templates
+
+Roles
+-----
+
+For rverification activities no additional roles need to be defined.
+
+Verification artifacts in form of test cases and specification are created by:
+
+   * :need:`rl__contributor`
+   * :need:`rl__committer`
+
+Inspection activities on requiremment, architecture and detailed design are withn these process areas.
+
+   * :ref:`requirements_engineering`
+   * :ref:`arch_design_process`
+   * Detailed Design
+
+The tool evaluation, verification and reporting is handled by:
+
+   * :need:`rl__infrastructure_tooling_community`.
+
+Workflows
+---------
+
+
+
+Workproducts
+------------
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   workproducts
+
+
+

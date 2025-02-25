@@ -16,7 +16,7 @@ Verification Guidance
 =====================
 
 This guideline outlines the responsibilities and procedures for developers performing verification activities (test
-case creation, inspection, and review) for S-Core documentation, Rust and C/C++ projects of the platform.
+case creation, inspection, and review) for documentation, Rust and C/C++ elements of the platform and its tooling.
 Rust, python and gTest are used for test case creation.
 
 General Principles
@@ -30,8 +30,8 @@ General Principles
 * **Independence:** Where possible, verification activities should be performed by someone other than the original author of the code or documentation.
 * **Documentation:** All verification activities and their results must be documented appropriately.
 
-More details on the test strategy and execution can be found in the :need:`wp__verification_plan` implemented by
-:ref:`sw_verification`.
+More details on the test strategy and execution can be found in the :need:`wp__verification__plan` implemented by
+:need:`doc__verification_plan`.
 
 Test Case Development
 ------------------------
@@ -46,9 +46,11 @@ Following aspect should be considered when developing test cases:
     * **C++:** Use Google Test frameworks.
 * **Integration Testing:** Verify the interaction between different components or modules.
 * **Platform Testing:** Test the platform with configured features as a whole.
-* **Regression Testing:** Ensure that changes do not introduce new defects. Automate regression tests where possible.
+* **Regression Testing:** Ensure that changes do not introduce new defects.
+  Automate regression tests where possible and execute them as part of CI execution.
 * **Performance Testing (when applicable):** Evaluate the performance characteristics of the code, such as execution
   time, memory usage, and resource utilization.
+* **Tool Qualification Testing:** Test the platform tools based on their tool requirements to achive tool qualification.
 
 Test specification
 ------------------
@@ -98,7 +100,7 @@ Basic qualities of a good test case description are that the test is:
   - Measurable: Defines clear pass/fail criteria.
   - Complete: Covers all relevant aspects of the test.
 
-Further recommendation can be found in the verification templates :doc:`./templates/index`
+Further recommendation can be found in the verification templates :doc:`./verification_templates`
 
 Structuring of the Test Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
