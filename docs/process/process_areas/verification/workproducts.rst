@@ -41,7 +41,10 @@ Platform
    :complies: std_wp__iso26262__software_15, std_wp__iso26262__support_13, std_wp__iso26262__analysis_5, std_wp__iso26262__analysis_7
 
    Verification Report contains:
-   - List of requirements (and architecture/detailed design tags) tested by which test (can be several levels), passed/failed and completeness verdict, including normal operation and failure reactions
+
+   - List of requirements (and architecture/detailed design tags) tested by which test
+     (can be several levels), passed/failed and completeness verdict, including normal
+     operation and failure reactions
    - The list of requirements may also contain other verification methods like "Analysis"
    - Formal evidence about the preformed DFA.
    - Formal evidence about the performed Safety Analyses
@@ -55,10 +58,11 @@ Feature
    :complies: std_wp__iso26262__software_13, std_wp__iso26262__support_12
 
    Integration Testing verifies feature requirements and architecture:
+
    - all interfaces from Static view and
    - all flows from Dynamic View and
    - performance: i.e. RAM and processor usage
-   on reference HW
+     on reference HW
 
 Module
 ^^^^^^
@@ -69,10 +73,14 @@ Module
    :complies: std_wp__iso26262__software_12, std_wp__iso26262__software_15, std_wp__iso26262__support_13, std_wp__iso26262__support_20, std_wp__iso26262__analysis_5, std_wp__iso26262__analysis_7, std_wp__iso26262__support_19
 
    Verification Report contains:
-   - List of requirements (and architecture/detailed design tags) tested by which test (can be several levels), passed/failed and completeness verdict, including normal operation and failure reactions
+
+   - List of requirements (and architecture/detailed design tags) tested by which test
+     (can be several levels), passed/failed and completeness verdict, including normal
+     operation and failure reactions
    - The list of requirements may also contain other verification methods like "Analysis"
    - Structural Coverage (C0 and C1, from unit testing on host) per unit
-   - Static Code Analysis (including compiler warnings, automated checking of coding guidelines and additional checks)
+   - Static Code Analysis (including compiler warnings, automated checking of coding guidelines
+     and additional checks)
    - Formal evidence about the preformed DFA.
    - Formal evidence about the performed Safety Analyses
    - Software component qualification verification report
@@ -93,9 +101,9 @@ Component
    :complies: std_wp__iso26262__software_13, std_wp__iso26262__support_12
 
    Integration Testing verifies component architecture:
+
    - all interfaces from Static view and
-   - all flows from Dynamic View and
-   performance: i.e. RAM and processor usage on reference HW
+   - all flows from Dynamic View and performance: i.e. RAM and processor usage on reference HW
 
 .. workproduct:: Unit test
    :id: wp__verification__sw_unit_test
@@ -117,15 +125,14 @@ Generic
    analysis checklists, simulation scenarios.
    Test cases, test data, and test objects are part of the respective test WPs.
 
-Insepction
+Inspection
 ^^^^^^^^^^
 
 Inspection is handled in the respective process areas
 
      * :ref:`requirements_engineering` implementing :need:`wp__requirements__inspect`
-
-     * arch_design_process ``[make proper ref after Arch PR merge]`` implementing :need:`wp__sw_arch_verification`
-
+     * : ref : ` arch_design_process `
+       ``[make proper ref after Arch PR #500 is merged]`` implementing :need:`wp__sw_arch_verification`
      * Detailed design implementing :need:`wp__sw_code_inspect`
 
 Tool Evaluation

@@ -22,28 +22,10 @@ Verification Report Templates
     :status: valid
     :complies: std_wp__iso26262__software_12, std_wp__iso26262__software_15, std_wp__iso26262__support_13, std_wp__iso26262__support_20, std_wp__iso26262__analysis_5, std_wp__iso26262__analysis_7, std_wp__iso26262__support_19
 
-This document implements <add "need" link>
+This document implements :need:`wp__verification__module_ver_report`.
 
-   +---------------------------+-------------------------------+
-   | DOCUMENT IDENTIFICATION   |                               |
-   +===========================+===============================+
-   | Document Type             | Report                        |
-   +---------------------------+-------------------------------+
-   | Document ID               | <Module>-VERIFICATION-REPORT  |
-   +---------------------------+-------------------------------+
-   | Project Name              | <Project>                     |
-   +---------------------------+-------------------------------+
-   | ASIL                      | B                             |
-   +---------------------------+-------------------------------+
-   | AUTHOR                    | <Committer>                   |
-   +---------------------------+-------------------------------+
-   | Reviewer                  | <Quality Manager>             |
-   +---------------------------+-------------------------------+
-   | Approver                  | <Technical Lead>              |
-   +---------------------------+-------------------------------+
-   | Status                    | [DRAFT, VERIFIED, RELEASED]   |
-   +---------------------------+-------------------------------+
-
+  | Place the document header here following the : need : ` doc_documentation_mgt_plan ` ``[TODO: make this a need once PR #436 is merged]``
+  |
   | This verification report is based on the :need:`wp__verification__plan`.
   | It covers all the components of the above stated module.
   |
@@ -104,28 +86,10 @@ This document implements <add "need" link>
     :status: valid
     :complies: std_wp__iso26262__software_15, std_wp__iso26262__support_13, std_wp__iso26262__analysis_5, std_wp__iso26262__analysis_7
 
-This document implements <add "need" link>
+This document implements :need:`wp__verification__platform_ver_report`.
 
-   +---------------------------+-------------------------------+
-   | DOCUMENT IDENTIFICATION   |                               |
-   +===========================+===============================+
-   | Document Type             | Report                        |
-   +---------------------------+-------------------------------+
-   | Document ID               | PLATFORM-VERIFICATION-REPORT  |
-   +---------------------------+-------------------------------+
-   | Project Name              | <Project>                     |
-   +---------------------------+-------------------------------+
-   | ASIL                      | B                             |
-   +---------------------------+-------------------------------+
-   | AUTHOR                    | <Committer>                   |
-   +---------------------------+-------------------------------+
-   | Reviewer                  | <Quality Manager>             |
-   +---------------------------+-------------------------------+
-   | Approver                  | <Project Manager>             |
-   +---------------------------+-------------------------------+
-   | Status                    | [DRAFT, VERIFIED, RELEASED]   |
-   +---------------------------+-------------------------------+
-
+  | Place the document header here following the : need : ` doc_documentation_mgt_plan ` ``[TODO: make this a need once PR #436 is merged]``
+  |
   | This verification report is based on the :need:`wp__verification__plan`.
   | It covers all the selected features of the SW platform.
   |

@@ -48,7 +48,7 @@ Guidance
 Roles
 -----
 
-For rverification activities no additional roles need to be defined.
+For verification activities no additional roles need to be defined.
 
 Verification artifacts in form of test cases and specification are created by:
 
@@ -68,7 +68,11 @@ The tool evaluation, verification and reporting is handled by:
 Workflows
 ---------
 
+.. toctree::
+   :maxdepth: 1
+   :glob:
 
+   workflows
 
 Workproducts
 ------------
