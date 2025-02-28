@@ -12,13 +12,13 @@
 # *******************************************************************************
 import re
 
-from sphinx_needs.data import NeedsInfoType
 from sphinx.application import Sphinx
+from sphinx_needs.data import NeedsInfoType
 
 from score_metamodel import (
     CheckLogger,
-    local_check,
     default_options,
+    local_check,
 )
 
 
@@ -30,7 +30,6 @@ def get_need_type(needs_types: list[NeedsInfoType], directive: str):
     raise ValueError(f"Need type {directive} not found in needs_types")
 
 
-# req-traceability: TOOL_REQ__toolchain_sphinx_needs_build__options
 @local_check
 def check_options(
     app: Sphinx,
@@ -135,15 +134,16 @@ def check_extra_options(
 
     required_options: dict[str, str] = need_options.get("mandatory_options", {})
     optional_options: dict[str, str] = need_options.get("opt_opt", {})
+    required_links: list[str] = [x[0] for x in need_options.get("req_link", ())]
+    optional_links: list[str] = [x[0] for x in need_options.get("opt_link", ())]
 
     allowed_options = (
         list(required_options.keys())
         + list(optional_options.keys())
+        + required_links
+        + optional_links
         + default_options_list
     )
-    # print("=================")
-    # print(allowed_options)
-    # pritn("===============\n\n")
 
     extra_options = [
         option
@@ -155,5 +155,5 @@ def check_extra_options(
 
     if extra_options:
         extra_options_str = ", ".join(f"`{option}`" for option in extra_options)
-        # msg = f"has these extra options: {extra_options_str}."
-        # log.warning_for_need(need, msg)
+        msg = f"has these extra options: {extra_options_str}."
+        log.warning_for_need(need, msg)

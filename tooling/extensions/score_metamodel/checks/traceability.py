@@ -16,7 +16,6 @@ from sphinx_needs.data import NeedsInfoType
 from score_metamodel import CheckLogger, graph_check
 
 
-# req-traceability: TOOL_REQ__toolchain_sphinx_needs_build__requirement_linkage_status
 @graph_check
 def check_linkage_parent(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogger):
     """
@@ -25,9 +24,8 @@ def check_linkage_parent(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogg
     # Convert list to dictionary for easy lookup
     needs_dict = {need["id"]: need for need in needs}
 
-    parents_not_correct = []
-
     for need in needs:
+        parents_not_correct = []
         for satisfie_need in need.get("satisfies", []):
             if needs_dict.get(satisfie_need, {}).get("status") != "valid":
                 parents_not_correct.append(satisfie_need)
@@ -40,7 +38,6 @@ def check_linkage_parent(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogg
             log.warning_for_need(need, msg)
 
 
-# req-traceability: TOOL_REQ__toolchain_sphinx_needs_build__requirement_linkage_safety_check
 @graph_check
 def check_linkage_safety(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogger):
     """
@@ -51,10 +48,8 @@ def check_linkage_safety(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogg
     needs_dict = {need["id"]: need for need in needs}
 
     for need in needs:
-        if need["id"].startswith("TOOL_REQ") or need["id"].startswith("GD"):
-            return  # TO REMOVE when safety is defined for TOOL_REQ requirements
-
         allowed_values = ["QM"]
+        parents_have_safety = False
 
         if need["safety"] == "QM":
             return
@@ -64,6 +59,8 @@ def check_linkage_safety(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogg
                     "safety"
                 )  # Lookup parent need safely
                 allowed_values = ["ASIL_B", "ASIL_D"]
+                if safety:
+                    parents_have_safety = True
                 if safety in ["ASIL_B", "ASIL_D"]:
                     continue
         elif need["safety"] == "ASIL_D":
@@ -71,12 +68,14 @@ def check_linkage_safety(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogg
                 safety = needs_dict.get(satisfie_need, {}).get(
                     "safety"
                 )  # Lookup parent need safely
+                if safety:
+                    parents_have_safety = True
                 allowed_values = ["ASIL_D"]
                 if safety == "ASIL_D":
                     continue
 
         # Checking if the requirement has satisfies field before logging
-        if need.get("satisfies"):
+        if need.get("satisfies") and parents_have_safety:
             msg = (
                 f"with `{need['safety']}` has no parent requirement that contains the same or lower ASIL. "
                 f"Allowed ASIL values: {', '.join(f'`{value}`' for value in allowed_values)}. \n"
@@ -84,7 +83,6 @@ def check_linkage_safety(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogg
             log.warning_for_need(need, msg)
 
 
-# req-traceability: TOOL_REQ__toolchain_sphinx_needs_build__requirement_linkage_status_check
 @graph_check
 def check_linkage_status(app: Sphinx, needs: list[NeedsInfoType], log: CheckLogger):
     """
