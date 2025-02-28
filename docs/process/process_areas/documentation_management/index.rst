@@ -21,7 +21,7 @@ Concept
 -------
 
 .. doc_concept:: Documentation Management Concept
-   :id: doc_concept__documentation_management
+   :id: doc_concept__documentation__process
    :status: valid
 
 In this section a concept for the documentation management will be discussed. Inputs for this concepts are mainly the requirements of ISO26262 "Part 2: Management of functional safety"
@@ -66,7 +66,7 @@ Getting started
 ---------------
 
 .. doc_getstrt:: Documentation Management Get Started
-   :id: doc_getstrt__documentation_management
+   :id: doc_getstrt__documentation__process
    :status: valid
 
 In case you are appointed as a :need:`Technical Lead <rl__technical_lead>` by the :need:`rl__project_lead` in the S-CORE project:
@@ -87,3 +87,11 @@ Guidance
 
 The document management guideline is contained within the document management plan,
 to have all relevant information in one space, see :need:`gd_guidl__documentation`
+
+Some process requirements to be automated are available:
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   guidance/process_req.rst
