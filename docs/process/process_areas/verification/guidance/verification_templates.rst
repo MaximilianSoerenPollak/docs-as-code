@@ -54,31 +54,3 @@ A more detailed description of how to link code to requirements is available her
 Writing test cases in python shall follow the recommendations from the official python and community documentation.
 https://docs.python-guide.org/writing/tests/
 
-Test description
-----------------
-
-Following Given-When-Then is a preferred way to write test specifications.
-
-* | Given (alternatively // Setup  )
-  | This section contains the setup of the input.
-* | Expected
-  | This Section contains the expectation for calls to mocks or stubs
-* | When (alternatively  // Call   )
-  | This section contains the call to the software under test.
-* | Then (alternatively // Expect )
-  | This section contains the verification criteria of the test (e.g. all EXPECT statements).
-
-Another example for a good test description could be:
-
-  | Verify successful login with valid credentials.
-  | Input:
-  | - Username: testuser
-  | - Password: password123
-  | Expected Outcome:
-  | - User is redirected to the home page and the welcome message "Hello, testuser!" is displayed.
-
-A example for a bad test description could be:
-
-   Test user login
-
-Additional information can also be found in :doc:`./verification_guidance`.

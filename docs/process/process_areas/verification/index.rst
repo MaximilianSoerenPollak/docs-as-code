@@ -44,6 +44,7 @@ Guidance
    guidance/verification_templates
    guidance/verification_process_toolreqs
    guidance/verification_report_template
+   guidance/verification_specification
 
 Roles
 -----

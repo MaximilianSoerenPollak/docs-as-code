@@ -14,10 +14,14 @@
 
 Verification Guidance
 =====================
+.. gd_guidl:: Verification Guidance
+   :id: gd_guidl__verification_guidance
+   :status: valid
 
-This guideline outlines the responsibilities and procedures for developers performing verification activities (test
-case creation, inspection, and review) for documentation, Rust and C/C++ elements of the platform and its tooling.
-Rust, python and gTest are used for test case creation.
+   This guideline outlines the responsibilities and procedures for developers performing verification activities (test
+   case creation, inspection, and review) for documentation, Rust and C/C++ elements of the platform and its tooling.
+
+   Note that rust, python and gTest are used for test case creation.
 
 General Principles
 ------------------
@@ -40,16 +44,22 @@ Following aspect should be considered when developing test cases:
 
 * **Comprehensive Coverage:** Test cases should cover all functional and non-functional requirements, including
   positive, negative, and boundary conditions. Specific attention should be given to corner cases and error handling.
-* **Unit Testing:** Focus on isolating and testing individual units or components of the code. Strive for high code coverage.
-    * **Rust:** Utilize the built-in testing framework with ``#[test]`` attributes and the ``cargo test`` command.
-    * **Python:** Use ``pytest`` frameworks.
-    * **C++:** Use Google Test frameworks.
+* **Unit Testing:** Focus on isolating and testing individual units or components of the code.
+  Strive for high code coverage for branches and lines.
+  Coverage goals are defined in the :need:`wp__verification__plan`.
+  Use the following frameworks:
+
+  * **Rust:** Utilize the built-in testing framework with ``#[test]`` attributes and the ``cargo test`` command.
+  * **Python:** Use ``pytest`` frameworks.
+  * **C++:** Use Google Test frameworks.
 * **Integration Testing:** Verify the interaction between different components or modules.
+  For integration testing, the ITF (Integration Test Framework) is used. For more information, see
+  ``[TODO: Link to ITF documentation once available related feature request is #200]``.
 * **Platform Testing:** Test the platform with configured features as a whole.
 * **Regression Testing:** Ensure that changes do not introduce new defects.
-  Automate regression tests where possible and execute them as part of CI execution.
-* **Performance Testing (when applicable):** Evaluate the performance characteristics of the code, such as execution
-  time, memory usage, and resource utilization.
+  Automate regression tests where possible as they will get executed as part of the CI.
+* **Performance Testing (when applicable):** Evaluate the performance characteristics of the code,
+  such as execution time, memory usage, and resource utilization.
 * **Tool Qualification Testing:** Test the platform tools based on their tool requirements to achive tool qualification.
 
 Test specification
@@ -69,6 +79,7 @@ Test specification
    * - Description
      - Text
      - The description should include
+
        - The objective of the test.
        - Inputs
        - Expected outcome (e.g. "A success message is displayed.")
@@ -79,12 +90,26 @@ Test specification
      -
      -
    * - TestType
-     - Requirements-based test | Design based tests
-     - Assumptions of Use are treated as requirements.
+     - requirements-based | interface-test | boundary |
+       coverage (various types apply, shall be tool spupported) |
+       For :need:`wp__verification__sw_unit_test` also fault-injection
+     - Requirements-based test | Design based tests (Assumptions of Use are treated as requirements.)
+       Coverage of branches
+
+       Consult the implemenation of :need:`wp__verification__plan` for the full list of allowed types.
      -
    * - DerivationTechnique
-     - Analysis of requirements | Analysis of design
-     - Assumptions of Use are treated as requirements.
+     - requirements-analysis | boundary-values | equivalence-classes | error-guessing | monkey-testing
+     - Options are:
+
+       - Analysis of requirements | Analysis of design
+         (Assumptions of Use are treated as requirements.)
+       - Analysis of Boundary Values
+       - Analysis of Equivalence classes
+       - Error guessing based on knowledge or experience
+       - Random testing
+
+       Consult the implemenation of :need:`wp__verification__plan` for the full list of allowed methods.
      -
 
 Test Case Description
@@ -100,41 +125,14 @@ Basic qualities of a good test case description are that the test is:
   - Measurable: Defines clear pass/fail criteria.
   - Complete: Covers all relevant aspects of the test.
 
-Further recommendation can be found in the verification templates :doc:`./verification_templates`
+Test specifications should follow :need:`gd_guidl__verification_specification`
 
 Structuring of the Test Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To fulfil the requirements for the workproduct *Software Verification Specification* the test case shall be structured using the Given-When-Then pattern:
-
-* | Given (alternatively // Setup )
-  | This section contains the setup of the input.
-* | Expected
-  | This Section contains the expectation for calls to mocks or stubs
-* | When (alternatively  // Call )
-  | This section contains the call to the software under test.
-* | Then (alternatively // Expect )
-  | This section contains the verification criteria of the test (e.g. all EXPECT statements).
-
-.. code-block:: cpp
-
-   TEST(CreateObjectHistory, GivenVehicleInFront_ExpectHistoryBehindFrontVehicle)
-   {
-      // Given
-      const auto whatever_input_values = CreateVehicleInFront();
-
-      // Expected
-      EXPECT_CALL(..., ...);
-
-      // When
-      const auto history = CreateObjectHistory(whatever_input_values, ...);
-
-      // Then
-      for (const auto point : history)
-      {
-         EXPECT_EQ(..., ...);
-      }
-   }
+To fulfil the requirements of the workproduct :need:`wp__verification__specification` the
+templates in :ref:`verification_process_reqs` shall be used. This includes general information and
+templates for the allowed programming languages.
 
 
 General Traceability Concept

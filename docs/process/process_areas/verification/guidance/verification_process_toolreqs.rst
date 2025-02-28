@@ -12,6 +12,8 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
+.. _verification_process_reqs:
+
 Test Linking to Requirements
 ============================
 
@@ -24,6 +26,11 @@ Test Linking to Requirements
     For linking test suites to requirements following metadata shall be used:
 
     * Verifies
+        * PartiallyVerifies
+        * FullyVerifies
+    * ASIL
+        * QM
+        * ASIL_B
     * Description
     * Status
         * valid
@@ -38,6 +45,9 @@ Test Linking to Requirements
         * Analysis of boundary values (boundary-values)
         * Analysis of equivalence classes (equivalence-classes)
         * Error guessing based on knowledge or experience (error-guessing)
+        * Random testing (monkey-testing)
+
+    Morre information can be found in the :need:`gd_guidl__verification_guidance` and :need:`gd_guidl__verification_specification`.
 
 .. gd_req:: Linking Requirements to Tests (C++)
     :id: gd_req__link_tests_cpp
