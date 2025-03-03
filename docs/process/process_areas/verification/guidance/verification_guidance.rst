@@ -60,7 +60,7 @@ Following aspect should be considered when developing test cases:
   Automate regression tests where possible as they will get executed as part of the CI.
 * **Performance Testing (when applicable):** Evaluate the performance characteristics of the code,
   such as execution time, memory usage, and resource utilization.
-* **Tool Qualification Testing:** Test the platform tools based on their tool requirements to achive tool qualification.
+* **Tool Qualification Testing:** Test the platform tools based on their tool requirements to achieve tool qualification.
 
 Test specification
 ------------------

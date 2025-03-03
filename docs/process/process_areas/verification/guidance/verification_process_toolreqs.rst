@@ -47,7 +47,7 @@ Test Linking to Requirements
         * Error guessing based on knowledge or experience (error-guessing)
         * Random testing (monkey-testing)
 
-    Morre information can be found in the :need:`gd_guidl__verification_guidance` and :need:`gd_guidl__verification_specification`.
+    More information can be found in the :need:`gd_guidl__verification_guidance` and :need:`gd_guidl__verification_specification`.
 
 .. gd_req:: Linking Requirements to Tests (C++)
     :id: gd_req__link_tests_cpp

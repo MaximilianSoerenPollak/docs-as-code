@@ -56,7 +56,7 @@ Verification artifacts in form of test cases and specification are created by:
    * :need:`rl__contributor`
    * :need:`rl__committer`
 
-Inspection activities on requiremment, architecture and detailed design are withn these process areas.
+Inspection activities on requirement, architecture and detailed design are handled within these process areas.
 
    * :ref:`requirements_engineering`
    * `arch_design_process` ``[TODO: Add ref once arch PR is merged]``
