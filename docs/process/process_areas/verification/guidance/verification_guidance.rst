@@ -67,7 +67,7 @@ Test specification
 
 .. list-table:: Test specification properties
    :header-rows: 1
-   :widths: 10 30 30 30
+   :widths: 10 30 40 20
 
    * - Property
      - Type
@@ -93,26 +93,33 @@ Test specification
      -
      -
    * - TestType
-     - requirements-based | interface-test | boundary |
-       coverage (various types apply, shall be tool supported) |
-       For :need:`wp__verification__sw_unit_test` also fault-injection
-     - Requirements-based test | Design based tests (Assumptions of Use are treated as requirements.)
-       Coverage of branches
+     -
+       - requirements-based
+       - interface-test
+       - boundary
+       - coverage (various types apply, shall be tool supported)
+       - for :need:`wp__verification__sw_unit_test` also fault-injection
+     -
+       - Requirements-based test (Assumptions of Use are treated as requirements.)
+       - Design based tests
 
-       Consult the implemenation of :need:`wp__verification__plan` for the full list of allowed types.
+       Consult the implementation of :need:`wp__verification__plan` for the full list of allowed types.
      -
    * - DerivationTechnique
-     - requirements-analysis | boundary-values | equivalence-classes | error-guessing | monkey-testing
-     - Options are:
-
-       - Analysis of requirements | Analysis of design
-         (Assumptions of Use are treated as requirements.)
+     -
+       - requirements-analysis
+       - boundary-values
+       - equivalence-classes
+       - error-guessing
+       - monkey-testing
+     -
+       - Analysis of requirements / design (Assumptions of Use are treated as requirements.)
        - Analysis of Boundary Values
        - Analysis of Equivalence classes
        - Error guessing based on knowledge or experience
        - Random testing
 
-       Consult the implemenation of :need:`wp__verification__plan` for the full list of allowed methods.
+       Consult the implementation of :need:`wp__verification__plan` for the full list of allowed methods.
      -
 
 Test Case Description
@@ -133,7 +140,7 @@ Test specifications should follow :need:`gd_guidl__verification_specification`
 Structuring of the Test Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To fulfil the requirements of the workproduct :need:`wp__verification__specification` the
+To fulfil the requirements of the work product :need:`wp__verification__specification` the
 templates in :ref:`verification_process_reqs` shall be used. This includes general information and
 templates for the allowed programming languages.
 
