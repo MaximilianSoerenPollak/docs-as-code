@@ -12,10 +12,10 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-Verification Guidance
-=====================
-.. gd_guidl:: Verification Guidance
-   :id: gd_guidl__verification_guidance
+Verification Guideline
+======================
+.. gd_guidl:: Verification Guideline
+   :id: gd_guidl__verification_guide
    :status: valid
 
    This guideline outlines the responsibilities and procedures for developers performing verification activities (test
@@ -66,7 +66,8 @@ Test specification
 ------------------
 
 .. list-table:: Test specification properties
-    :header-rows: 1
+   :header-rows: 1
+   :widths: 10 30 30 30
 
    * - Property
      - Type
@@ -86,12 +87,14 @@ Test specification
        - Test environment (e.g. network configuration, clean system state)
      -
    * - Status
-     - valid | invalid
+     -
+       - valid
+       - invalid
      -
      -
    * - TestType
      - requirements-based | interface-test | boundary |
-       coverage (various types apply, shall be tool spupported) |
+       coverage (various types apply, shall be tool supported) |
        For :need:`wp__verification__sw_unit_test` also fault-injection
      - Requirements-based test | Design based tests (Assumptions of Use are treated as requirements.)
        Coverage of branches

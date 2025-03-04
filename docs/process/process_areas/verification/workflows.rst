@@ -40,7 +40,7 @@ Workflow Verification
    :supported_by: rl__safety_manager, rl__infrastructure_tooling_community
    :input: wp__requirements__stkh, wp__platform_mgmt
    :output: wp__verification__plan
-   :contains: gd_guidl__verification_guidance
+   :contains: gd_guidl__verification_guide
 
    ``[TODO: Is this the right relationship for the verification guidance?]``
 
