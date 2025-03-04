@@ -151,7 +151,7 @@ Workflow for Verification Guidance
 
 .. _requirement_verification_workflow:
 
-.. figure:: ../_assets/requirements_workflow_verification.svg
+.. figure:: ../_assets/requirements_workflow_verification.drawio.svg
     :alt: Requirements Versioning
     :align: center
     :width: 100%
