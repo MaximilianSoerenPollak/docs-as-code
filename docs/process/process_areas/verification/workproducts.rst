@@ -15,6 +15,13 @@
 Work products
 -------------
 
+Inspection activities on requirement, architecture and detailed design are handled within these process areas.
+The work products are handled within these process areas
+
+   * :ref:`requirements_engineering`
+   * : ref : ` arch_design_process ` ``[TODO: Add ref once arch PR #500 is merged]``
+   * : ref : ` implementation ` ``[TODO: Add ref once arch PR #526 is merged]``
+
 Platform
 ^^^^^^^^
 
@@ -42,7 +49,7 @@ Platform
 
    Verification Report contains:
 
-   - List of requirements (and architecture/detailed design tags) tested by which test
+   - List of requirements (stakeholder and feature) and architecture tested by which test
      (can be several levels), passed/failed and completeness verdict, including normal
      operation and failure reactions
    - The list of requirements may also contain other verification methods like "Analysis"
@@ -104,13 +111,14 @@ Component
 
    - all interfaces from Static view and
    - all flows from Dynamic View and performance: i.e. RAM and processor usage on reference HW
+   - integration of units into components based on detailed design
 
 .. workproduct:: Unit test
    :id: wp__verification__sw_unit_test
    :status: valid
    :complies: std_wp__iso26262__software_11, std_wp__iso26262__support_12
 
-   Unit testing verifies component requirements and detailed design (traced to). Tooling defined
+   Unit testing verifies detailed design (traced to). Tooling defined
    in SW Development Plan and integrated in CI/Build.
 
 Generic

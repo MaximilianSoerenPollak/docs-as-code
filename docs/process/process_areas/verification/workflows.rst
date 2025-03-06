@@ -42,7 +42,6 @@ Workflow Verification
    :output: wp__verification__plan
    :contains: gd_guidl__verification_guide
 
-   ``[TODO: Is this the right relationship for the verification guidance?]``
 
    ``[TODO: Add additional inputs.]``
 
