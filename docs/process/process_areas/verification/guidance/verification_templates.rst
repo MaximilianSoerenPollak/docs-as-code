@@ -12,6 +12,8 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
+.. _verification_test_templates:
+
 Verification Templates
 ======================
 
@@ -53,4 +55,3 @@ A more detailed description of how to link code to requirements is available her
 
 Writing test cases in python shall follow the recommendations from the official python and community documentation.
 https://docs.python-guide.org/writing/tests/
-

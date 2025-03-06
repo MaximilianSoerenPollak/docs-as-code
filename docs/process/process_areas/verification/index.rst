@@ -15,67 +15,14 @@
 .. _process_verification:
 
 Verification
-=================
-
-Getting started
----------------
+############
 
 .. toctree::
    :maxdepth: 1
 
    verification_getstrt
-
-Concept
--------
-
-.. toctree::
-   :maxdepth: 1
-
    verification_concept
-
-Guidance
---------
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
    guidance/index
-
-Roles
------
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
    verification_roles
-
-For verification activities no additional roles need to be defined.
-
-Verification artifacts in form of test cases and specification are created by:
-
-   * :need:`rl__contributor`
-   * :need:`rl__committer`
-
-The tool evaluation, verification and reporting is handled by:
-
-   * :need:`rl__infrastructure_tooling_community`.
-
-Workflows
----------
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
    workflows
-
-Workproducts
-------------
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
    workproducts

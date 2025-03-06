@@ -12,18 +12,13 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-Work products
--------------
+.. _verification_work_products:
 
-Inspection activities on requirement, architecture and detailed design are handled within these process areas.
-The work products are handled within these process areas
-
-   * :ref:`requirements_engineering`
-   * : ref : ` arch_design_process ` ``[TODO: Add ref once arch PR #500 is merged]``
-   * : ref : ` implementation ` ``[TODO: Add ref once arch PR #526 is merged]``
+Verification Work Products
+##########################
 
 Platform
-^^^^^^^^
+********
 
 .. workproduct:: Verification Plan
    :id: wp__verification__plan
@@ -57,7 +52,7 @@ Platform
    - Formal evidence about the performed Safety Analyses
 
 Feature
-^^^^^^^
+*******
 
 .. workproduct:: Feature Integration test
    :id: wp__verification__feat_int_test
@@ -72,7 +67,7 @@ Feature
      on reference HW
 
 Module
-^^^^^^
+******
 
 .. workproduct:: Module Verification Report
    :id: wp__verification__module_ver_report
@@ -93,7 +88,7 @@ Module
    - Software component qualification verification report
 
 Component
-^^^^^^^^^
+*********
 
 .. workproduct:: Component test
    :id: wp__verification__component_test
@@ -107,11 +102,13 @@ Component
    :status: valid
    :complies: std_wp__iso26262__software_13, std_wp__iso26262__support_12
 
-   Integration Testing verifies component architecture:
+   Compontent Integration Testing verifies the detailed design and component architecture:
 
    - all interfaces from Static view and
-   - all flows from Dynamic View and performance: i.e. RAM and processor usage on reference HW
+   - all flows from Dynamic View
    - integration of units into components based on detailed design
+
+   Performance (i.e. RAM and processor usage) is only tested on reference HW.
 
 .. workproduct:: Unit test
    :id: wp__verification__sw_unit_test
@@ -122,7 +119,7 @@ Component
    in SW Development Plan and integrated in CI/Build.
 
 Generic
-^^^^^^^
+*******
 
 .. workproduct:: Verification Specification
    :id: wp__verification__specification
@@ -134,18 +131,22 @@ Generic
    Test cases, test data, and test objects are part of the respective test WPs.
 
 Inspection
-^^^^^^^^^^
+**********
 
-Inspection is handled in the respective process areas
+Inspection activities on requirement, architecture and detailed design are handled within these process areas.
+
+The work products are handled within these process areas:
 
      * :ref:`requirements_engineering` implementing :need:`wp__requirements__inspect`
      * : ref : ` arch_design_process `
-       ``[make proper ref after Arch PR #500 is merged]`` implementing :need:`wp__sw_arch_verification`
-     * Detailed design implementing :need:`wp__sw_code_inspect`
+       ``[TODO: make proper ref after Arch PR #500 is merged]`` implementing :need:`wp__sw_arch_verification`
+     * : ref : ` implementation ` ``[TODO: Add ref once arch PR #526 is merged]`` implementing :need:`wp__sw_code_inspect`
 
 Tool Evaluation
-^^^^^^^^^^^^^^^
+***************
 
 As part of tool qualification as supporting function it is handled as follows
 
-     * :need:`rl__infrastructure_tooling_community` implementing :need:`wp__tool_eval`
+     * :ref:`general_concepts_tool_evaluation` describes implementation of :need:`wp__tool_eval`
+
+It is planned in the :need:`wp__platform_mgmt`
