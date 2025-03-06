@@ -12,17 +12,14 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-.. _verification_guidance:
+.. _verification_plan_template:
 
-Guidance
-########
+Verification Plan Template
+==========================
 
-.. toctree::
-   :maxdepth: 1
+.. gd_temp:: Platform Verification Plan Template
+    :id: gd_temp__verification__plan
+    :status: valid
+    :complies: std_wp__iso26262__support_11, std_wp__iso26262__support_19
 
-   verification_guidance
-   verification_specification
-   verification_process_toolreqs
-   verification_templates
-   verification_plan_template
-   verification_report_template
+    This document implements :need:`wp__verification__plan`.

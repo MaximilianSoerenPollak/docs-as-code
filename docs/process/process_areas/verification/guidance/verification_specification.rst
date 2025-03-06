@@ -12,8 +12,8 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-Verification Specification Guidance
-===================================
+Verification Specification Guideline
+====================================
 
 ``[TODO: Check if this is really seen as own document. As per review comment we may not want it at all]``
 
@@ -73,4 +73,3 @@ Additional information can also be found in :doc:`./verification_guidance`.
 
 The specification is part of the test implementatin and has to comply to the requirements
 specified in :need:`gd_req__link_tests`.
-
