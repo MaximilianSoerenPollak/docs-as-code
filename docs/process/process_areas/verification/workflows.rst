@@ -51,5 +51,4 @@ Workflow Verification
    efforts throughout the software development lifecycle. The plan should be dynamic and updated
    as needed throughout the project lifecycle.
 
-
 ``[TODO: Additional workflows to be added]``

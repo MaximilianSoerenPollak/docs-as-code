@@ -13,15 +13,34 @@
 
 import os
 import subprocess
-import sys
+import argparse
+import debugpy
 
 from sphinx.cmd.build import main as sphinx_main
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "-dp", "--debug_port", help="port to listen to debugging client", default=5678
+)
+parser.add_argument("--debug", help="Enable Debugging via debugpy", action="store_true")
+args = parser.parse_args()
+if args.debug:
+    debugpy.listen(("0.0.0.0", args.debug_port))
+    print("Waiting for client to connect on port: " + str(args.debug_port))
+    debugpy.wait_for_client()
+    pass
 
 # sphinx will print relative paths to the current directory.
 # Change to the workspace root so that the paths are readable and clickable.
 workspace = os.getenv("BUILD_WORKSPACE_DIRECTORY")
+
+# Initialize with a default value
+output_files = ""
+
 if workspace:
-    # This will gives us all 'output files' and their location that are required by the 'source_link' extensions
+    # This will gives us all 'output files' and their location that are required
+    #  by the 'source_link' extensions
     subprocess.run(
         [
             "bazel",
@@ -42,9 +61,10 @@ if workspace:
         cwd=workspace,
         stdout=subprocess.PIPE,
     )
-    output_files = process.stdout.readline().decode().strip()
-    os.chdir(workspace)
 
+    output_files = process.stdout.readline().decode().strip() if process.stdout else ""
+
+    os.chdir(workspace)
 
 sphinx_main(
     [
