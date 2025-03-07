@@ -54,7 +54,7 @@ Following aspect should be considered when developing test cases:
   * **C++:** Use Google Test frameworks.
 * **Integration Testing:** Verify the interaction between different components or modules.
   For integration testing, the ITF (Integration Test Framework) is used. For more information, see
-  ``[TODO: Link to ITF documentation once available related feature request is #200]``.
+  ``[TODO: Link to ITF documentation once available related feature request is #599]``.
 * **Platform Testing:** Test the platform with configured features as a whole.
 * **Regression Testing:** Ensure that changes do not introduce new defects.
   Automate regression tests where possible as they will get executed as part of the CI.
@@ -70,7 +70,7 @@ Test specification
    :widths: 10 30 40 20
 
    * - Property
-     - Type
+     - Type / Values
      - Description
      - Helpful links
    * - Verifies
