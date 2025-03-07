@@ -22,6 +22,68 @@ Verification Specification Guideline
    :status: valid
    :complies: std_wp__iso26262__support_12
 
+Test specification
+------------------
+
+A test specification contains the following attributes.
+
+.. list-table:: Test specification properties
+   :header-rows: 1
+   :widths: 10 30 40 20
+
+   * - Property
+     - Type / Values
+     - Description
+     - Helpful links
+   * - Verifies
+     - Sphinx-needs Ids
+     - Links to one or more requirement Ids
+     -
+   * - Description
+     - Text
+     - The description should include
+
+       - The objective of the test.
+       - Inputs
+       - Expected outcome (e.g. "A success message is displayed.")
+       - Test environment (e.g. network configuration, clean system state)
+     -
+   * - Status
+     -
+       - valid
+       - invalid
+     -
+     -
+   * - TestType
+     -
+       - requirements-based
+       - interface-test
+       - boundary
+       - coverage (various types apply, shall be tool supported)
+       - for :need:`wp__verification__sw_unit_test` also fault-injection
+     -
+       - Requirements-based test (Assumptions of Use are treated as requirements.)
+       - Design based tests
+
+       Consult the implementation of :need:`wp__verification__plan` for the full list of allowed types.
+     -
+   * - DerivationTechnique
+     -
+       - requirements-analysis
+       - boundary-values
+       - equivalence-classes
+       - error-guessing
+       - monkey-testing
+     -
+       - Analysis of requirements / design (Assumptions of Use are treated as requirements.)
+       - Analysis of Boundary Values
+       - Analysis of Equivalence classes
+       - Error guessing based on knowledge or experience
+       - Random testing
+
+       Consult the implementation of :need:`wp__verification__plan` for the full list of allowed methods.
+     -
+
 Test description
 ----------------
 
