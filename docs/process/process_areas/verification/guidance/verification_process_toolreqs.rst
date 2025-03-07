@@ -64,7 +64,6 @@ Test Linking to Requirements
             {
                RecordProperty("Status", "<Status>");
                RecordProperty("ASIL", "<ASIL>");
-               RecordProperty("Priority", "<Priority>");
                RecordProperty("TestType", "<TestType>");
                RecordProperty("DerivationTechnique", "<DerivationTechnique>");
                ...
@@ -92,7 +91,6 @@ Test Linking to Requirements
       @pytest.fixture(scope="session", autouse=True)
       def add_metadata(record_testsuite_property):
          record_testsuite_property("ASIL", "<ASIL>")
-         record_testsuite_property("Priority", "<Priority>")
          record_testsuite_property("TestType", "<TestType>")
          record_testsuite_property("DerivationTechnique", "<DerivationTechnique>")
       class Testclass(TestSim):
@@ -118,7 +116,6 @@ Test Linking to Requirements
         #[record_property("Description", "<Description>")]
         #[record_property("Status", "<Status>")]
         #[record_property("ASIL", "<ASIL>")]
-        #[record_property("Priority", "<Priority>")]
         #[record_property("TestType", "<TestType>")]
         #[record_property("DerivationTechnique", "<DerivationTechnique>")]
         #[test]

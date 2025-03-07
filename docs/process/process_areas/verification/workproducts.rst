@@ -115,8 +115,9 @@ Component
    :status: valid
    :complies: std_wp__iso26262__software_11, std_wp__iso26262__support_12
 
-   Unit testing verifies detailed design (traced to). Tooling defined
-   in SW Development Plan and integrated in CI/Build.
+   Unit testing verifies detailed design (traced to).
+   Respective tooling is defined in :need:`wp__platform_mgmt`, :need:`wp__verification__plan` and integrated in CI/Build.
+   Unit testing is in responsible of the :need:`rl__contributor` providing the :need:`wp__sw_implementation`.
 
 Generic
 *******
