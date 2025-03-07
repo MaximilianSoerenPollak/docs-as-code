@@ -21,24 +21,46 @@ Getting Started
    :tags: verification
 
    This document guides you through the initial steps of the software verification process,
-   from creating test cases to executing and analyzing results.
+   from creating test cases to executing and result reporting.
    It leverages the :need:`doc_concept__verification__process` and :need:`gd_guidl__verification_guide`.
 
 Relevant Documents
 ******************
 
+Key documents to get an understanding about verification activities are:
+
 * **Concept Document:** :need:`doc_concept__verification__process` provides a high-level overview of the verification concept.
 * **Verification Guideline:** :need:`gd_guidl__verification_guide` details test case development, execution, and reporting procedures.
 * **Verification Plan:** :need:`wp__verification__plan` implementation outlines the overall verification strategy and objectives.
+  (Note that the implemnation of the verification plan can be found in the platform management plan.)
+
+
+General Workflow
+****************
+
+The workflows can be split into 4 major parts:
+
+* Test planning filling the template :need:`gd_temp__verification__plan`.
+* Test specification and implementation for the respecitve testing level
+* Test execution by the CI.
+  (Manual test cases are treated as automated test with user interaction and timeouts.)
+* Test reports are created when all verification artifacts on a module and platform level are
+  available for a specific baseline.
+
+The details of what needs to be done in each part are described in the :ref:`verification_workflows`.
 
 Tooling Support
 ***************
 
 The following tools support the verification process:
 
-* **Bazel:** For building the software and running tests.
+* **Bazel:** For building the software and running tests (supported by ITF).
 * **Google Test:** For unit testing in C++.
 * **Rust's built-in testing framework:** For unit testing in Rust.
 * **Pytest:** For component to integration testing in Python.
 * **ITF (Integration Test Framework):** As framework for integration testing based on pytest.
-  [TODO: Add link to ITF documentation once available]
+  ``[TODO: Add link to ITF documentation once available]``
+* **Sphinx-needs:** Tracing artifacts like requirements to test cases.
+
+Additionally, tools will be provided to automatically generate coverage tests based on the unit source code.
+``[TODO: Add link to automated test case creation scripts under preparation.]``

@@ -113,7 +113,7 @@ Component
 .. workproduct:: Unit test
    :id: wp__verification__sw_unit_test
    :status: valid
-   :complies: std_wp__iso26262__software_11, std_wp__iso26262__support_12
+   :complies: std_wp__iso26262__software_11, std_wp__iso26262__support_12, std_req__iso26262__software_29
 
    Unit testing verifies detailed design (traced to).
    Respective tooling is defined in :need:`wp__platform_mgmt`, :need:`wp__verification__plan` and integrated in CI/Build.

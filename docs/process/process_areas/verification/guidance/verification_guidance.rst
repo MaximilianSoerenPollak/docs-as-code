@@ -44,10 +44,12 @@ Following aspect should be considered when developing test cases:
 
 * **Comprehensive Coverage:** Test cases should cover all functional and non-functional requirements, including
   positive, negative, and boundary conditions. Specific attention should be given to corner cases and error handling.
+* **Requirements Testing:** Guarantees testing of Component, Feature, and Stakeholder requirements.
 * **Unit Testing:** Focus on isolating and testing individual units or components of the code.
   Strive for high code coverage for branches and lines.
   Coverage goals are defined in the :need:`wp__verification__plan`.
-  Use the following frameworks:
+
+  Use the following frameworks for unit testing:
 
   * **Rust:** Utilize the built-in testing framework with ``#[test]`` attributes and the ``cargo test`` command.
   * **Python:** Use ``pytest`` frameworks.
@@ -55,6 +57,7 @@ Following aspect should be considered when developing test cases:
 * **Integration Testing:** Verify the interaction between different components or modules.
   For integration testing, the ITF (Integration Test Framework) is used. For more information, see
   ``[TODO: Link to ITF documentation once available related feature request is #599]``.
+
 * **Platform Testing:** Test the platform with configured features as a whole.
 * **Regression Testing:** Ensure that changes do not introduce new defects.
   Automate regression tests where possible as they will get executed as part of the CI.
