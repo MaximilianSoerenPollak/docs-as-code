@@ -146,18 +146,6 @@ Product development
 Platform development
 ^^^^^^^^^^^^^^^^^^^^
 
-
-.. workproduct:: Feature Architecture
-   :id: wp__feature_architecture
-   :status: draft
-   :tags: safety
-
-   Feature Architecture linked to Feature Requirements, i.e. interaction of components
-   - Static view (UML) - Feature interfaces (to outside of Feature) and Interfaces between own Components
-   - Dynamic view (UML) - Sequences of component interactions and state diagrams
-
-   Technical concept on platform level.
-
 .. workproduct:: Feature Safety Analyses
    :id: wp__feature_safety_analyses
    :status: draft
@@ -201,16 +189,6 @@ Component development
 
    | The HSI specification shall specify the hardware and software interaction and be consistent with the technical safety concept.
    | The HSI specification shall include the component's hardware parts that are controlled by software and hardware resources that support the execution of the software.
-
-.. workproduct:: Component Architecture
-   :id: wp__sw_component_architecture
-   :status: draft
-   :tags: safety
-
-   Component Architecture linked to Component Requirements
-   - Static view (UML) - Component interfaces (to outside of Component) and Interfaces between own Sub-Components
-   - Dynamic view (UML) - Sequences of Sub-Components interactions and Components States
-   Note: In case no sub-components exist, this can be covered by Detailed Design (in "Implementation" workproduct)
 
 .. workproduct:: Component Safety Analyses
    :id: wp__sw_component_safety_analyses

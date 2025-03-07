@@ -65,7 +65,7 @@ Workflow Verification
    :responsible: rl__contributor
    :approved_by: rl__committer
    :supported_by: rl__safety_manager
-   :input: wp__sw_component_architecture, wp__sw_implementation, wp__verification__plan
+   :input: wp__component_arch, wp__sw_implementation, wp__verification__plan
    :output: wp__verification__comp_int_test, wp__verification__specification
    :contains: gd_req__link_tests, gd_guidl__verification_specification
    :has: doc_concept__verification__process, doc_getstrt__verification__process
@@ -84,7 +84,7 @@ Workflow Verification
    :responsible: rl__contributor
    :approved_by: rl__committer
    :supported_by: rl__safety_manager
-   :input: wp__feature_architecture, wp__requirements__feat, wp__requirements__feat_aou,
+   :input: wp__feature_arch, wp__requirements__feat, wp__requirements__feat_aou,
            wp__verification__plan
    :output: wp__verification__feat_int_test, wp__verification__specification
    :contains: gd_req__link_tests, gd_guidl__verification_specification
@@ -141,8 +141,8 @@ Workflow Verification
    :approved_by: rl__technical_lead
    :supported_by: rl__safety_manager, rl__infrastructure_tooling_community
    :input: wp__verification__plan, wp__requirements__stkh, wp__platform_mgmt,
-           wp__feature_architecture, wp__requirements__feat, wp__requirements__feat_aou,
-           wp__sw_component_architecture, wp__requirements__comp, wp__requirements__comp_aou,
+           wp__feature_arch, wp__requirements__feat, wp__requirements__feat_aou,
+           wp__component_arch, wp__requirements__comp, wp__requirements__comp_aou,
            wp__tool_eval
    :output: wp__verification__plan
    :contains: gd_guidl__verification_guide, gd_temp__verification__plan
@@ -163,7 +163,7 @@ Workflow Verification
    :approved_by: rl__technical_lead
    :supported_by: rl__safety_manager, rl__infrastructure_tooling_community
    :input: wp__verification__plan, wp__requirements__comp, wp__requirements__comp_aou,
-           wp__sw_component_architecture, wp__module_sw_release_note, wp__platform_mgmt,
+           wp__component_arch, wp__module_sw_release_note, wp__platform_mgmt,
            wp__sw_component_safety_analyses, wp__sw_component_dfa,
            wp__sw_arch_verification, wp__sw_code_inspect, wp__requirements__inspect,
            wp__verification__component_test, wp__verification__comp_int_test, wp__verification__sw_unit_test
@@ -187,7 +187,7 @@ Workflow Verification
    :approved_by: rl__technical_lead
    :supported_by: rl__safety_manager, rl__infrastructure_tooling_community
    :input: wp__verification__plan, wp__requirements__stkh, wp__requirements__feat, wp__requirements__feat_aou,
-           wp__feature_architecture, wp__platform_sw_release_note, wp__platform_mgmt,
+           wp__feature_arch, wp__platform_sw_release_note, wp__platform_mgmt,
            wp__feature_safety_analyses, wp__feature_dfa,
            wp__sw_arch_verification, wp__requirements__inspect,
            wp__verification__feat_int_test, wp__verification__platform_test
