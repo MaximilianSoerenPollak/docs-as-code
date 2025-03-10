@@ -12,15 +12,15 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-Process Areas
-#############
+Guidance
+########
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   change_management/index.rst
-   documentation_management/index.rst
-   safety_management/index.rst
-   requirements_engineering/index.rst
-   architecture_design/index.rst
+   change_management_guideline
+   change_management_checklist
+   change_management_feature_template
+   change_management_component_template
+   change_management_impact_analysis_template
+   change_management_reqs
