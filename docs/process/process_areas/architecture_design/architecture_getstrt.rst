@@ -12,7 +12,7 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-.. _arch_getting_startet:
+.. _arch_getting_started:
 
 Getting Started
 ###############
@@ -21,7 +21,7 @@ Getting Started
    :id: doc_getstrt__arch__process
    :status: valid
 
-As described in the :ref:`Architecure Design Concept <architectural_viewpoints>` currently two views are defined. The *getting started* provides an overview which steps need to be done to create the feature architecture and the component architecture.
+As described in the :ref:`Architecture Design Concept <architectural_viewpoints>` currently two views are defined. The *getting started* provides an overview which steps need to be done to create the feature architecture and the component architecture.
 
 For the detailed description both an :need:`[[title]] <gd_guidl__arch__design>` and an :need:`[[title]]<doc_concept__arch__process>` are available.
 
