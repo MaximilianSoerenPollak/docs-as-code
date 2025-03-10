@@ -59,8 +59,8 @@ The following tools support the verification process:
 * **Rust's built-in testing framework:** For unit testing in Rust.
 * **Pytest:** For component to integration testing in Python.
 * **ITF (Integration Test Framework):** As framework for integration testing based on pytest.
-  ``[TODO: Add link to ITF documentation once available]``
 * **Sphinx-needs:** Tracing artifacts like requirements to test cases.
 
 Additionally, tools will be provided to automatically generate coverage tests based on the unit source code.
+
 ``[TODO: Add link to automated test case creation scripts under preparation.]``

@@ -78,12 +78,13 @@ A more detailed description of how to link code to requirements is available her
 
 Traceability matrix and consistancy checks will be automatically established with tool support.
 
-Two properties exists to show partial and full coverage of a requirement. For multiple test cases
-having a "partial coverage" a grouped test case collecting or executing the partial test cases can
-prove that a requirement is fully covered. Otherwise this has to be confirmed by a review activity
-manually. Manual statements that a test case is covered should be avoided.
+Two properties exists; one to show partial and one to show full coverage of a requirement.
+For multiple test cases having a "partial coverage" a review has to be conducted to confirm
+that a requirement is fully covered. The pull request description should indicate which requirements
+are fully covered by the PR commits and which test cases are needed to fully cover the test case.
+This is important, as multiple PRs may be needed to fully verify a single requirement.
 
-``[TODO: Verify that the concept is working. Otherwise stick to pure review.]``
+``[TODO: Create a concept that is based on fully verified specification split into multiple test case implementations.]``
 
 Test case execution
 -------------------

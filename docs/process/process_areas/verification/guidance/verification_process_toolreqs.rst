@@ -36,9 +36,17 @@ Test Linking to Requirements
         * valid
         * invalid
     * TestType
-        * Requirements-based test (requirements-based)
-        * Design based tests (design-based)
+        * Control Flow Analysis (control-flow-analysis)
+        * Data Flow Analysis (data-flow-analysis)
+        * Fault Injection (fault-injection)
+        * Inspection (inspection)
         * Interface Test (interface-test)
+        * Requirements-based Test (requirements-based)
+        * Resource Usage Evaluation (resource-usage)
+        * Static Code Analysis (static-code-analysis)
+        * Structural Statement coverage (structural-statement-coverage)
+        * Structural Branch Coverage (structural-branch-coverage)
+        * Walkthrough (walkthrough)
     * DerivationTechnique
         * Analysis of requirements (requirements-analysis)
         * Analysis of design (design-analysis)
@@ -46,15 +54,19 @@ Test Linking to Requirements
         * Analysis of equivalence classes (equivalence-classes)
         * Error guessing based on knowledge or experience (error-guessing)
         * Random testing (monkey-testing)
+        * Exlporative testing (explorative-testing)
 
-    More information can be found in the :need:`gd_guidl__verification_guide` and :need:`gd_guidl__verification_specification`.
+    More information can be found in the :need:`gd_guidl__verification_guide`, :need:`doc_concept__verification__process`,
+    and :need:`gd_guidl__verification_specification`.
 
 .. gd_req:: Linking Requirements to Tests (C++)
     :id: gd_req__link_tests_cpp
     :status: valid
     :complies: std_req__iso26262__support_8
 
-    For linking C++ test suites to requirements **record properties** shall be used. Attributes which are common for all test cases can be specified in the Setup Function (SetUp()), the other attributes which are specific for each test case need to be specified within the test case:
+    For linking C++ test suites to requirements **record properties** shall be used. Attributes
+    which are common for all test cases can be specified in the Setup Function (SetUp()), the other
+    attributes which are specific for each test case need to be specified within the test case:
 
     .. code-block:: cpp
 
@@ -84,7 +96,9 @@ Test Linking to Requirements
     :status: valid
     :complies: std_req__iso26262__support_8
 
-    For linking python tests to requirements **metadata** shall be used. Attributes which are common for all test cases can be specified in the Test Suite (above the class), the other attributes which are specific for each test case need to be specified above the test case:
+    For linking python tests to requirements **metadata** shall be used. Attributes which are
+    common for all test cases can be specified in the Test Suite (above the class), the other
+    attributes which are specific for each test case need to be specified above the test case:
 
     .. code-block:: python
 

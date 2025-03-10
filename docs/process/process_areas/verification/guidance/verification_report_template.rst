@@ -77,10 +77,10 @@ Verification Report Templates
       |
       | **5. Software component qualification verification report**
       | - Contains the needed verification results if for some components a qualification of pre-developed SW is performed.
-      |
 
-      Note1: The verification report is valid for the module version tagged together with the report
-      Note2: All the above lists are generated automatically
+    **Note1:** The verification report is valid for the module version tagged together with the report
+
+    **Note2:** All the above lists are generated automatically
 
 .. gd_temp:: Platform Verification Report Template
     :id: gd_temp__platform_ver_report
@@ -118,7 +118,7 @@ Verification Report Templates
       |
       | **3. Safety Analysis Report**
       | - List of the performed Feature Safety Analysis, pass/fail with open mitigations
-      |
 
-      Note1: The verification report is valid for the platform version tagged together with the report
-      Note2: All the above lists are generated automatically
+    **Note1:** The verification report is valid for the platform version tagged together with the report
+
+    **Note2:** All the above lists are generated automatically

@@ -15,9 +15,7 @@
 Test Specification Guideline
 ============================
 
-``[TODO: Check if this is really seen as own document. As per review comment we may not want it at all]``
-
-.. gd_guidl:: Verification Specification Guideline
+.. gd_guidl:: Test Specification Guideline
    :id: gd_guidl__verification_specification
    :status: valid
    :complies: std_wp__iso26262__support_12
@@ -35,9 +33,10 @@ A test specification contains the following attributes.
      - Type / Values
      - Description
      - Helpful links
-   * - Verifies
-     - Sphinx-needs Ids
-     - Links to one or more requirement Ids. Can be partially or fully verifies, as per test property.
+   * - Partially and/or Fully Verifies
+     - Sphinx-needs Id(s)
+     - Links to one or more requirement Ids. Can be partial or full coverage of a
+       requirement, as per test property.
      -
    * - Description
      - Text
@@ -55,34 +54,31 @@ A test specification contains the following attributes.
      -
      -
    * - TestType
-     -
+     - Examples are:
+
        - requirements-based
        - interface-test
        - boundary
        - coverage (various types apply, shall be tool supported)
        - for :need:`wp__verification__sw_unit_test` also fault-injection
-     -
-       - Requirements-based test (Assumptions of Use are treated as requirements.)
-       - Design based tests
-
-       Consult the implementation of :need:`wp__verification__plan` for the full list of allowed types.
+     - These are example values and an incomplete list.
+       A full list of test types is available in :need:`doc_concept__verification__process` at
+       :ref:`verification_concept_types_methods`.
      -
    * - DerivationTechnique
-     -
+     - Examples are:
+
        - requirements-analysis
        - boundary-values
        - equivalence-classes
        - error-guessing
-       - monkey-testing
+     - These are example values and an incomplete list.
+       A full list of test methods is available in :need:`doc_concept__verification__process` at
+       :ref:`verification_concept_types_methods`.
      -
-       - Analysis of requirements / design (Assumptions of Use are treated as requirements.)
-       - Analysis of Boundary Values
-       - Analysis of Equivalence classes
-       - Error guessing based on knowledge or experience
-       - Random testing
 
-       Consult the implementation of :need:`wp__verification__plan` for the full list of allowed methods.
-     -
+The implementation of :need:`wp__verification__plan` defines the full list of allowed types and methods.
+
 
 Test description
 ----------------
@@ -131,7 +127,7 @@ A example for a bad test description could be:
 
    Test user login
 
-Additional information can also be found in :doc:`./verification_guidance`.
+Additional information can also be found in :need:`gd_guidl__verification_guide`.
 
-The specification is part of the test implementatin and has to comply to the requirements
+The specification is part of the test implementation and has to comply to the requirements
 specified in :need:`gd_req__link_tests`.

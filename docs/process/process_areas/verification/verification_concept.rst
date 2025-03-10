@@ -92,32 +92,34 @@ Stakeholder
    * integrate the test cases in their product (distribution)
    * create issue reports and provide improvements
 
+.. _verification_concept_types_methods:
+
 Verification Methods
 =====================
 
 A verification is based on different methods. An overview of the different methods that are
 applicable in the project are:
 
- - Control Flow Analysis
- - Data Flow Analysis
- - Fault Injection
- - Inspection
- - Interface Test
- - Requirements-based Test
- - Resource Usage Evaluation
- - Static Code Analysis
- - Structural Statement coverage
- - Structural Branch Coverage
- - Walkthrough
+ * Control Flow Analysis (control-flow-analysis)
+ * Data Flow Analysis (data-flow-analysis)
+ * Fault Injection (fault-injection)
+ * Inspection (inspection)
+ * Interface Test (interface-test)
+ * Requirements-based Test (requirements-based)
+ * Resource Usage Evaluation (resource-usage)
+ * Static Code Analysis (static-code-analysis)
+ * Structural Statement coverage (structural-statement-coverage)
+ * Structural Branch Coverage (structural-branch-coverage)
+ * Walkthrough (walkthrough)
 
 The derivation of test cases can also be based on certain methods.
 
- - Analysis of Boundary Values
- - Analysis of Equivalence Classes
- - Analysis of Requirements
- - Error Guessing based on Knowledge or Experience
- - Random Testing
- - Exlporative Testing
+ * Analysis of boundary values (boundary-values)
+ * Analysis of equivalence classes (equivalence-classes)
+ * Analysis of requirements (requirements-analysis)
+ * Error guessing based on knowledge or experience (error-guessing)
+ * Random Testing (monkey-testing)
+ * Exlporative testing (explorative-testing)
 
 Usually the defined methods are not applied on each verification level between unit and platform level.
 Also their execution may differ whether it is a QM or ASIL rated test case.
@@ -146,9 +148,9 @@ Following aspect should be considered when developing test cases:
   * **Python:** Use ``pytest`` frameworks.
   * **C++:** Use Google Test frameworks.
 * **Integration Testing:** Verify the interaction between different components or modules.
-  For integration testing, the ITF (Integration Test Framework) is used. For more information, see
-  ``[TODO: Link to ITF documentation once available related feature request is #599]``.
+    For integration testing, the ITF (Integration Test Framework) is used.
 
+    For more information, see ``[TODO: Link to ITF documentation once available. Related feature request is #599]``.
 * **Platform Testing:** Test the platform with configured features as a whole.
 * **Regression Testing:** Ensure that changes do not introduce new defects.
   Automate regression tests where possible as they will get executed as part of the CI.
@@ -160,11 +162,11 @@ Following aspect should be considered when developing test cases:
 General Traceability Concept
 ============================
 
-To allow a traceability from any line of code to a written requirement, unit tests are linked
-to other unit tests or component tests. This linking is done using metatags. This is also true for
-component integration tests linking to the component architecture.
+To allow a traceability of code to a written requirement, unit tests are linked to other unit
+tests or component tests. This linking is done using metatags. This is also true for component
+integration tests linking to the component architecture.
 
-Comoponent tests are linked to component requirements directly.
+Component tests are linked to component requirements directly.
 
 Traceability of feature integration tests shall be established through linking those test cases to
 feature requirements and architecture as features describe the integrated behavior of all components.
@@ -196,6 +198,8 @@ generated including:
 - the hash and UID of the requirement which was evaluated for test coverage
 - the UIDs of the test cases which are required to fully cover the requirement.
 
-So if the content of the requirement is altered also the hash will change making it necessary to revisit the linkage of all test cases to the requirement again.
+So if the content of the requirement is altered also the hash will change making it necessary to
+revisit the linkage of all test cases to the requirement again.
 
 If the status of the linked test case and the linkage document is valid the attribute *testcovered* shall be set to *YES* during the Sphinx Build.
+Further information can also be depicted from the :ref:`requirements_engineering` process.

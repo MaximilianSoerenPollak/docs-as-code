@@ -128,8 +128,7 @@ Inspection activities on requirement, architecture and detailed design are handl
 The work products are handled within these process areas:
 
      * :ref:`requirements_engineering` implementing :need:`wp__requirements__inspect`
-     * : ref : ` arch_design_process `
-       ``[TODO: make proper ref after Arch PR #500 is merged]`` implementing :need:`wp__sw_arch_verification`
+     * :ref:`arch_design_process` implementing :need:`wp__sw_arch_verification`
      * : ref : ` implementation ` ``[TODO: Add ref once arch PR #526 is merged]`` implementing :need:`wp__sw_code_inspect`
 
 Tool Evaluation
