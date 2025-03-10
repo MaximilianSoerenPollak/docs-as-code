@@ -37,7 +37,7 @@ A test specification contains the following attributes.
      - Helpful links
    * - Verifies
      - Sphinx-needs Ids
-     - Links to one or more requirement Ids
+     - Links to one or more requirement Ids. Can be partially or fully verifies, as per test property.
      -
    * - Description
      - Text

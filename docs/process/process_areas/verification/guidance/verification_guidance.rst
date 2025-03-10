@@ -78,17 +78,26 @@ A more detailed description of how to link code to requirements is available her
 
 Traceability matrix and consistancy checks will be automatically established with tool support.
 
+Two properties exists to show partial and full coverage of a requriement. For multiple test cases
+having a "partial coverage" a grouped test case collecting or executing the partial test cases can
+prove that a requirement is fully covered. Otherwise this has to be confirmed by a review activity
+manually. Manual statements that a test case is covered should be avoided.
+
 Test case execution
 -------------------
 
 The execution of the tests is based on a full automation defined by build pipelines.
 The analysis of the test results needs to be performed by the contributor.
 
+In order to check the test results for the impact of a change or addition, it is recommended to
+execute affected test cases locally upfront using the execution framework of the build tooling
+following basically the steps the CI does locally.
+
 There may be the need for limited number of manually executed test cases.
 These manually executed test cases are execution script driven, where a script guides through the
 test cases and reports the result in the same logging format as automated tests do.
 
-``[TODO: Reporting of manual execution results is pending]``
+``[TODO: How to execute manual tests locally and reporting execution results is pending]``
 
 
 Reporting of failing test cases
