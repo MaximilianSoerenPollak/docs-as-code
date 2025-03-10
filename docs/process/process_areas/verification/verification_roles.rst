@@ -12,16 +12,18 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-Process Areas
-#############
+.. _verification_roles:
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
+Roles
+#####
 
-   change_management/index.rst
-   documentation_management/index.rst
-   safety_management/index.rst
-   requirements_engineering/index.rst
-   architecture_design/index.rst
-   verification/index.rst
+For verification activities no additional roles need to be defined.
+
+Verification artifacts in form of test cases and specification are created by:
+
+   * :need:`rl__contributor`
+   * :need:`rl__committer`
+
+The tool evaluation, verification and reporting is handled by:
+
+   * :need:`rl__infrastructure_tooling_community`.

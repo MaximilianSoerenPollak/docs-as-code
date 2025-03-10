@@ -12,16 +12,17 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-Process Areas
-#############
+.. _verification_guidance:
+
+Guidance
+########
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   change_management/index.rst
-   documentation_management/index.rst
-   safety_management/index.rst
-   requirements_engineering/index.rst
-   architecture_design/index.rst
-   verification/index.rst
+   verification_guidance
+   verification_specification
+   verification_process_toolreqs
+   verification_templates
+   verification_plan_template
+   verification_report_template
