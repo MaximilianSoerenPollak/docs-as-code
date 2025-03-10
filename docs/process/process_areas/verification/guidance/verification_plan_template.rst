@@ -137,6 +137,13 @@ Verification Plan Template
          This section describes the process for developing and maintaining test cases.
          It should cover aspects such as test automation, test data management, and version control.
 
+         Pre-existing test cases
+         ^^^^^^^^^^^^^^^^^^^^^^^
+         This section describes how pre-existing test cases are handled which are e.g. available
+         from an OSS component. It should be stated how they are reviewed, integrated, extended
+         (e.g. with respective documentation), and adopted to the needs described in the project
+         (e.g. usage of documentation templates and traceability)
+
          Test Execution and Result Analysis
          ----------------------------------
 

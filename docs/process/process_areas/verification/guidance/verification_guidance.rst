@@ -97,6 +97,26 @@ Reporting of failing test cases
 Any failing test case requires an ISSUE.
 The passing rate of safety-critical test cases need to be 100% in order to release the affected component.
 In case of a lower pass rate than 100% for QM level tests, the :need:`rl__technical_lead` and
+:need:`rl__project_lead` can decide, if the platform is in a releasable state. The accepted minimal
+path rate is defined in the :need:`wp__verification__plan`. Due to the high degree of automation, a
+it is recommended that a path rate lower 95% is not acceptable.
+
+In case an existing test case is failing due to regression in the CI, the respective issuer of the
+PR in their role as :need:`rl__contributor` is responsible for fixing the test case as part of
+respective PR.
+
+Reuse of existing test cases
+----------------------------
+
+In case pre-existing test cases from components can be used, they have to be reviewed and checked
+for their fit to the defined requirements. The test cases should get patch files to cover missing
+specification parts following :need:`gd_guidl__verification_specification` and have the necessary
+:need:`gd_req__link_tests` followed. These patches are applied on top of the untouched actual
+implementation of the software code.
+
+Additionally needed test cases should be added as standalone parts. They are developed as any
+other test case as part of the platform. If upstreaming of the newly created tests is judged as
+useful, this shall be planned and added to the proejct milestone plan.
 
 Verifiation types and methods
 -----------------------------
