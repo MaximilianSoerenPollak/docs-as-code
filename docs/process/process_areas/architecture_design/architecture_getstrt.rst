@@ -177,7 +177,7 @@ To make *needuml* work we have to replace the *need()* call with a different fun
 
 .. code-block:: rst
 
-   .. comp_arc_sta:: Component Get Startet Manually Edited
+   .. comp_arc_sta:: Component Get Started Manually Edited
       :id: comp_arc_sta__component_manual_getstrt
       :status: valid
       :safety: ASIL_B
@@ -193,7 +193,7 @@ To make *needuml* work we have to replace the *need()* call with a different fun
          }
          CM -> LI1: EXTRA_LINKAGE_MANUALLY_ADDED
 
-.. comp_arc_sta:: Component Get Startet Manually Edited
+.. comp_arc_sta:: Component Get Started Manually Edited
    :id: comp_arc_sta__component_manual_getstrt
    :status: valid
    :safety: ASIL_B
