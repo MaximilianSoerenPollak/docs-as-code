@@ -46,10 +46,10 @@ Stakeholder
    * Defining releae content
    * Judge the releasable software state in case of failing test cases.
 
-     This may need involvment of :need:`rl__project_lead`,
+     This may need involvement of :need:`rl__project_lead`,
      :need:`rl__safety_manager`, and :need:`rl__security_manager`
 
-#. :need:`SW developer/Archticts <rl__contributor>`
+#. :need:`SW developer/Architects <rl__contributor>`
 
    * Create work products based on the requirements
    * Provides the input work products for verification activities
@@ -72,7 +72,7 @@ Stakeholder
 
 #. :need:`Infrastructure/Tooling Developer <rl__infrastructure_tooling_community>`
 
-   * Enalbes execution of test cases in CI
+   * Enables execution of test cases in CI
    * Generation of verification reports
    * Provides tools for test generation
    * Integrates static analysis, linting, test frameworks into CI
@@ -83,14 +83,14 @@ Stakeholder
 
 #. :need:`External Auditor <rl__external_auditor>`
 
-   * understand activities, planning, processes definition, and execution reports for verifcation activities
+   * Understand activities, planning, processes definition, and execution reports for verifcation activities
 
 #. "Distributor" (external role)
 
-   * reexecution of test cases
-   * tesing OSS parts on product hardware
-   * integrate the test cases in their product (distribution)
-   * create issue reports and provide improvements
+   * Reexecution of test cases
+   * Tesing OSS parts on product hardware
+   * Integrate the test cases in their product (distribution)
+   * Create issue reports and provide improvements
 
 .. _verification_concept_types_methods:
 
@@ -135,7 +135,7 @@ Test Case Development
 
 Following aspect should be considered when developing test cases:
 
-* **Comprehensive Coverage:** Test cases should cover all functional and non-functional requirements, including
+* **Comprehensive Coverage:** Test cases should cover all functional and tool requirements, including
   positive, negative, and boundary conditions. Specific attention should be given to corner cases and error handling.
 * **Requirements Testing:** Guarantees testing of Component, Feature, and Stakeholder requirements.
 * **Unit Testing:** Focus on isolating and testing individual units or components of the code.
