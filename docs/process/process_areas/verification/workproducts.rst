@@ -23,12 +23,13 @@ Platform
 .. workproduct:: Verification Plan
    :id: wp__verification__plan
    :status: valid
-   :complies: std_wp__iso26262__support_11, std_wp__iso26262__support_19
+   :complies: std_wp__iso26262__support_11, std_wp__iso26262__support_12, std_wp__iso26262__support_19
 
    Verification planning for each phase of the safety lifecycle must detail the work products,
    objectives, methods, criteria, environments, equipment, resources, actions for anomalies, and
    regression strategies, considering method adequacy, complexity, prior experiences, and
    technology maturity or risks.
+   This also covers the work product Verification Specification.
 
 .. workproduct:: Platform test
    :id: wp__verification__platform_test
@@ -118,18 +119,6 @@ Component
    Unit testing verifies detailed design (traced to).
    Respective tooling is defined in :need:`wp__platform_mgmt`, :need:`wp__verification__plan` and integrated in CI/Build.
    Unit testing is in responsible of the :need:`rl__contributor` providing the :need:`wp__sw_implementation`.
-
-Generic
-*******
-
-.. workproduct:: Verification Specification
-   :id: wp__verification__specification
-   :status: valid
-   :complies: std_wp__iso26262__support_12
-
-   The verification specification must outline the verification methods, including review or
-   analysis checklists, simulation scenarios.
-   Test cases, test data, and test objects are part of the respective test WPs.
 
 Inspection
 **********

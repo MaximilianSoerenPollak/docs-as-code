@@ -12,8 +12,8 @@
    # SPDX-License-Identifier: Apache-2.0
    # *******************************************************************************
 
-Verification Specification Guideline
-====================================
+Test Specification Guideline
+============================
 
 ``[TODO: Check if this is really seen as own document. As per review comment we may not want it at all]``
 

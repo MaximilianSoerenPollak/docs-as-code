@@ -57,9 +57,9 @@ Test specifications should follow :need:`gd_guidl__verification_specification`
 Structuring of the Test Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To fulfil the requirements of the work product :need:`wp__verification__specification` the
-templates in :ref:`verification_process_reqs` shall be used. This includes general information and
-templates for the allowed programming languages.
+To fulfill the demands of the work product :need:`wp__verification__plan` the
+templates in :ref:`verification_process_reqs` shall be used and the :need:`gd_guidl__verification_specification`
+should be followed . This includes general information and templates for the allowed programming languages.
 
 
 Verify Requirements Execution Work Flow
@@ -78,10 +78,12 @@ A more detailed description of how to link code to requirements is available her
 
 Traceability matrix and consistancy checks will be automatically established with tool support.
 
-Two properties exists to show partial and full coverage of a requriement. For multiple test cases
+Two properties exists to show partial and full coverage of a requirement. For multiple test cases
 having a "partial coverage" a grouped test case collecting or executing the partial test cases can
 prove that a requirement is fully covered. Otherwise this has to be confirmed by a review activity
 manually. Manual statements that a test case is covered should be avoided.
+
+``[TODO: Verify that the concept is working. Otherwise stick to pure review.]``
 
 Test case execution
 -------------------
