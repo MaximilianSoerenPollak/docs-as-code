@@ -62,5 +62,3 @@ The following tools support the verification process:
 * **Sphinx-needs:** Tracing artifacts like requirements to test cases.
 
 Additionally, tools will be provided to automatically generate coverage tests based on the unit source code.
-
-``[TODO: Add link to automated test case creation scripts under preparation.]``

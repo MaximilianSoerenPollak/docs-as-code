@@ -142,4 +142,3 @@ Test Linking to Requirements
     :status: draft
 
     The approver of a pull request shall differ from the author(s) of the pull request in all pull requests.
-    ``[TODO: Add proper requirement link demanding independence of QA activities]``

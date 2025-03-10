@@ -84,7 +84,6 @@ that a requirement is fully covered. The pull request description should indicat
 are fully covered by the PR commits and which test cases are needed to fully cover the test case.
 This is important, as multiple PRs may be needed to fully verify a single requirement.
 
-``[TODO: Create a concept that is based on fully verified specification split into multiple test case implementations.]``
 
 Test case execution
 -------------------
@@ -99,9 +98,6 @@ following basically the steps the CI does locally.
 There may be the need for limited number of manually executed test cases.
 These manually executed test cases are execution script driven, where a script guides through the
 test cases and reports the result in the same logging format as automated tests do.
-
-``[TODO: How to execute manual tests locally and reporting execution results is pending]``
-
 
 Reporting of failing test cases
 -------------------------------
@@ -133,5 +129,4 @@ useful, this shall be planned and added to the proejct milestone plan.
 Verifiation types and methods
 -----------------------------
 
-``[TODO: detail out what is meant by what is meant by e.g. “static code analysis” issue #497]``
-``[TODO: the applicaiton of methods getting explained issue #498]``
+Verification types and methods are described in the :need:`doc_concept__verification__process`.
