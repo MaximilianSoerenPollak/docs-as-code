@@ -55,38 +55,30 @@ Checklist
       -
       -
     * - ARC_01_02
-      - Is each architectural element traceable by its own identifier?
-      - automated
-      - Ids for architectural elements are enforced by tool. Will be removed from checklist once requirement is implemented.
+      - If the architectural element is related to any supplier manuals (incl. safety and security)
+        are the relevant parts covered?
+      - manual
+      - If the architecture makes use of supplied elements, their manuals (like safety) have to be considered and and AoUs fulfilled.
       -
       -
       -
     * - ARC_01_03
-      - If the architectural element is related to any supplier manuals (incl. safety and security)
-        are the relevant parts covered?
-      - manual
-      - If the architecture makes use of supplied elements, their manuals (like safety) and AoUs have to be considered.
-      -
-      -
-      -
-    * - ARC_01_04
       - Is the architectural element traceable to the lower level artifacts as defined by the workproduct traceability?
       - automated
       - Will be removed from checklist once requirement is implemented by automated tool check.
-        Details of possible linking can be depicted from :ref:`wp_traceability_model`
+        Details of possible linking can be depicted from :ref:`general_concepts_traceability`
       -
       -
       -
     * - ARC_02_01
-      - Is the software architecture design compliant with the overall platform/feature architecture?
+      - Is the software architecture design compliant with the (overall) feature architecture?
       - manual
-      - Check against platform overview and related platform artifacts as per workproducts definition.
-        Also consider :ref:`arch_design_process`
+      - On component level check against the feature architecture, on feature level check other features with common components used.
       -
       -
       -
     * - ARC_02_02
-      - Is appropriate and comprehensible variable/function/interface naming present in the architectural design?
+      - Is appropriate and comprehensible operation/interface naming present in the architectural design?
       - manual
       - Check :ref:`arch_design_guideline`
       -
@@ -112,9 +104,10 @@ Checklist
       -
       -
     * - ARC_02_05
-      - Does the software architectural element consider the timing constraints (from the parent relationship)?
+      - Does the software architectural element consider the timing constraints (from the parent requirement)?
       - manual
-      -
+      - If there are hard requirements on the timing a programming time estimation should be performed and also
+        deadline supervision considered.
       -
       -
       -
@@ -123,6 +116,7 @@ Checklist
         (e.g., UML diagrams), comprehensible and complete?
       - manual
       - Use of semi-formal notation is expected for architectural elements with an allocated ASIL level.
+        Is the architecture template correctly fillled?
       -
       -
       -
@@ -144,8 +138,11 @@ Checklist
     * - ARC_03_03
       - Are simplicity and avoidance of unnecessary complexity present in the software architecture?
       - manual
-      - Indicators for complexity are: number of requirements allocated to single design element, number of interfaces,
-        parameters, global variables, complex types, limited comprehensibility.
+      - Indicators for complexity are: number of use cases (corresponding to dynamic diagrams)
+        allocated to single design element, number of interfaces and operations in an interface,
+        function parameters, global variables, complex types, limited comprehensibility.
+
+        Note: If the "number" above exceeds "3" a design rationale is mandatory (for all types)
       -
       -
       -
