@@ -21,6 +21,7 @@ Process Areas
 
    architecture_design/index.rst
    change_management/index.rst
+   configuration_management/index.rst
    documentation_management/index.rst
    implementation/index.rst
    platform_management/index.rst
