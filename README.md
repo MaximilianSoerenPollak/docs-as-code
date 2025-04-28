@@ -1,2 +1,2 @@
-# process
-Score process and docs-as-code repository
+# docs-as-code
+Contains docs-as-code tooling
