@@ -1,0 +1,59 @@
+name: Validate Release Version
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to validate'
+        required: true
+        type: string
+
+jobs:
+  validate-version:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Get release version
+      id: get-version
+      run: |
+        if [ "${{ github.event_name }}" = "release" ]; then
+          VERSION="${{ github.event.release.tag_name }}"
+        else
+          VERSION="${{ github.event.inputs.version }}"
+        fi
+        # Remove 'v' prefix if present
+        VERSION=${VERSION#v}
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Release version: $VERSION"
+        
+    - name: Extract MODULE.bazel version
+      id: module-version
+      run: |
+        MODULE_VERSION=$(grep -A 3 '^module(' MODULE.bazel | grep 'version' | sed 's/.*version = "\([^"]*\)".*/\1/')
+        
+        if [ -z "$MODULE_VERSION" ]; then
+          echo "Could not find version in MODULE.bazel"
+          exit 1
+        fi
+        echo "module_version=$MODULE_VERSION" >> $GITHUB_OUTPUT
+        echo "MODULE.bazel version: $MODULE_VERSION"
+        
+    - name: Compare versions
+      run: |
+        RELEASE_VERSION="${{ steps.get-version.outputs.version }}"
+        MODULE_VERSION="${{ steps.module-version.outputs.module_version }}"
+        
+        if [ "$RELEASE_VERSION" != "$MODULE_VERSION" ]; then
+          echo "? Version mismatch!"
+          echo "Release version: $RELEASE_VERSION"
+          echo "MODULE.bazel version: $MODULE_VERSION"
+          echo ""
+          echo "Please update MODULE.bazel to match the release version."
+          exit 1
+        else
+          echo "? Versions match: $RELEASE_VERSION"
+        fi
