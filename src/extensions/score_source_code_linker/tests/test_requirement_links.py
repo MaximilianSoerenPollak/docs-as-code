@@ -19,7 +19,7 @@ import pytest
 import logging
 from pytest import TempPathFactory
 from src.extensions.score_source_code_linker.parse_source_files import (
-    get_github_base_url,
+    set_github_base_url,
     find_git_root,
     get_github_repo_info,
     extract_requirements,
@@ -80,7 +80,7 @@ def dummy_git_hash_func(input: str) -> Callable[[str], str]:
 
 def test_extract_requirements(create_tmp_files: Path):
     root_dir = create_tmp_files
-    github_base_url = get_github_base_url()
+    github_base_url = set_github_base_url()
     results_dict1 = extract_requirements(
         str(root_dir / "testfile.txt"), github_base_url, dummy_git_hash_func("no-hash")
     )
@@ -184,5 +184,5 @@ def test_get_github_base_url():
     git_root = find_git_root()
     repo = get_github_repo_info(git_root)
     expected = f"https://github.com/{repo}"
-    actual = get_github_base_url()
+    actual = set_github_base_url()
     assert expected == actual

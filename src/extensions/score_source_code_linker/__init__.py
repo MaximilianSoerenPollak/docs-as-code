@@ -20,7 +20,7 @@ from sphinx_needs.data import NeedsMutable, SphinxNeedsData, NeedsInfoType
 from sphinx_needs.logging import get_logger
 
 from src.extensions.score_source_code_linker.parse_source_files import (
-    get_github_base_url,
+    COMPUTED_GITHUB_BASE_URL,
 )
 
 LOGGER = get_logger(__name__)
@@ -110,7 +110,7 @@ def add_source_link(app: Sphinx, env: BuildEnvironment) -> None:
     # For some reason the prefix 'sphinx_needs internally' is CAPSLOCKED.
     # So we have to make sure we uppercase the prefixes
     prefixes = [x["id_prefix"].upper() for x in app.config.needs_external_needs]
-    github_base_url = get_github_base_url() + "/blob/"
+    github_base_url = COMPUTED_GITHUB_BASE_URL + "/blob/"
     try:
         with open(path) as f:
             gh_json = json.load(f)

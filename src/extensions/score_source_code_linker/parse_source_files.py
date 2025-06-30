@@ -31,11 +31,12 @@ TAGS = [
     "# req-Id:",
 ]
 
+COMPUTED_GITHUB_BASE_URL = ""
 
-def get_github_base_url(file: str) -> str:
+def set_github_base_url(file: str):
     git_root = find_git_root(file)
     repo = get_github_repo_info(git_root)
-    return f"https://github.com/{repo}"
+    COMPUTED_GITHUB_BASE_URL = f"https://github.com/{repo}"
 
 
 def parse_git_output(str_line: str) -> str:
@@ -189,16 +190,15 @@ if __name__ == "__main__":
 
     # Finding the GH URL
     git_root_found = False
-    gh_base_url = ""
     requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
     for input in args.inputs:
         with open(input) as f:
             for source_file in f:
                 if not git_root_found:
-                    gh_base_url = get_github_base_url(source_file)
-                    if gh_base_url: 
+                    set_github_base_url(source_file)
+                    if COMPUTED_GITHUB_BASE_URL: 
                         git_root_found = True
-                rm = extract_requirements(source_file.strip(), gh_base_url)
+                rm = extract_requirements(source_file.strip(), COMPUTED_GITHUB_BASE_URL)
                 for k, v in rm.items():
                     requirement_mappings[k].extend(v)
     with open(args.output, "w") as f:

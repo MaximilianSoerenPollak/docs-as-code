@@ -17,14 +17,14 @@ from pathlib import Path
 import pytest
 from pytest import TempPathFactory
 from src.extensions.score_source_code_linker.parse_source_files import (
-    get_github_base_url,
+    set_github_base_url,
 )
 from sphinx.testing.util import SphinxTestApp
 from sphinx_needs.data import SphinxNeedsData
 
 
 def construct_gh_url() -> str:
-    gh = get_github_base_url()
+    gh = set_github_base_url()
     return f"{gh}/blob/"
 
 
