@@ -24,6 +24,7 @@ from collections.abc import Callable
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
+logger.setLevel("DEBUG")
 
 TAGS = [
     "# req-traceability:",
@@ -79,6 +80,7 @@ def find_git_root():
     This should be fixed.
     """
     git_root = Path(__file__).resolve()
+    print(f"GIT ROOT START: {git_root}")
     while not (git_root / ".git").exists():
         git_root = git_root.parent
         if git_root == Path("/"):
@@ -182,6 +184,8 @@ if __name__ == "__main__":
     args, _ = parser.parse_known_args()
 
     logger.info(f"Parsing source files: {args.inputs}")
+    print("========= INSIDE SCL===========")
+    print(f"CWD: {os.getcwd()}")
 
     # Finding the GH URL
     gh_base_url = get_github_base_url()
