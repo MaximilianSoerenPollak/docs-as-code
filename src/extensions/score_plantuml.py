@@ -54,7 +54,7 @@ def get_runfiles_dir(source_dir: str) -> Path:
         # We'll still use the plantuml binary from the bazel build.
         # But we need to find it first.
         logger.debug("Running outside bazel.")        
-        runfiles_dir = COMPUTED_GIT_ROOT / "bazel-bin" / source_dir / "ide_support.runfiles"
+        runfiles_dir = f"{COMPUTED_GIT_ROOT}/bazel-bin/{source_dir}/ide_support.runfiles"
 
     if not runfiles_dir.exists():
         sys.exit(
