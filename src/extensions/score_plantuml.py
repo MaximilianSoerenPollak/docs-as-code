@@ -79,6 +79,7 @@ def find_correct_path(runfiles: str) -> str:
 
 
 def setup(app: Sphinx):
+    app.setup_extension("score_source_code_linker")
     app.config.plantuml = find_correct_path(str(get_runfiles_dir(str(app.srcdir))))
     app.config.plantuml_output_format = "svg_obj"
     app.config.plantuml_syntax_error_image = True
