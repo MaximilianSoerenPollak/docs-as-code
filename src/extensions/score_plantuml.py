@@ -79,7 +79,7 @@ def find_correct_path(runfiles: str) -> str:
 
 
 def setup(app: Sphinx):
-    app.config.plantuml = find_correct_path(str(get_runfiles_dir(app.config.srcdir)))
+    app.config.plantuml = find_correct_path(str(get_runfiles_dir(str(app.srcdir))))
     app.config.plantuml_output_format = "svg_obj"
     app.config.plantuml_syntax_error_image = True
     app.config.needs_build_needumls = "_plantuml_sources"
