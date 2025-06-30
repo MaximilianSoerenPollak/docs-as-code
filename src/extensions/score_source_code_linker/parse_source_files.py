@@ -92,6 +92,7 @@ def find_git_root(file: str):
                 "Could not find git root. Please run this script from the "
                 "root of the repository."
             )
+    print(f"=== GIT ROOT FOUND: {git_root}")
     return git_root
 
 
