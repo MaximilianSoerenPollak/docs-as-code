@@ -32,8 +32,8 @@ TAGS = [
 ]
 
 
-def get_github_base_url() -> str:
-    git_root = find_git_root()
+def get_github_base_url(file: str) -> str:
+    git_root = find_git_root(file)
     repo = get_github_repo_info(git_root)
     return f"https://github.com/{repo}"
 
@@ -74,12 +74,12 @@ def get_github_repo_info(git_root_cwd: Path) -> str:
     return repo
 
 
-def find_git_root():
+def find_git_root(file: str):
     """
     This is copied from 'find_runfiles' as the import does not work for some reason.
     This should be fixed.
     """
-    git_root = Path(__file__).resolve()
+    git_root = Path(file).resolve()
     print(f"GIT ROOT START: {git_root}")
     while not (git_root / ".git").exists():
         git_root = git_root.parent
@@ -188,11 +188,16 @@ if __name__ == "__main__":
     print(f"CWD: {os.getcwd()}")
 
     # Finding the GH URL
-    gh_base_url = get_github_base_url()
+    git_root_found = False
+    gh_base_url = ""
     requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
     for input in args.inputs:
         with open(input) as f:
             for source_file in f:
+                if not git_root_found:
+                    gh_base_url = get_github_base_url(source_file)
+                    if gh_base_url: 
+                        git_root_found = True
                 rm = extract_requirements(source_file.strip(), gh_base_url)
                 for k, v in rm.items():
                     requirement_mappings[k].extend(v)
