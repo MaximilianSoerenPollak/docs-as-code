@@ -34,7 +34,7 @@ from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
-from extensions.score_source_code_linker.parse_source_files import COMPUTED_GIT_ROOT
+from score_source_code_linker.parse_source_files import COMPUTED_GIT_ROOT
 
 
 def get_runfiles_dir(source_dir: str) -> Path:
