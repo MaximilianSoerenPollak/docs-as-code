@@ -34,8 +34,10 @@ from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
+from extensions.score_source_code_linker.parse_source_files import COMPUTED_GIT_ROOT
 
-def get_runfiles_dir() -> Path:
+
+def get_runfiles_dir(source_dir: str) -> Path:
     if r := os.getenv("RUNFILES_DIR"):
         # Runfiles are only available when running in Bazel.
         # bazel build and bazel run are both supported.
@@ -51,15 +53,8 @@ def get_runfiles_dir() -> Path:
         # environment.
         # We'll still use the plantuml binary from the bazel build.
         # But we need to find it first.
-        logger.debug("Running outside bazel.")
-
-        git_root = Path(__file__).resolve()
-        while not (git_root / ".git").exists():
-            git_root = git_root.parent
-            if git_root == Path("/"):
-                sys.exit("Could not find git root.")
-
-        runfiles_dir = git_root / "bazel-bin" / "docs" / "ide_support.runfiles"
+        logger.debug("Running outside bazel.")        
+        runfiles_dir = COMPUTED_GIT_ROOT / "bazel-bin" / source_dir / "ide_support.runfiles"
 
     if not runfiles_dir.exists():
         sys.exit(
@@ -84,7 +79,7 @@ def find_correct_path(runfiles: str) -> str:
 
 
 def setup(app: Sphinx):
-    app.config.plantuml = find_correct_path(str(get_runfiles_dir()))
+    app.config.plantuml = find_correct_path(str(get_runfiles_dir(app.config.srcdir)))
     app.config.plantuml_output_format = "svg_obj"
     app.config.plantuml_syntax_error_image = True
     app.config.needs_build_needumls = "_plantuml_sources"

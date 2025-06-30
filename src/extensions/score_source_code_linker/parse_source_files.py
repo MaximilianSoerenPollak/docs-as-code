@@ -19,7 +19,6 @@ import sys
 import subprocess
 
 
-# Importing from collections.abc as typing.Callable is deprecated since Python 3.9
 from collections.abc import Callable
 from pathlib import Path
 
@@ -32,9 +31,13 @@ TAGS = [
 ]
 
 COMPUTED_GITHUB_BASE_URL = ""
+COMPUTED_GIT_ROOT = "" 
 
 def set_github_base_url(file: str):
+    global COMPUTED_GIT_ROOT
+    global COMPUTED_GITHUB_BASE_URL
     git_root = find_git_root(file)
+    COMPUTED_GIT_ROOT = git_root
     repo = get_github_repo_info(git_root)
     COMPUTED_GITHUB_BASE_URL = f"https://github.com/{repo}"
 
