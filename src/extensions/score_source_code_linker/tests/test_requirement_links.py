@@ -20,7 +20,6 @@ import logging
 from pytest import TempPathFactory
 from src.extensions.score_source_code_linker.parse_source_files import (
     get_github_base_url,
-    find_git_root,
     get_github_repo_info,
     extract_requirements,
     get_git_hash,

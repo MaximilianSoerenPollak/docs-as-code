@@ -34,13 +34,8 @@ def find_project_root():
         # Check for common project root indicators
         project_markers = [
             '.git',
-            'WORKSPACE',
-            'WORKSPACE.bazel',
             '.bazelrc',
             'pyproject.toml',
-            'setup.py',
-            'requirements.txt',
-            '.project_root'  # Custom marker file you can create
         ]
         
         for marker in project_markers:

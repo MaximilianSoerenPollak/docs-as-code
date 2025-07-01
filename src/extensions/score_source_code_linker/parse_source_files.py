@@ -59,6 +59,8 @@ def get_github_repo_info(git_root_cwd: Path) -> str:
         ["git", "remote", "-v"], capture_output=True, text=True, cwd=git_root_cwd
     )
     repo = ""
+    print("======= Git ROOT PATH========")
+    print(git_root_cwd)
     for line in process.stdout.split("\n"):
         if "origin" in line and "(fetch)" in line:
             repo = parse_git_output(line)
@@ -73,22 +75,6 @@ def get_github_repo_info(git_root_cwd: Path) -> str:
         "Remote repository is not defined. Make sure you have a remote set. Check this via 'git remote -v'"
     )
     return repo
-
-
-def find_git_root():
-    """
-    This is copied from 'find_runfiles' as the import does not work for some reason.
-    This should be fixed.
-    """
-    git_root = Path(__file__).resolve()
-    while not (git_root / ".git").exists():
-        git_root = git_root.parent
-        if git_root == Path("/"):
-            sys.exit(
-                "Could not find git root. Please run this script from the "
-                "root of the repository."
-            )
-    return git_root
 
 
 def get_git_hash(file_path: str) -> str:
