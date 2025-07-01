@@ -25,6 +25,7 @@ from pathlib import Path
 from src.find_runfiles.runfiles import find_project_root
 
 logger = logging.getLogger(__name__)
+logger.setLevel("DEBUG")
 
 TAGS = [
     "# req-traceability:",
@@ -35,7 +36,6 @@ TAGS = [
 def get_github_base_url(project_root: Path) -> str:
     repo = get_github_repo_info(Path(project_root))
     return f"https://github.com/{repo}"
-    #return f"https://github.com/test"
 
 
 def parse_git_output(str_line: str) -> str:

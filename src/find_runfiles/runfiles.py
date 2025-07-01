@@ -24,7 +24,8 @@ def find_project_root():
         ).strip()
         if git_root and os.path.exists(git_root):
             return git_root
-    except (subprocess.CalledProcessError, FileNotFoundError, OSError):
+    except (subprocess.CalledProcessError, FileNotFoundError, OSError) as e:
+        print("Erro in runfiles.py. Error: ", e)
         pass
     
     # Method 3: Walk up from current working directory looking for project markers
