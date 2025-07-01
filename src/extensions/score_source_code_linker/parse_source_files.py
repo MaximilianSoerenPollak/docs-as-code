@@ -22,6 +22,7 @@ import subprocess
 # Importing from collections.abc as typing.Callable is deprecated since Python 3.9
 from collections.abc import Callable
 from pathlib import Path
+from src.find_runfiles.runfiles import find_project_root
 
 logger = logging.getLogger(__name__)
 
@@ -32,10 +33,10 @@ TAGS = [
 
 
 def get_github_base_url() -> str:
-    #git_root = find_git_root()
-    #repo = get_github_repo_info(git_root)
-    #return f"https://github.com/{repo}"
-    return f"https://github.com/test"
+    git_root = find_project_root()
+    repo = get_github_repo_info(Path(git_root))
+    return f"https://github.com/{repo}"
+    #return f"https://github.com/test"
 
 
 def parse_git_output(str_line: str) -> str:
