@@ -32,9 +32,8 @@ TAGS = [
 ]
 
 
-def get_github_base_url() -> str:
-    git_root = find_project_root()
-    repo = get_github_repo_info(Path(git_root))
+def get_github_base_url(project_root: Path) -> str:
+    repo = get_github_repo_info(Path(project_root))
     return f"https://github.com/{repo}"
     #return f"https://github.com/test"
 
@@ -172,13 +171,18 @@ if __name__ == "__main__":
     logger.info(f"Parsing source files: {args.inputs}")
 
     # Finding the GH URL
-    gh_base_url = get_github_base_url()
+    project_root = find_project_root()
     requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
-    for input in args.inputs:
-        with open(input) as f:
-            for source_file in f:
-                rm = extract_requirements(source_file.strip(), gh_base_url)
-                for k, v in rm.items():
-                    requirement_mappings[k].extend(v)
-    with open(args.output, "w") as f:
-        f.write(json.dumps(requirement_mappings, indent=2))
+    if ".cache" in project_root:
+        with open(args.output, "w") as f:
+            f.write(json.dumps(requirement_mappings, indent=2))
+    else:
+        gh_base_url = get_github_base_url(Path(project_root))
+        for input in args.inputs:
+            with open(input) as f:
+                for source_file in f:
+                    rm = extract_requirements(source_file.strip(), gh_base_url)
+                    for k, v in rm.items():
+                        requirement_mappings[k].extend(v)
+        with open(args.output, "w") as f:
+            f.write(json.dumps(requirement_mappings, indent=2))
