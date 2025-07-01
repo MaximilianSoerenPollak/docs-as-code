@@ -171,7 +171,7 @@ if __name__ == "__main__":
 
     # Finding the Project Root URL
     #project_root = find_project_root()
-    #requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
+    requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
 
     # Even with the 'disabling inside metamodel' we still need this if check here
     # Otherwise we error in line 180
@@ -188,6 +188,8 @@ if __name__ == "__main__":
     #print(cwd)
     #print("======RESOLVED========")
     #print(Path(cwd).resolve())
+    with open(args.output, "w") as f:
+        f.write(json.dumps(requirement_mappings, indent=2))
 
     ## if a is not None:
     ##     print("==============")
