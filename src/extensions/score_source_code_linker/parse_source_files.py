@@ -183,12 +183,18 @@ if __name__ == "__main__":
     dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY", None)
     #print("================")
     a = os.environ.get("RUNFILES_DIR", None)
-    if a is not None:
-        print("==============")
-        print(Path(a).resolve())
-    else:
-        print("==============")
-        print("RUNFILES DRI Is is none")
+    cwd = os.getcwd()
+    print("======CWD========")
+    print(cwd)
+    print("======RESOLVED========")
+    print(Path(cwd).resolve())
+
+    # if a is not None:
+    #     print("==============")
+    #     print(Path(a).resolve())
+    # else:
+    #     print("==============")
+    #     print("RUNFILES DRI Is is none")
     #pprint(os.environ)
     # for k,v in os.environ.items():
     #     if "dir" in k.lower():
