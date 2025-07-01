@@ -183,6 +183,7 @@ if __name__ == "__main__":
             f.write(json.dumps(requirement_mappings, indent=2))
 
     else:
+        print("In the else statement. Project Root: ", project_root)
         gh_base_url = get_github_base_url(Path(project_root))
         for input in args.inputs:
             with open(input) as f:
