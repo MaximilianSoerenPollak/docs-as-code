@@ -43,3 +43,10 @@ py_binary(
     visibility = ["//visibility:public"],
     deps = ["@score_docs_as_code//src/find_runfiles:find_runfiles"],
 )
+
+py_binary(
+    name = "find_workspace",
+    srcs = ["find_info.py"],
+    main = "find_info.py",
+    visibility = ["//visibility:public"],
+)
