@@ -26,7 +26,9 @@ logger.debug("DEBUG: CWD: ", os.getcwd())
 logger.debug("DEBUG: SOURCE_DIRECTORY: ", os.getenv("SOURCE_DIRECTORY"))
 logger.debug("DEBUG: RUNFILES_DIR: ", os.getenv("RUNFILES_DIR"))
 
-
+print("============================================================")
+print(os.environ)
+print("==================================================")
 def get_env(name: str) -> str:
     val = os.environ.get(name, None)
     logger.debug(f"DEBUG: Env: {name} = {val}")
