@@ -134,6 +134,10 @@ parse_source_files_for_needs_links = rule(
             executable = True,
             cfg = "exec",
         ),
+        "workspace_root": attr.string(
+            default = ".",
+            doc = "Path to the workspace root for git operations",
+        ),
     },
     provides = [
         DefaultInfo,

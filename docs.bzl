@@ -58,7 +58,7 @@ sphinx_requirements = all_requirements + [
     "@score_docs_as_code//src/extensions/score_source_code_linker:score_source_code_linker",
 ]
 
-def docs(source_files_to_scan_for_needs_links = None, source_dir = "docs", conf_dir = "docs", build_dir_for_incremental = "_build", docs_targets = []):
+def docs(source_files_to_scan_for_needs_links = None, source_dir = "docs", conf_dir = "docs", build_dir_for_incremental = "_build", docs_targets = [], cwd="."):
     """
     Creates all targets related to documentation.
     By using this function, you'll get any and all updates for documentation targets in one place.
@@ -71,6 +71,7 @@ def docs(source_files_to_scan_for_needs_links = None, source_dir = "docs", conf_
     parse_source_files_for_needs_links(
         name = "score_source_code_parser",
         srcs_and_deps = source_files_to_scan_for_needs_links if source_files_to_scan_for_needs_links else [],
+        workspace_root = cwd
     )
 
     # We are iterating over all provided 'targets' in order to allow for automatic generation of them without
