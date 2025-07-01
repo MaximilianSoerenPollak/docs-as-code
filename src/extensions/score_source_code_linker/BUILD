@@ -14,7 +14,7 @@ load("@aspect_rules_py//py:defs.bzl", "py_binary", "py_library")
 load("@pip_process//:requirements.bzl", "all_requirements")
 load("@score_python_basics//:defs.bzl", "score_py_pytest")
 
-#exports_files(["parse_source_files.py"])
+exports_files(["find_info.py"])
 
 py_library(
     name = "score_source_code_linker",
