@@ -22,7 +22,7 @@ import subprocess
 # Importing from collections.abc as typing.Callable is deprecated since Python 3.9
 from collections.abc import Callable
 from pathlib import Path
-from src.find_runfiles.runfiles import find_project_root
+from find_runfiles.runfiles import find_project_root
 
 logger = logging.getLogger(__name__)
 
