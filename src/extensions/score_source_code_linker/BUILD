@@ -24,6 +24,7 @@ py_library(
     ),
     imports = ["."],
     visibility = ["//visibility:public"],
+    deps = ["@score_docs_as_code//src/find_runfiles:find_runfiles"],
 )
 
 score_py_pytest(
