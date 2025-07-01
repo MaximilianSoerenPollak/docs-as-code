@@ -71,7 +71,6 @@ def docs(source_files_to_scan_for_needs_links = None, source_dir = "docs", conf_
     parse_source_files_for_needs_links(
         name = "score_source_code_parser",
         srcs_and_deps = source_files_to_scan_for_needs_links if source_files_to_scan_for_needs_links else [],
-        workspace_root = cwd
     )
 
     # We are iterating over all provided 'targets' in order to allow for automatic generation of them without
