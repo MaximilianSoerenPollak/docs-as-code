@@ -31,4 +31,5 @@ copyright_checker(
 exports_files([
     "MODULE.bazel",
     "BUILD",
+    "src/extensions/score_source_code_linker/find_info.py"
 ])
