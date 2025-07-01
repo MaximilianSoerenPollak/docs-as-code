@@ -170,8 +170,8 @@ if __name__ == "__main__":
     logger.info(f"Parsing source files: {args.inputs}")
 
     # Finding the Project Root URL
-    project_root = find_project_root()
-    requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
+    #project_root = find_project_root()
+    #requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
 
     # Even with the 'disabling inside metamodel' we still need this if check here
     # Otherwise we error in line 180
@@ -180,31 +180,31 @@ if __name__ == "__main__":
     #     logger.debug("Found '.cache' in project root path. Will not enable source code linker, therefore writing dummy file. project_root: ", project_root)
     #     with open(args.output, "w") as f:
     #         f.write(json.dumps(requirement_mappings, indent=2))
-    dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY", None)
-    #print("================")
-    a = os.environ.get("RUNFILES_DIR", None)
-    cwd = os.getcwd()
-    print("======CWD========")
-    print(cwd)
-    print("======RESOLVED========")
-    print(Path(cwd).resolve())
+    #dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY", None)
+    ##print("================")
+    #a = os.environ.get("RUNFILES_DIR", None)
+    #cwd = os.getcwd()
+    #print("======CWD========")
+    #print(cwd)
+    #print("======RESOLVED========")
+    #print(Path(cwd).resolve())
 
-    # if a is not None:
-    #     print("==============")
-    #     print(Path(a).resolve())
-    # else:
-    #     print("==============")
-    #     print("RUNFILES DRI Is is none")
-    #pprint(os.environ)
-    # for k,v in os.environ.items():
-    #     if "dir" in k.lower():
-    #         print(f"{k}:{v}")
-    gh_base_url = get_github_base_url(Path(dir))
-    for input in args.inputs:
-        with open(input) as f:
-            for source_file in f:
-                rm = extract_requirements(source_file.strip(), gh_base_url)
-                for k, v in rm.items():
-                    requirement_mappings[k].extend(v)
-    with open(args.output, "w") as f:
-        f.write(json.dumps(requirement_mappings, indent=2))
+    ## if a is not None:
+    ##     print("==============")
+    ##     print(Path(a).resolve())
+    ## else:
+    ##     print("==============")
+    ##     print("RUNFILES DRI Is is none")
+    ##pprint(os.environ)
+    ## for k,v in os.environ.items():
+    ##     if "dir" in k.lower():
+    ##         print(f"{k}:{v}")
+    #gh_base_url = get_github_base_url(Path(dir))
+    #for input in args.inputs:
+    #    with open(input) as f:
+    #        for source_file in f:
+    #            rm = extract_requirements(source_file.strip(), gh_base_url)
+    #            for k, v in rm.items():
+    #                requirement_mappings[k].extend(v)
+    #with open(args.output, "w") as f:
+    #    f.write(json.dumps(requirement_mappings, indent=2))
