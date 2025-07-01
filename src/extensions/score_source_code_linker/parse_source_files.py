@@ -70,7 +70,7 @@ def get_github_repo_info(git_root_cwd: Path) -> str:
             "Did not find origin remote name. Will now take first result from: 'git remote -v'"
         )
         repo = parse_git_output(process.stdout.split("\n")[0])
-    assert repo != "", (
+    assert repo != "" and ".cache" not in str(git_root_cwd), (
         "Remote repository is not defined. Make sure you have a remote set. Check this via 'git remote -v'"
     )
     return repo
