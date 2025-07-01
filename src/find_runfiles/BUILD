@@ -16,7 +16,7 @@ load("@score_python_basics//:defs.bzl", "score_py_pytest")
 
 py_library(
     name = "find_runfiles",
-    srcs = ["__init__.py"],
+    srcs = ["__init__.py", "runfiles.py"],
     imports = ["."],
     visibility = ["//visibility:public"],
 )

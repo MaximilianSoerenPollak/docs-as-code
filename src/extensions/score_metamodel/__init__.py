@@ -24,9 +24,8 @@ from sphinx.application import Sphinx
 from sphinx_needs import logging
 from sphinx_needs.data import NeedsInfoType, SphinxNeedsData, NeedsView
 
-from src.find_runfiles import find_git_root
+from src.find_runfiles.runfiles import find_project_root
 from .log import CheckLogger
-from .runfiles import find_project_root
 
 logger = logging.get_logger(__name__)
 
@@ -288,13 +287,15 @@ def parse_external_needs_sources(app: Sphinx, config):
 def setup(app: Sphinx) -> dict[str, str | bool]:
     app.add_config_value("external_needs_source", "", rebuild="env")
     app.add_config_value("allowed_external_prefixes", [], rebuild="env")
+    app.add_config_value("project_root", "", rebuild="env")
     app.config.needs_id_required = True
     app.config.needs_id_regex = "^[A-Za-z0-9_-]{6,}"
+    app.config.project_root = find_project_root()
     # load metamodel.yaml via ruamel.yaml
     metamodel = load_metamodel_data()
 
     print("======RUNFILES PROJECt ROOT===========")
-    print(find_project_root())
+    print(app.config.project_root)
 
     # Assign everything to Sphinx config
     app.config.needs_types = metamodel["needs_types"]
