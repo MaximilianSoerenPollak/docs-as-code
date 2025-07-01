@@ -25,7 +25,6 @@ from pathlib import Path
 from src.find_runfiles.runfiles import find_project_root
 
 logger = logging.getLogger(__name__)
-logger.setLevel("DEBUG")
 
 TAGS = [
     "# req-traceability:",
@@ -58,8 +57,6 @@ def get_github_repo_info(git_root_cwd: Path) -> str:
         ["git", "remote", "-v"], capture_output=True, text=True, cwd=git_root_cwd
     )
     repo = ""
-    print("======= Git ROOT PATH========")
-    print(git_root_cwd)
     for line in process.stdout.split("\n"):
         if "origin" in line and "(fetch)" in line:
             repo = parse_git_output(line)
@@ -70,8 +67,6 @@ def get_github_repo_info(git_root_cwd: Path) -> str:
             "Did not find origin remote name. Will now take first result from: 'git remote -v'"
         )
         repo = parse_git_output(process.stdout.split("\n")[0])
-    print("======= REPO ========")
-    print(repo)
     assert repo != "",(
         "Remote repository is not defined. Make sure you have a remote set. Check this via 'git remote -v'"
     )
@@ -163,6 +158,7 @@ def extract_requirements(
     return requirement_mapping
 
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-o", "--output")
@@ -172,18 +168,16 @@ if __name__ == "__main__":
 
     logger.info(f"Parsing source files: {args.inputs}")
 
-    # Finding the GH URL
+    # Finding the Project Root URL
     project_root = find_project_root()
     requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
-    print("========== PROJECT ROOT======")
-    print(project_root)
-    if ".cache" in project_root:
-        print("inside the if statement with cache")
-        with open(args.output, "w") as f:
-            f.write(json.dumps(requirement_mappings, indent=2))
 
+    # Even with the 'disabling inside metamodel' we still need this if check here
+    # Otherwise we error in line 180
+    if ".cache" in project_root:
+        # This should be enough.
+        logger.debug("Found '.cache' in project root path. Will not enable source code linker, therefore not save/parse files. project_root: ", project_root)
     else:
-        print("In the else statement. Project Root: ", project_root)
         gh_base_url = get_github_base_url(Path(project_root))
         for input in args.inputs:
             with open(input) as f:

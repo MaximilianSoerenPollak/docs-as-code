@@ -294,8 +294,7 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
     # load metamodel.yaml via ruamel.yaml
     metamodel = load_metamodel_data()
 
-    print("======RUNFILES PROJECt ROOT===========")
-    print(app.config.project_root)
+    # We do not want to enable source code linking / gh parsing if docs-as-code is external
     if ".cache" in app.config.project_root:
         app.config.disable_source_code_linker = True
 
