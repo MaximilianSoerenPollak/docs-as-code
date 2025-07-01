@@ -182,17 +182,17 @@ if __name__ == "__main__":
     #         f.write(json.dumps(requirement_mappings, indent=2))
     dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY", None)
     #print("================")
-    a = os.environ.get("PWD", None)
+    a = os.environ.get("RUNFILES_DIR", None)
     if a is not None:
         print("==============")
         print(Path(a).resolve())
     else:
         print("==============")
-        print("PWD is none")
+        print("RUNFILES DRI Is is none")
     #pprint(os.environ)
-    for k,v in os.environ.items():
-        if "dir" in k.lower():
-            print(f"{k}:{v}")
+    # for k,v in os.environ.items():
+    #     if "dir" in k.lower():
+    #         print(f"{k}:{v}")
     gh_base_url = get_github_base_url(Path(dir))
     for input in args.inputs:
         with open(input) as f:
