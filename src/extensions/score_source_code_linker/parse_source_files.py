@@ -181,8 +181,15 @@ if __name__ == "__main__":
     #     with open(args.output, "w") as f:
     #         f.write(json.dumps(requirement_mappings, indent=2))
     dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY", None)
-    print("================")
-    pprint(os.environ)
+    #print("================")
+    a = os.environ.get("PWD", None)
+    if a is not None:
+        print("==============")
+        print(Path(a).resolve())
+    else:
+        print("==============")
+        print("PWD is none")
+    #pprint(os.environ)
     for k,v in os.environ.items():
         if "dir" in k.lower():
             print(f"{k}:{v}")
