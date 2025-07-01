@@ -180,10 +180,9 @@ if __name__ == "__main__":
     #     with open(args.output, "w") as f:
     #         f.write(json.dumps(requirement_mappings, indent=2))
     dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY", None)
-    print("==============")
-    print(dir)
-    if dir is None:
-        sys.exit(1)
+    for k,v in os.environ.items():
+        if "dir" in k.lower():
+            print(f"{k}:{v}")
     gh_base_url = get_github_base_url(Path(dir))
     for input in args.inputs:
         with open(input) as f:
