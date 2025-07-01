@@ -14,6 +14,7 @@ import argparse
 import collections
 import json
 import logging
+from pprint import pprint
 import os
 import sys
 import subprocess
@@ -180,6 +181,8 @@ if __name__ == "__main__":
     #     with open(args.output, "w") as f:
     #         f.write(json.dumps(requirement_mappings, indent=2))
     dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY", None)
+    print("================")
+    pprint(os.environ)
     for k,v in os.environ.items():
         if "dir" in k.lower():
             print(f"{k}:{v}")
