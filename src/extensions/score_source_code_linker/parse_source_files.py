@@ -72,7 +72,7 @@ def get_github_repo_info(git_root_cwd: Path) -> str:
         repo = parse_git_output(process.stdout.split("\n")[0])
     print("======= REPO ========")
     print(repo)
-    assert repo != "" and  ".cache" not in str(git_root_cwd),(
+    assert repo != "",(
         "Remote repository is not defined. Make sure you have a remote set. Check this via 'git remote -v'"
     )
     return repo
@@ -175,9 +175,13 @@ if __name__ == "__main__":
     # Finding the GH URL
     project_root = find_project_root()
     requirement_mappings: dict[str, list[str]] = collections.defaultdict(list)
+    print("========== PROJECT ROOT======")
+    print(project_root)
     if ".cache" in project_root:
+        print("inside the if statement with cache")
         with open(args.output, "w") as f:
             f.write(json.dumps(requirement_mappings, indent=2))
+
     else:
         gh_base_url = get_github_base_url(Path(project_root))
         for input in args.inputs:
