@@ -24,7 +24,6 @@ py_library(
     ),
     imports = ["."],
     visibility = ["//visibility:public"],
-    deps = ["@score_docs_as_code//src/find_runfiles:find_runfiles"],
 )
 
 score_py_pytest(
@@ -42,4 +41,5 @@ py_binary(
     srcs = ["parse_source_files.py"],
     main = "parse_source_files.py",
     visibility = ["//visibility:public"],
+    deps = ["@score_docs_as_code//src/find_runfiles:find_runfiles"],
 )
