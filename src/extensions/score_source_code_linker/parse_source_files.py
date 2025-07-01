@@ -32,9 +32,10 @@ TAGS = [
 
 
 def get_github_base_url() -> str:
-    git_root = find_git_root()
-    repo = get_github_repo_info(git_root)
-    return f"https://github.com/{repo}"
+    #git_root = find_git_root()
+    #repo = get_github_repo_info(git_root)
+    #return f"https://github.com/{repo}"
+    return f"https://github.com/test"
 
 
 def parse_git_output(str_line: str) -> str:
