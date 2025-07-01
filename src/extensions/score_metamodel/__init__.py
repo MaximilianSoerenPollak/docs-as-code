@@ -295,8 +295,8 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
     metamodel = load_metamodel_data()
 
     # We do not want to enable source code linking / gh parsing if docs-as-code is external
-    if ".cache" in app.config.project_root:
-        app.config.disable_source_code_linker = True
+    # if ".cache" in app.config.project_root:
+    #     app.config.disable_source_code_linker = True
 
     # Assign everything to Sphinx config
     app.config.needs_types = metamodel["needs_types"]

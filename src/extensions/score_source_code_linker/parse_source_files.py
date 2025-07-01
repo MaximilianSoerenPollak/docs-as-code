@@ -174,18 +174,22 @@ if __name__ == "__main__":
 
     # Even with the 'disabling inside metamodel' we still need this if check here
     # Otherwise we error in line 180
-    if ".cache" in project_root:
-        # Need to write dummy file or bazel complains that rule & execution did not create output.
-        logger.debug("Found '.cache' in project root path. Will not enable source code linker, therefore writing dummy file. project_root: ", project_root)
-        with open(args.output, "w") as f:
-            f.write(json.dumps(requirement_mappings, indent=2))
-    else:
-        gh_base_url = get_github_base_url(Path(project_root))
-        for input in args.inputs:
-            with open(input) as f:
-                for source_file in f:
-                    rm = extract_requirements(source_file.strip(), gh_base_url)
-                    for k, v in rm.items():
-                        requirement_mappings[k].extend(v)
-        with open(args.output, "w") as f:
-            f.write(json.dumps(requirement_mappings, indent=2))
+    # if ".cache" in project_root:
+    #     # Need to write dummy file or bazel complains that rule & execution did not create output.
+    #     logger.debug("Found '.cache' in project root path. Will not enable source code linker, therefore writing dummy file. project_root: ", project_root)
+    #     with open(args.output, "w") as f:
+    #         f.write(json.dumps(requirement_mappings, indent=2))
+    dir = os.environ.get("BUILD_WORKSPACE_DIRECTORY", None)
+    print("==============")
+    print(dir)
+    if dir is None:
+        sys.exit(1)
+    gh_base_url = get_github_base_url(Path(dir))
+    for input in args.inputs:
+        with open(input) as f:
+            for source_file in f:
+                rm = extract_requirements(source_file.strip(), gh_base_url)
+                for k, v in rm.items():
+                    requirement_mappings[k].extend(v)
+    with open(args.output, "w") as f:
+        f.write(json.dumps(requirement_mappings, indent=2))
