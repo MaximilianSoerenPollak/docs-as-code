@@ -110,7 +110,7 @@ def add_source_link(app: Sphinx, env: BuildEnvironment) -> None:
     # For some reason the prefix 'sphinx_needs internally' is CAPSLOCKED.
     # So we have to make sure we uppercase the prefixes
     prefixes = [x["id_prefix"].upper() for x in app.config.needs_external_needs]
-    github_base_url = get_github_base_url() + "/blob/"
+    github_base_url = get_github_base_url(app.config.project_root) + "/blob/"
     try:
         with open(path) as f:
             gh_json = json.load(f)
