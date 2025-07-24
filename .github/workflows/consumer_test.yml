@@ -68,7 +68,7 @@ jobs:
               status: "completed",
               conclusion: conclusion,
               output: {
-                title: "Consumer Tests Result",
+                title: "Consumer Tests Result (manually triggered)",
                 summary: `The Consumer Tests step concluded with: ${conclusion}`
               }
             });
