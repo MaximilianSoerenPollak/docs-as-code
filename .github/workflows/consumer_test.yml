@@ -24,27 +24,29 @@ jobs:
     if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, '/consumer-test') }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Get PR details
+        id: pr_details
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            core.setOutput('head_sha', pr.head.sha);
+            core.setOutput('head_ref', pr.head.ref);
+
+      - name: Checkout PR
         uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ steps.pr_details.outputs.head_ref }}
 
       - name: Run Consumer tests
         id: consumer_tests
         run: |
           bazel run //src:ide_support
           .venv/bin/python -m pytest -s -v src/tests/
-
-      - name: Get PR details
-        id: pr
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const pr = await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.issue.number
-            });
-            return pr.data.head.sha;
-          result-encoding: string
 
       - name: Report Consumer Tests Check
         if: always()
@@ -54,11 +56,15 @@ jobs:
             const outcome = '${{ steps.consumer_tests.outcome }}';
             const conclusion = outcome === 'success' ? 'success' :
                                outcome === 'skipped' ? 'neutral' : 'failure';
+            
+            console.log(`Test outcome: ${outcome}, conclusion: ${conclusion}`);
+            console.log(`Head SHA: ${{ steps.pr_details.outputs.head_sha }}`);
+            
             await github.rest.checks.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               name: "Consumer Tests",
-              head_sha: '${{ steps.pr.outputs.result }}',
+              head_sha: '${{ steps.pr_details.outputs.head_sha }}',
               status: "completed",
               conclusion: conclusion,
               output: {

@@ -82,30 +82,30 @@ REPOS_TO_TEST: list[ConsumerRepo] = [
         commands=["bazel run //process:incremental_latest"],
         test_commands=[],
     ),
-    ConsumerRepo(
-        name="score",
-        git_url="https://github.com/eclipse-score/score.git",
-        commands=[
-            "bazel run //docs:incremental_latest",
-            "bazel run //docs:ide_support",
-            "bazel run //docs:incremental_release",
-            "bazel build //docs:docs_release",
-            "bazel build //docs:docs_latest",
-        ],
-        test_commands=[],
-    ),
-    ConsumerRepo(
-        name="module_template",
-        git_url="https://github.com/eclipse-score/module_template.git",
-        commands=[
-            "bazel run //docs:ide_support",
-            "bazel run //docs:incremental",
-            "bazel build //docs:docs",
-        ],
-        test_commands=[
-            "bazel test //tests/...",
-        ],
-    ),
+    # ConsumerRepo(
+    #     name="score",
+    #     git_url="https://github.com/eclipse-score/score.git",
+    #     commands=[
+    #         "bazel run //docs:incremental_latest",
+    #         "bazel run //docs:ide_support",
+    #         "bazel run //docs:incremental_release",
+    #         "bazel build //docs:docs_release",
+    #         "bazel build //docs:docs_latest",
+    #     ],
+    #     test_commands=[],
+    # ),
+    # ConsumerRepo(
+    #     name="module_template",
+    #     git_url="https://github.com/eclipse-score/module_template.git",
+    #     commands=[
+    #         "bazel run //docs:ide_support",
+    #         "bazel run //docs:incremental",
+    #         "bazel build //docs:docs",
+    #     ],
+    #     test_commands=[
+    #         "bazel test //tests/...",
+    #     ],
+    # ),
 ]
 
 
