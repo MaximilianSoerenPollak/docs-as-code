@@ -20,9 +20,11 @@ import logging
 from pathlib import Path
 from rich import print
 from rich.table import Table
+from rich.console import Console
 from collections import defaultdict
 from pytest import TempPathFactory
 from dataclasses import dataclass, field
+
 
 from src.extensions.score_source_code_linker.generate_source_code_links_json import (
     find_git_root,
@@ -49,6 +51,10 @@ len_max = 80
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel("DEBUG")
 
+console = Console(
+    force_terminal=True if os.getenv('CI') else None,
+    width=120
+)
 
 @dataclass
 class ConsumerRepo:
