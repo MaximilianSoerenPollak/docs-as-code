@@ -21,16 +21,12 @@ If your IDE does not automatically ask you to activate the newly created environ
 ### Enabeling pre-commit
 
 Pre-commit is supported inside docs-as-code to help with code quality and make developers workflow easier.
-Install pre-commit via pipx
-```bash
-pipx install pre-commit
-```
 
-And then install the hook:
+Install the hook:
 ```bash
 pre-commit install
 
-# Or you can do it pre-push only via:
+# Or install it to run on pre-push via:
 pre-commit install --hook-type pre-push
 ```
 
