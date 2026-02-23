@@ -1,0 +1,57 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+        exclude: ^\.vscode/ # those are actually jsonc files
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: mixed-line-ending
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb=10"]
+
+  # use LOCAL hooks for python tooling so versions come from the virtualenv
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: ruff check --fix
+        language: system
+        types_or: [python, pyi]
+
+      - id: ruff-format
+        name: ruff format
+        entry: ruff format
+        language: system
+        types_or: [python, pyi]
+
+      # Can not get this to run ;/
+      # - id: basedpyright
+      #   name: basedpyright
+      #   entry: python -m basedpyright
+      #   language: system
+      #   types_or: [python, pyi]
+      #   pass_filenames: false
+
+      - id: actionlint
+        name: actionlint (container)
+        entry: actionlint
+        language: system
+        files: ^\.github/workflows/.*\.ya?ml$
+
+      - id: yamlfmt
+        name: yamlfmt (container)
+        entry: yamlfmt
+        language: system
+        types: [yaml]
+
+      - id: shellcheck
+        name: shellcheck (container)
+        entry: shellcheck
+        language: system
+        types: [shell]

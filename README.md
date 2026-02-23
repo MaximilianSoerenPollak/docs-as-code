@@ -3,7 +3,7 @@
 Docs-as-code tooling for Eclipse S-CORE
 
 Full documentation is on [GitHub Pages](https://eclipse-score.github.io/docs-as-code/).
-
+TTT
 > [!NOTE]
 > This repository offers a [DevContainer](https://containers.dev/).
 > For setting this up read [eclipse-score/devcontainer/README.md#inside-the-container](https://github.com/eclipse-score/devcontainer/blob/main/README.md#inside-the-container).
@@ -17,6 +17,24 @@ If your IDE does not automatically ask you to activate the newly created environ
 
 - In VSCode via `ctrl+p` => `Select Python Interpreter` then select `.venv_docs/bin/python`
 - In the terminal via `. .venv_docs/bin/activate`
+
+### Enabeling pre-commit
+
+Pre-commit is supported inside docs-as-code to help with code quality and make developers workflow easier.
+Install pre-commit via pipx
+```bash
+pipx install pre-commit
+```
+
+And then install the hook:
+```bash
+pre-commit install
+
+# Or you can do it pre-push only via:
+pre-commit install --hook-type pre-push
+```
+
+Execute the pre-commit manually via `pre-commit`
 
 ### Format your documentation with:
 
