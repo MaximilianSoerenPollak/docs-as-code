@@ -3,7 +3,7 @@
 Docs-as-code tooling for Eclipse S-CORE
 
 Full documentation is on [GitHub Pages](https://eclipse-score.github.io/docs-as-code/).
-TTT
+
 > [!NOTE]
 > This repository offers a [DevContainer](https://containers.dev/).
 > For setting this up read [eclipse-score/devcontainer/README.md#inside-the-container](https://github.com/eclipse-score/devcontainer/blob/main/README.md#inside-the-container).
