@@ -32,7 +32,7 @@ jobs:
         with:
           cacheFrom: ghcr.io/eclipse-score/devcontainer
           imageTag: v1.2.0
-          runCmd: "${PIPX_BIN_DIR}/pre-commit" run -a
+          runCmd: ${PIPX_BIN_DIR}/pre-commit run -a
     # - name: Give User permissions to write
     #   run: |
     #     chown -R vscode:vscode "$GITHUB_WORKSPACE"
