@@ -20,6 +20,9 @@ jobs:
   code:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
