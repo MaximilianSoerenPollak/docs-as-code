@@ -30,4 +30,4 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: Run Linter Script
-        run: su vscode && pre-commit
+        run: su vscode && cd /workspaces/docs-as-code && pre-commit
