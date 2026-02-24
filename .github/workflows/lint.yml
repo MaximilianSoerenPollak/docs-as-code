@@ -29,17 +29,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
 
-      - name: Locate pre-commit (as vscode)
-        run: |
-          su -l vscode -c '
-            set -e
-            echo "HOME=$HOME"
-            echo "PATH=$PATH"
-            command -v pre-commit || true
-            ls -la "$HOME/.local/bin" || true
-            find "$HOME" -maxdepth 4 -name pre-commit -type f 2>/dev/null || true
-          '
-
       - name: Run Linter Script
-        run: su -l vscode -c 'cd "$GITHUB_WORKSPACE" && pre-commit run -a'
+        run: su -l vscode -c 'uv tool install pre-commit && pre-commit run -a'
         #run: su vscode && pre-commit
