@@ -35,7 +35,7 @@ jobs:
           runCmd: env
       - name: Echo env
         run: echo $"runCmdOutput"
-          #${PIPX_BIN_DIR}/pre-commit run -a
+        #${PIPX_BIN_DIR}/pre-commit run -a
     # - name: Give User permissions to write
     #   run: |
     #     chown -R vscode:vscode "$GITHUB_WORKSPACE"
