@@ -22,17 +22,12 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/eclipse-score/devcontainer:v1.2.0
     continue-on-error: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
 
-      - name: Setup Bazel
-        uses: bazel-contrib/setup-bazel@0.15.0
-        with:
-          disk-cache: true
-          repository-cache: true
-          bazelisk-cache: true
-
       - name: Run Linter Script
-        run: bash scripts/run-linters.sh
+        run: pre-commit
