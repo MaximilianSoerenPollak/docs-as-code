@@ -37,12 +37,12 @@ jobs:
         with:
           cacheFrom: ghcr.io/eclipse-score/devcontainer@v1.2.0
           push: never
-            # The pipefail ensures that non 0 exit codes inside the pytest execution get carried into the pipe 
-            # & make the tests red in the end. Without this we only would check the exit code of the 'tee' command.
+          # The pipefail ensures that non 0 exit codes inside the pytest execution get carried into the pipe
+          # & make the tests red in the end. Without this we only would check the exit code of the 'tee' command.
           runCmd: |
             set -euxo pipefail
 
-            # Prepare Python 
+            # Prepare Python
             pip install -r src/requirements.txt
 
             # Prepare report directory
