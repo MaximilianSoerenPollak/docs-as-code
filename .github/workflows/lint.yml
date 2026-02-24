@@ -31,5 +31,12 @@ jobs:
 
       - name: Run Linter Script
         run: |
-          su -l vscode -c 'uv tool install pre-commit && cd /home/vscode/workspaces/docs-as-code && git config --global --add safe.directory /home/vscode/workspaces/docs-as-code && pre-commit run -a'
-        #run: su vscode && pre-commit
+          WS="$GITHUB_WORKSPACE"
+          su -l vscode -c "
+            set -euo pipefail
+            uv tool install pre-commit
+            cd '$WS'
+            git rev-parse --show-toplevel
+            git config --global --add safe.directory '$WS'
+            pre-commit run -a
+          "
