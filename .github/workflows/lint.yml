@@ -32,18 +32,18 @@ jobs:
         with:
           imageName: ghcr.io/eclipse-score/devcontainer:v1.2.0
           runCmd: pre-commit run -a
-      # - name: Give User permissions to write
-      #   run: |
-      #     chown -R vscode:vscode "$GITHUB_WORKSPACE"
-      #
-      # - name: Run Linter Script
-      #   run: |
-      #     WS="$GITHUB_WORKSPACE"
-      #     su -l vscode -c "
-      #       set -euo pipefail
-      #       uv tool install pre-commit
-      #       cd '$WS'
-      #       git config --global --add safe.directory '$WS'
-      #       git rev-parse --show-toplevel
-      #       pre-commit run -a
-      #     "
+    # - name: Give User permissions to write
+    #   run: |
+    #     chown -R vscode:vscode "$GITHUB_WORKSPACE"
+    #
+    # - name: Run Linter Script
+    #   run: |
+    #     WS="$GITHUB_WORKSPACE"
+    #     su -l vscode -c "
+    #       set -euo pipefail
+    #       uv tool install pre-commit
+    #       cd '$WS'
+    #       git config --global --add safe.directory '$WS'
+    #       git rev-parse --show-toplevel
+    #       pre-commit run -a
+    #     "
