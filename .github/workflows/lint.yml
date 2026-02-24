@@ -33,6 +33,8 @@ jobs:
           cacheFrom: ghcr.io/eclipse-score/devcontainer
           imageTag: v1.2.0
           runCmd: env
+      - name: Echo env
+        run: echo $"runCmdOutput"
           #${PIPX_BIN_DIR}/pre-commit run -a
     # - name: Give User permissions to write
     #   run: |
