@@ -37,7 +37,7 @@ extend-exclude = [
     "bazel-*",
     "**/__pycache__",
     "/.*",
-    ".venv*/**", 
+    ".venv*/**",
 ]
 
 # Selected rules for clean code, readability, and bug prevention
