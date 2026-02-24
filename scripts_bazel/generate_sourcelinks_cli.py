@@ -55,6 +55,11 @@ def main():
     all_need_references = []
     for file_path in args.files:
         abs_file_path = file_path.resolve()
+        print("======")
+        print(abs_file_path.parent)
+        print(abs_file_path)
+        print(abs_file_path.__dir__())
+        print("======")
         assert abs_file_path.exists(), abs_file_path
         references = _extract_references_from_file(
             abs_file_path.parent, Path(abs_file_path.name)
