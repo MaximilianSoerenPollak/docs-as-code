@@ -43,7 +43,7 @@ jobs:
             set -euxo pipefail
 
             # Prepare Python
-            pip install -r src/requirements.txt
+            uv venv && uv pip install -r src/requirements.txt
 
             # Prepare report directory
             mkdir -p reports
@@ -54,7 +54,7 @@ jobs:
             export PYTHONUNBUFFERED="1"
             export CONSUMER="${{ matrix.consumer }}"
 
-            pytest -s -v src/tests/ \
+            uv run pytest -s -v src/tests/ \
               --repo="$CONSUMER" \
               --junitxml="reports/${{ matrix.consumer }}.xml" \
               | tee "reports/${{ matrix.consumer }}.log"
