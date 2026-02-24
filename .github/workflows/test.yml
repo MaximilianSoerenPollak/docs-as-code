@@ -19,35 +19,17 @@ on:
 jobs:
   code:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/eclipse-score/devcontainer:v1.2.0
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4.2.2
-      - name: Cache Bazel and pip
-        uses: actions/cache@v4
+      - name: Build and run dev container task
+        uses: devcontainers/ci@v0.3
         with:
-          path: |
-            ~/.cache/bazel
-            ~/.cache/pip
-          key: ${{ runner.os }}-test-${{ hashFiles('**/*.bazel', '**/BUILD', '**/*.bzl', 'src/requirements.txt', 'src/**/*.py') }}
-
-      - name: Setup Bazel with cache
-        uses: bazel-contrib/setup-bazel@0.15.0
-        with:
-          disk-cache: true
-          repository-cache: true
-          bazelisk-cache: true
-      - name: Run test targets
-        run: |
-          WS="$GITHUB_WORKSPACE"
-          su -l vscode -c "
-            cd '$WS'
+          cacheFrom: ghcr.io/eclipse-score/devcontainer@v1.2.0
+          push: never
+          runCmd: |
             bazel run //:ide_support
             bazel test //src/...
-          "
 
-      - name: Prepare bundled consumer report
+      - name: Prepare bundled test report
         if: always()
         # Creating tests-report directory
         # Follow Symlinks via '-L' to copy correctly
