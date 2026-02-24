@@ -36,6 +36,7 @@ jobs:
             set -euo pipefail
             uv tool install pre-commit
             cd '$WS'
+            bazel run //:ide_support
             git config --global --add safe.directory '$WS'
             git rev-parse --show-toplevel
             pre-commit run -a
