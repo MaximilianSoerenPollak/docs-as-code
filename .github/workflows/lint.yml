@@ -29,6 +29,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
 
+      - name: Give User permissions to write
+        run: |
+          chown -R vscode:vscode "$GITHUB_WORKSPACE"
+
       - name: Run Linter Script
         run: |
           WS="$GITHUB_WORKSPACE"
