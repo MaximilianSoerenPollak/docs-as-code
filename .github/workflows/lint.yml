@@ -30,7 +30,8 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/eclipse-score/devcontainer:v1.2.0
+          imageName: ghcr.io/eclipse-score/devcontainer
+          imageTag: v1.2.0
           runCmd: pre-commit run -a
     # - name: Give User permissions to write
     #   run: |
