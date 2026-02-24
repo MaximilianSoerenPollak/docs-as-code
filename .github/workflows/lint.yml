@@ -31,5 +31,5 @@ jobs:
 
       - name: Run Linter Script
         run: |
-          su -l vscode -c 'uv tool install pre-commit && cd "$GITHUB_WORKSPACE" && it config --global --add safe.directory "$GITHUB_WORKSPACE" && pre-commit run -a'
+          su -l vscode -c 'uv tool install pre-commit && cd "$GITHUB_WORKSPACE" && git config --global --add safe.directory "$GITHUB_WORKSPACE" && pre-commit run -a'
         #run: su vscode && pre-commit
