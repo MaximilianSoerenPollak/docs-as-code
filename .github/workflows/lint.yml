@@ -22,26 +22,28 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/eclipse-score/devcontainer:v1.2.0
     continue-on-error: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
 
-      - name: Give User permissions to write
-        run: |
-          chown -R vscode:vscode "$GITHUB_WORKSPACE"
-
-      - name: Run Linter Script
-        run: |
-          WS="$GITHUB_WORKSPACE"
-          su -l vscode -c "
-            set -euo pipefail
-            uv tool install pre-commit
-            cd '$WS'
-            bazel run //:ide_support
-            git config --global --add safe.directory '$WS'
-            git rev-parse --show-toplevel
-            pre-commit run -a
-          "
+      - name: Build and run dev container task
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: ghcr.io/eclipse-score/devcontainer:v1.2.0
+          runCmd: pre-commit run -a
+      # - name: Give User permissions to write
+      #   run: |
+      #     chown -R vscode:vscode "$GITHUB_WORKSPACE"
+      #
+      # - name: Run Linter Script
+      #   run: |
+      #     WS="$GITHUB_WORKSPACE"
+      #     su -l vscode -c "
+      #       set -euo pipefail
+      #       uv tool install pre-commit
+      #       cd '$WS'
+      #       git config --global --add safe.directory '$WS'
+      #       git rev-parse --show-toplevel
+      #       pre-commit run -a
+      #     "

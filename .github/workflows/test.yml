@@ -19,6 +19,8 @@ on:
 jobs:
   code:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/eclipse-score/devcontainer:v1.2.0
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
@@ -38,8 +40,12 @@ jobs:
           bazelisk-cache: true
       - name: Run test targets
         run: |
-          bazel run //:ide_support
-          bazel test //src/...
+          WS="$GITHUB_WORKSPACE"
+          su -l vscode -c "
+            cd '$WS'
+            bazel run //:ide_support
+            bazel test //src/...
+          "
 
       - name: Prepare bundled consumer report
         if: always()
