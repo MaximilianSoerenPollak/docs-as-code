@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/eclipse-score/devcontainer:v1.2.0
+      options: --user vscode
     continue-on-error: true
     steps:
       - name: Checkout repository
