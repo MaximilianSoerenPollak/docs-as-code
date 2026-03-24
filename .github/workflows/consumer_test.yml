@@ -44,8 +44,7 @@ jobs:
       - name: Run Consumer tests
 
         run: |
-          set -o pipefail
-          .venv_docs/bin/python -m pytest -s -vv src/tests/ --repo="$CONSUMER" --junitxml="reports/${{ matrix.consumer }}.xml" | tee "reports/${{ matrix.consumer }}.log"
+          .venv_docs/bin/python -m pytest -s -vv src/tests/ --repo="$CONSUMER" --junitxml="reports/${{ matrix.consumer }}.xml" 
           if [ -f "consumer_test.log" ]; then
             mv "consumer_test.log" "reports/${{ matrix.consumer }}.log"
           elif [ -f "reports/rich.log" ]; then
