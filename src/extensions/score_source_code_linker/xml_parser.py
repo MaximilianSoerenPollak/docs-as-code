@@ -169,7 +169,7 @@ def read_test_xml_file(file: Path) -> tuple[list[DataOfTestCase], list[str], lis
     return test_case_needs, non_prop_tests, missing_prop_tests
 
 
-def find_xml_files(dir: Path) -> list[Path]:
+def find_xml_files(input_dir: Path) -> list[Path]:
     """
     Recursively search all test.xml files inside 'bazel-testlogs'
 
@@ -180,19 +180,10 @@ def find_xml_files(dir: Path) -> list[Path]:
     test_file_name = "test.xml"
 
     xml_paths: list[Path] = []
-    print(f"STARTING SEARCH PATH: {dir.resolve()}")
-    for root, dirs, files in os.walk(dir, topdown=False, followlinks=True):
-        print("SEARCHING THROUGH FILES")
-        print(f"{root=}")
-        print(f"{dirs=}")
-        print(f"{files=}")
-        if test_file_name in files:
-            xml_paths.append(Path(os.path.join(root, test_file_name)))
-    print("==================")
-    print("=== FOUND THE FOLLOWING XML FILES ===")
-    print(xml_paths)
-    print("==================")
-    return xml_paths
+    print(f"STARTING SEARCH PATH: {input_dir}")
+    print(f"STARTING SEARCH PATH RESOLVED: {input_dir.resolve()}")
+    xml_paths = [x for x in input_dir.rglob(test_file_name)]
+    return sorted(xml_paths)
 
 
 def find_test_folder(base_path: Path | None = None) -> Path | None:
