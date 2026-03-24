@@ -65,10 +65,7 @@ jobs:
 
           tail -n 15 "$dest_log" >> "$GITHUB_STEP_SUMMARY"
 
-          .venv_docs/bin/python -c "from rich import print; \
-            import sys; \
-            f = open(sys.argv[1], 'r', encoding='utf-8'); \
-            print(f.read())" "$dest_log"
+          cat "$dest_log"
           exit $pytest_rc
         env:
           FORCE_COLOR: "1"
