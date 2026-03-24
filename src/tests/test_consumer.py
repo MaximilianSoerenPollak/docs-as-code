@@ -137,14 +137,16 @@ def sphinx_base_dir(tmp_path_factory: TempPathFactory, pytestconfig: Config) -> 
     return CACHE_DIR
 
 
-def cleanup():
+def cleanup(cmd: str):
     """
     Cleanup before tests are run
     """
     for p in Path(".").glob("*/ubproject.toml"):
         p.unlink()
     shutil.rmtree("_build", ignore_errors=True)
-    cmd = "bazel clean --async"
+    if cmd == "bazel run //:ide_support":
+        shutil.rmtree(".venv_docs", ignore_errors=True)
+        cmd = "bazel clean --async"
     subprocess.run(cmd.split(), text=True)
 
 
@@ -489,7 +491,7 @@ def run_cmd(
 ) -> tuple[list[Result], bool]:
     verbosity: int = pytestconfig.get_verbosity()
 
-    cleanup()
+    cleanup(cmd)
 
     if verbosity >= 3:
         # Level 3 (-vvv): Stream output in real-time
