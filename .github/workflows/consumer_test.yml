@@ -68,7 +68,7 @@ jobs:
           .venv_docs/bin/python -c "from rich import print; \
             import sys; \
             f = open(sys.argv[1], 'r', encoding='utf-8'); \
-            print(f.read_text())" "$dest_log"
+            print(f.read())" "$dest_log"
           exit $pytest_rc
         env:
           FORCE_COLOR: "1"
