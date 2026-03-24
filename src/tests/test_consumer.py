@@ -22,7 +22,7 @@ from typing import cast
 import pytest
 from _pytest.config import Config
 from pytest import TempPathFactory
-from rich import print
+from rich import box, print
 from rich.console import Console
 from rich.table import Table
 
@@ -431,7 +431,7 @@ def print_final_result(BR: BuildOutput, repo_name: str, cmd: str, pytestconfig: 
 
 def print_result_table(results: list[Result]):
     """Printing an 'overview' table to show all results."""
-    table = Table(title="Docs-As-Code Consumer Test Result")
+    table = Table(title="Docs-As-Code Consumer Test Result", box=box.MARKDOWN)
     table.add_column("Repository")
     table.add_column("CMD")
     table.add_column("LOCAL OR GIT")
