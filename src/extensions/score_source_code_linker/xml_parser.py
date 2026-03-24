@@ -183,6 +183,10 @@ def find_xml_files(dir: Path) -> list[Path]:
     for root, _, files in os.walk(dir):
         if test_file_name in files:
             xml_paths.append(Path(os.path.join(root, test_file_name)))
+    print("==================")
+    print("=== FOUND THE FOLLOWING XML FILES ===")
+    print(xml_paths)
+    print("==================")
     return xml_paths
 
 
@@ -209,6 +213,9 @@ def run_xml_parser(app: Sphinx, env: BuildEnvironment):
         return
     xml_file_paths = find_xml_files(testlogs_dir)
     test_case_needs = build_test_needs_from_files(app, env, xml_file_paths)
+    print("==================")
+    print("=== BUILD THESE NEEDS FROM THE XML FILES ===")
+    print(test_case_needs)
     # Saving the test case needs for cache
     store_data_of_test_case_json(
         app.outdir / "score_testcaseneeds_cache.json", test_case_needs
