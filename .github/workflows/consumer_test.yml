@@ -44,10 +44,12 @@ jobs:
       - name: Run Consumer tests
 
         run: |
+          pytest_rc=0
           .venv_docs/bin/python -m pytest -vv src/tests/ \
           --repo="$CONSUMER" \
-          --junitxml="reports/${{ matrix.consumer }}.xml"
-          pytest_rc=$?
+          --junitxml="reports/${{ matrix.consumer }}.xml" \
+          || pytest_rc=$?
+
 
           if [ -f "consumer_test.log" ]; then
             src_log="consumer_test.log"
