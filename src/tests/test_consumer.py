@@ -50,7 +50,10 @@ text output.
 len_max = 120
 CACHE_DIR = Path.home() / ".cache" / "docs_as_code_consumer_tests"
 log_file_name = "consumer_test.log"
-log_fp = open(log_file_name, "a", encoding="utf-8") # ruff-ignore: SIM115
+# Need to ignore the ruff error here. Due to how the script is written,
+# can not use a context manager to open the log file, even though it would be preferable
+# In a future re-write this should be considered.
+log_fp = open(log_file_name, "a", encoding="utf-8")  # noqa: SIM115
 console = Console(file=log_fp, force_terminal=False, width=120, color_system=None)
 
 
@@ -626,7 +629,6 @@ def test_and_clone_repos_updated(sphinx_base_dir: Path, pytestconfig: Config):
     disable_cache: bool = bool(pytestconfig.getoption("--disable-cache"))
 
     repos_to_test = filter_repos(repo_tests)
-
 
     # Exit early if we don't find repos to test.
     if not repos_to_test:
