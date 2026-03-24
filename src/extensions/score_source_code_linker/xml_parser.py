@@ -197,6 +197,8 @@ def find_xml_files(dir: Path) -> list[Path]:
 
 def find_test_folder(base_path: Path | None = None) -> Path | None:
     ws_root = base_path if base_path is not None else find_ws_root()
+    print('=========THIS IS WS ROOT=============')
+    print(f"{ws_root=}")
     assert ws_root is not None
     if os.path.isdir(ws_root / "tests-report"):
         return ws_root / "tests-report"
