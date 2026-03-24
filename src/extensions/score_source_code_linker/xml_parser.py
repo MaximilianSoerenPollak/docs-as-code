@@ -181,7 +181,7 @@ def find_xml_files(dir: Path) -> list[Path]:
 
     xml_paths: list[Path] = []
     print(f"STARTING SEARCH PATH: {dir.resolve()}")
-    for root, dirs, files in os.walk(dir):
+    for root, dirs, files in os.walk(dir, topdown=False, followlinks=True):
         print("SEARCHING THROUGH FILES")
         print(f"{root=}")
         print(f"{dirs=}")
