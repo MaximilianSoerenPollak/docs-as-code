@@ -286,6 +286,7 @@ def docs(source_dir = "docs", data = [], deps = [], scan_code = []):
             "--jobs",
             "auto",
             "--define=external_needs_source=" + str(data),
+            "-v",
         ],
         formats = ["needs"],
         sphinx = ":sphinx_build",
