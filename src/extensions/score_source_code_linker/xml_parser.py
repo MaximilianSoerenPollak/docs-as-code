@@ -211,6 +211,8 @@ def run_xml_parser(app: Sphinx, env: BuildEnvironment):
     # early return
     if testlogs_dir is None:
         return
+    print("============")
+    print(f"THis is the testfolder: {testlogs_dir}")
     xml_file_paths = find_xml_files(testlogs_dir)
     test_case_needs = build_test_needs_from_files(app, env, xml_file_paths)
     print("==================")
