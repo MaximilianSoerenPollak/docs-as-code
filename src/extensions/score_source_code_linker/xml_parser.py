@@ -180,7 +180,12 @@ def find_xml_files(dir: Path) -> list[Path]:
     test_file_name = "test.xml"
 
     xml_paths: list[Path] = []
-    for root, _, files in os.walk(dir):
+    print(f"STARTING SEARCH PATH: {dir.resolve()}")
+    for root, dirs, files in os.walk(dir):
+        print("SEARCHING THROUGH FILES")
+        print(f"{root=}")
+        print(f"{dirs=}")
+        print(f"{files=}")
         if test_file_name in files:
             xml_paths.append(Path(os.path.join(root, test_file_name)))
     print("==================")
