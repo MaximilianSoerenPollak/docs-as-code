@@ -45,7 +45,17 @@ jobs:
 
         run: |
           set -o pipefail
-          .venv_docs/bin/python -m pytest -s -v src/tests/ --repo="$CONSUMER" --junitxml="reports/${{ matrix.consumer }}.xml" | tee "reports/${{ matrix.consumer }}.log"
+          .venv_docs/bin/python -m pytest -s -vv src/tests/ --repo="$CONSUMER" --junitxml="reports/${{ matrix.consumer }}.xml" | tee "reports/${{ matrix.consumer }}.log"
+          if [ -f "consumer_test.log" ]; then
+            mv "consumer_test.log" "reports/${{ matrix.consumer }}.log"
+          elif [ -f "reports/rich.log" ]; then
+            mv "reports/consumer_test.log" "reports/${{ matrix.consumer }}.log"
+          else
+            echo "conumser_test.log not found; expected at ./consumer_test.log or ./reports/consumer_test.log"
+            exit 1
+          fi
+          echo "=== Tail 12 lines: $out_log ==="
+          tail -n 12 "reports/${{ matrix.consumer }}.log" || true
         env:
           FORCE_COLOR: "1"
           TERM: xterm-256color

@@ -47,10 +47,11 @@ text output.
 
 # Max width of the printout
 # Trial and error has shown that 80 the best value is for GH CI output
-len_max = 80
+len_max = 120
 CACHE_DIR = Path.home() / ".cache" / "docs_as_code_consumer_tests"
-
-console = Console(force_terminal=True if os.getenv("CI") else None, width=80)
+log_file_name = "consumer_test.log"
+log_fp = open(log_file_name, "a", encoding="utf-8") # ruff-ignore: SIM115
+console = Console(file=log_fp, force_terminal=False, width=120, color_system=None)
 
 
 @dataclass
@@ -125,11 +126,11 @@ def sphinx_base_dir(tmp_path_factory: TempPathFactory, pytestconfig: Config) -> 
     if disable_cache:
         # Use persistent cache directory for local development
         temp_dir = tmp_path_factory.mktemp("testing_dir")
-        print(f"[blue]Using temporary directory: {temp_dir}[/blue]")
+        console.print(f"[blue]Using temporary directory: {temp_dir}[/blue]")
         return temp_dir
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    print(f"[green]Using persistent cache directory: {CACHE_DIR}[/green]")
+    console.print(f"[green]Using persistent cache directory: {CACHE_DIR}[/green]")
     return CACHE_DIR
 
 
@@ -174,13 +175,15 @@ def filter_repos(repo_filter: str | None) -> list[ConsumerRepo]:
     # Warn about any repos that weren't found
     if requested_repos:
         available_names = [repo.name for repo in REPOS_TO_TEST]
-        print(f"[yellow]Warning: Unknown repositories: {requested_repos}[/yellow]")
-        print(f"[yellow]Available repositories: {available_names}[/yellow]")
+        console.print(
+            f"[yellow]Warning: Unknown repositories: {requested_repos}[/yellow]"
+        )
+        console.print(f"[yellow]Available repositories: {available_names}[/yellow]")
 
     # If no valid repos were found but filter was provided, return all repos
     # This prevents accidentally running zero tests due to typos
     if not filtered_repos and repo_filter:
-        print(
+        console.print(
             "[red]No valid repositories found in filter, "
             "running all repositories instead[/red]"
         )
@@ -254,9 +257,9 @@ def parse_bazel_output(BR: BuildOutput, pytestconfig: Config) -> BuildOutput:
     warning_dict: dict[str, list[str]] = defaultdict(list)
 
     if pytestconfig.get_verbosity() >= 2 and os.getenv("CI"):
-        print("[DEBUG] Raw warnings in CI:")
+        console.print("[DEBUG] Raw warnings in CI:")
         for i, warning in enumerate(split_warnings):
-            print(f"[DEBUG] Warning {i}: {repr(warning)}")
+            console.print(f"[DEBUG] Warning {i}: {repr(warning)}")
 
     for raw_warning in split_warnings:
         # In the CLI we seem to have some ansi codes in the warnings.
@@ -279,15 +282,15 @@ def parse_bazel_output(BR: BuildOutput, pytestconfig: Config) -> BuildOutput:
 def print_overview_logs(BR: BuildOutput):
     warning_loggers = list(BR.warnings.keys())
     len_left_test_result = len_max - len("TEST RESULTS")
-    print(
+    console.print(
         f"[blue]{'=' * int(len_left_test_result / 2)}"
         f"TEST RESULTS"
         f"{'=' * int(len_left_test_result / 2)}[/blue]"
     )
-    print(f"[navy_blue]{'=' * len_max}[/navy_blue]")
+    console.print(f"[navy_blue]{'=' * len_max}[/navy_blue]")
     warning_total_loggers_msg = f"Warning Loggers Total: {len(warning_loggers)}"
     len_left_loggers = len_max - len(warning_total_loggers_msg)
-    print(
+    console.print(
         f"[blue]{'=' * int(len_left_loggers / 2)}"
         f"{warning_total_loggers_msg}"
         f"{'=' * int(len_left_loggers / 2)}[/blue]"
@@ -295,7 +298,7 @@ def print_overview_logs(BR: BuildOutput):
     warning_loggers = list(BR.warnings.keys())
     warning_total_msg = "Logger Warnings Accumulated"
     len_left_loggers_total = len_max - len(warning_total_msg)
-    print(
+    console.print(
         f"[blue]{'=' * int(len_left_loggers_total / 2)}"
         f"{warning_total_msg}"
         f"{'=' * int(len_left_loggers_total / 2)}[/blue]"
@@ -306,12 +309,12 @@ def print_overview_logs(BR: BuildOutput):
         color = "orange1" if logger == "[NO SPECIFIC LOGGER]" else "red"
         warning_logger_msg = f"{logger} has {len(BR.warnings[logger])} warnings"
         len_left_logger = len_max - len(warning_logger_msg)
-        print(
+        console.print(
             f"[{color}]{'=' * int(len_left_logger / 2)}"
             f"{warning_logger_msg}"
             f"{'=' * int(len_left_logger / 2)}[/{color}]"
         )
-    print(f"[blue]{'=' * len_max}[/blue]")
+    console.print(f"[blue]{'=' * len_max}[/blue]")
 
 
 def verbose_printout(BR: BuildOutput):
@@ -319,7 +322,7 @@ def verbose_printout(BR: BuildOutput):
     warning_loggers = list(BR.warnings.keys())
     for logger in warning_loggers:
         len_left_logger = len_max - len(logger)
-        print(
+        console.print(
             f"[cornflower_blue]{'=' * int(len_left_logger / 2)}"
             f"{logger}"
             f"{'=' * int(len_left_logger / 2)}[/cornflower_blue]"
@@ -329,12 +332,12 @@ def verbose_printout(BR: BuildOutput):
         color = "red"
         if logger == "[NO SPECIFIC LOGGER]":
             color = "orange1"
-        print(
+        console.print(
             f"[{color}]{'=' * int(len_left_warnings / 2)}"
             f"{f'Warnings Found: {len(warnings)}'}"
             f"{'=' * int(len_left_warnings / 2)}[/{color}]"
         )
-        print("\n".join(f"[{color}]{x}[/{color}]" for x in warnings))
+        console.print("\n".join(f"[{color}]{x}[/{color}]" for x in warnings))
 
 
 def print_running_cmd(repo: str, cmd: str, local_or_git: str):
@@ -342,23 +345,23 @@ def print_running_cmd(repo: str, cmd: str, local_or_git: str):
     len_left_cmd = len_max - len(cmd)
     len_left_repo = len_max - len(repo)
     len_left_local = len_max - len(local_or_git)
-    print(f"\n[cyan]{'=' * len_max}[/cyan]")
-    print(
+    console.print(f"\n[cyan]{'=' * len_max}[/cyan]")
+    console.print(
         f"[cornflower_blue]{'=' * int(len_left_repo / 2)}"
         f"{repo}"
         f"{'=' * int(len_left_repo / 2)}[/cornflower_blue]"
     )
-    print(
+    console.print(
         f"[cornflower_blue]{'=' * int(len_left_local / 2)}"
         f"{local_or_git}"
         f"{'=' * int(len_left_local / 2)}[/cornflower_blue]"
     )
-    print(
+    console.print(
         f"[cornflower_blue]{'=' * int(len_left_cmd / 2)}"
         f"{cmd}"
         f"{'=' * int(len_left_cmd / 2)}[/cornflower_blue]"
     )
-    print(f"[cyan]{'=' * len_max}[/cyan]")
+    console.print(f"[cyan]{'=' * len_max}[/cyan]")
 
 
 def analyze_build_success(BR: BuildOutput) -> tuple[bool, str]:
@@ -401,8 +404,8 @@ def print_final_result(BR: BuildOutput, repo_name: str, cmd: str, pytestconfig: 
         verbose_printout(BR)
     if pytestconfig.get_verbosity() >= 2:
         # Verbosity Level 2 (-vv)
-        print("==== STDOUT ====:\n\n", BR.stdout)
-        print("==== STDERR ====:\n\n", BR.stderr)
+        console.print("==== STDOUT ====:\n\n", BR.stdout)
+        console.print("==== STDERR ====:\n\n", BR.stderr)
 
     is_success, reason = analyze_build_success(BR)
 
@@ -412,13 +415,13 @@ def print_final_result(BR: BuildOutput, repo_name: str, cmd: str, pytestconfig: 
     # Printing a small 'report' for each cmd.
     result_msg = f"{repo_name} - {cmd}: {status}"
     len_left = len_max - len(result_msg)
-    print(
+    console.print(
         f"[{color}]{'=' * int(len_left / 2)}"
         f"{result_msg}"
         f"{'=' * int(len_left / 2)}[/{color}]"
     )
-    print(f"[{color}]Reason: {reason}[/{color}]")
-    print(f"[{color}]{'=' * len_max}[/{color}]")
+    console.print(f"[{color}]Reason: {reason}[/{color}]")
+    console.print(f"[{color}]{'=' * len_max}[/{color}]")
 
     return is_success, reason
 
@@ -441,12 +444,12 @@ def print_result_table(results: list[Result]):
             result.reason,
             style=style,
         )
-    print(table)
+    console.print(table)
 
 
 def stream_subprocess_output(cmd: str, repo_name: str):
     """Stream subprocess output in real-time for maximum verbosity"""
-    print(f"[green]Streaming output for: {cmd}[/green]")
+    console.print(f"[green]Streaming output for: {cmd}[/green]")
 
     process = subprocess.Popen(
         cmd.split(),
@@ -461,7 +464,7 @@ def stream_subprocess_output(cmd: str, repo_name: str):
     if process.stdout is not None:
         for line in iter(process.stdout.readline, ""):
             if line:
-                print(line.rstrip())  # Print immediately
+                console.print(line.rstrip())  # Print immediately
                 output_lines.append(line)
 
         process.stdout.close()
@@ -584,7 +587,7 @@ def prepare_repo_overrides(
     repo_path = Path(repo_name)
 
     if not use_cache and repo_path.exists():
-        print(f"[green]Using cached repository: {repo_name}[/green]")
+        console.print(f"[green]Using cached repository: {repo_name}[/green]")
         # Update the existing repo
         os.chdir(repo_name)
         subprocess.run(["git", "fetch", "origin"], check=True, capture_output=True)
@@ -616,6 +619,7 @@ def prepare_repo_overrides(
 
 # Updated version of your test loop
 def test_and_clone_repos_updated(sphinx_base_dir: Path, pytestconfig: Config):
+    global log_file_name
     # Get command line options from pytest config
 
     repo_tests: str | None = cast(str | None, pytestconfig.getoption("--repo"))
@@ -623,12 +627,13 @@ def test_and_clone_repos_updated(sphinx_base_dir: Path, pytestconfig: Config):
 
     repos_to_test = filter_repos(repo_tests)
 
+
     # Exit early if we don't find repos to test.
     if not repos_to_test:
-        print("[red]No repositories to test after filtering![/red]")
+        console.print("[red]No repositories to test after filtering![/red]")
         return
 
-    print(
+    console.print(
         f"[green]Testing {len(repos_to_test)} repositories: "
         f"{[r.name for r in repos_to_test]}[/green]"
     )
@@ -642,6 +647,12 @@ def test_and_clone_repos_updated(sphinx_base_dir: Path, pytestconfig: Config):
     results: list[Result] = []
 
     for repo in repos_to_test:
+        len_left_repo = len_max - len(repo.name)
+        console.print(f"{'=' * len_max}")
+        console.print(f"{'=' * len_max}")
+        console.print(
+            f"{'=' * int(len_left_repo / 2)}{repo.name}{'=' * int(len_left_repo / 2)}"
+        )
         #          ┌─────────────────────────────────────────┐
         #          │ Preparing the Repository for testing │
         #          └─────────────────────────────────────────┘
@@ -692,3 +703,4 @@ def test_and_clone_repos_updated(sphinx_base_dir: Path, pytestconfig: Config):
         pytest.fail(
             reason="Consumer Tests failed, see table for which commands specifically. "
         )
+    log_fp.close()
