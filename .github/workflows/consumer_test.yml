@@ -53,10 +53,8 @@ jobs:
 
           if [ -f "consumer_test.log" ]; then
             src_log="consumer_test.log"
-          elif [ -f "reports/consumer_test.log" ]; then
-            src_log="reports/consumer_test.log"
           else
-            echo "consumer_test.log not found; expected at ./consumer_test.log or ./reports/consumer_test.log"
+            echo "consumer_test.log not found; expected at ./consumer_test.log"
           exit ${pytest_rc:-1}
           fi
 
