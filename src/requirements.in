@@ -1,4 +1,4 @@
-Sphinx<=9.0
+Sphinx>=9.0
 
 # 8.0.0 needed for Sphinx-Needs versioning introduction
 sphinx-needs==8.0.0
