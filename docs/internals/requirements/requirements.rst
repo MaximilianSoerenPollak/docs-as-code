@@ -248,7 +248,7 @@ Versioning
    :tags: Common Attributes
    :implemented: NO
    :parent_covered: NO: parent talks about setting covered to false, but we want to issue a build error.
-   :satisfies: gd_req__req_suspicious
+   :satisfies: gd_req__req_suspicious, gd_temp__req_formulation[version=="1"]
    :status: invalid
 
    Docs-as-Code shall check if linked parent needs have different versions, compared to
