@@ -154,6 +154,7 @@ This section provides an overview of current process requirements and their clar
      gd_req__req_attr_security,
      gd_req__arch_attr_security,
      gd_req__req_check_mandatory,
+     tool_req__docs_common_attr_safety[version=="1"]
 
   Docs-as-Code shall enforce that the ``security`` attribute has one of the following values:
 
@@ -177,6 +178,7 @@ This section provides an overview of current process requirements and their clar
   :tags: Common Attributes
   :implemented: YES
   :parent_covered: YES
+  :version: 1
   :satisfies:
      gd_req__req_check_mandatory,
      gd_req__req_attr_safety,
