@@ -112,11 +112,10 @@ def check_version_attr_present(
     log: CheckLogger,
 ):
     """
-    This is a temporary check to allow for non fatal warnings if a version attribute is missing
-    in any need.
-    In future releases the version will be mandatory and this check can be deleted as then
-    it is covered by the normal validate_options function
-
+    This is a temporary check to allow for non fatal warnings if a version attribute
+    is missing in any need.
+    In future releases the version will be mandatory and this check
+    can be deleted as then it is covered by the normal validate_options function
     Checks if version attribute is present in the need. Will emit a non fatal warning
     """
     need_version = need.get("Version")
