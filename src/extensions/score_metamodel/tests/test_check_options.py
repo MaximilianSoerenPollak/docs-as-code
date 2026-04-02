@@ -63,7 +63,7 @@ class TestCheckOptions:
     ]
 
     @add_test_properties(
-        partially_verifies=["tool_req__docs_common_attr_security"],
+        partially_verifies=["tool_req__docs_common_attr_securit"],
         test_type="requirements-based",
         derivation_technique="requirements-analysis",
     )
