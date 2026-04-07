@@ -182,7 +182,7 @@ def check_extra_options(
 ):
     """
     This function checks if the user specified attributes in the need
-    which are not defined for this element in the metamodel or defined 
+    which are not defined for this element in the metamodel or defined
     by default system attributes.
     """
 
