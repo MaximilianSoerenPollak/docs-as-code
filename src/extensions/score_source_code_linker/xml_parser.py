@@ -243,6 +243,9 @@ def read_test_xml_file(file: Path) -> tuple[list[DataOfTestCase], list[str], lis
                 missing_prop_tests.append(testname)
                 continue
             test_case_needs.append(test_case)
+    print("=======================")
+    print([x for x in test_case_needs if x.name == "TestCheckOptions__test_unknown_directive"])
+    print("=======================")
     return test_case_needs, non_prop_tests, missing_prop_tests
 
 
