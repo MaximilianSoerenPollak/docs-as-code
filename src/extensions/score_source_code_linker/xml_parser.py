@@ -344,8 +344,12 @@ def construct_and_add_need(app: Sphinx, tn: DataOfTestCase):
     # Have to build metadata here for the gh link func
     metadata = RepoInfo(name=tn.repo_name, hash=tn.hash, url=tn.url)
     # IDK if this is ideal or not
-    with contextlib.suppress(BaseException):
-        _ = add_external_need(
+    print("========= FULLY & PARIALLY VERIFIES ==============")
+    print(f"NEED: {tn.name}\n")
+    print(tn.FullyVerifies, tn.PartiallyVerifies)
+    #with contextlib.suppress(BaseException):
+    try:
+        a = add_external_need(
             app=app,
             need_type="testcase",
             title=tn.name,
@@ -364,3 +368,6 @@ def construct_and_add_need(app: Sphinx, tn: DataOfTestCase):
             result=tn.result,  # We just want the 'failed' or whatever
             result_text=tn.result_text if tn.result_text else "",
         )
+    except Exception as e:
+        print("SOMETHING wENT WRONG MAKING THe EXTERNAL nEED")
+        print("ERROR:\n", e)
