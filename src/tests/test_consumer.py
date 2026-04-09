@@ -204,25 +204,25 @@ def comment_out_git_override(module_content: str) -> str:
     lines = module_content.splitlines()
     result = []
     i = 0
-    
+
     while i < len(lines):
         line = lines[i]
-        
+
         # Check if this line starts a git_override block
         if re.match(r"^\s*git_override\s*\(", line):
             # Collect the entire block
             block_start = i
             depth = line.count("(") - line.count(")")
             i += 1
-            
+
             while i < len(lines) and depth > 0:
                 depth += lines[i].count("(") - lines[i].count(")")
                 i += 1
-            
+
             # Extract the block
             block = lines[block_start:i]
             block_text = "\n".join(block)
-            
+
             # Comment out if it's for score_docs_as_code
             if 'module_name = "score_docs_as_code"' in block_text or \
                "module_name = 'score_docs_as_code'" in block_text:
@@ -232,7 +232,7 @@ def comment_out_git_override(module_content: str) -> str:
         else:
             result.append(line)
             i += 1
-    
+
     return "\n".join(result) + ("\n" if module_content.endswith("\n") else "")
 
 # def comment_out_git_override(module_content: str) -> str:
