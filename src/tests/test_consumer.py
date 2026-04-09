@@ -235,45 +235,6 @@ def comment_out_git_override(module_content: str) -> str:
 
     return "\n".join(result) + ("\n" if module_content.endswith("\n") else "")
 
-# def comment_out_git_override(module_content: str) -> str:
-#     """
-#     Comment out existing git_override blocks for score_docs_as_code only.
-#     """
-#     lines = module_content.splitlines()
-#     out: list[str] = []
-#     in_block = False
-#     block_lines: list[str] = []
-#
-#     for line in lines:
-#         if not in_block and re.match(r"^\s*git_override\s*\(", line):
-#             in_block = True
-#             block_lines = [line]
-#             continue
-#
-#         if in_block:
-#             block_lines.append(line)
-#             if re.match(r"^\s*\)\s*$", line):
-#                 block_text = "\n".join(block_lines)
-#                 if re.search(
-#                     r"module_name\s*=\s*['\"]score_docs_as_code['\"]", block_text
-#                 ):
-#                     out.extend(
-#                         ["# " + line if line.strip() else "#" for line in block_lines]
-#                     )
-#                 else:
-#                     out.extend(block_lines)
-#                 in_block = False
-#                 block_lines = []
-#             continue
-#
-#         out.append(line)
-#
-#     # If file ended mid‑block, keep as‑is
-#     if block_lines:
-#         out.extend(block_lines)
-#
-#     return "\n".join(out) + ("\n" if module_content.endswith("\n") else "")
-
 
 def replace_bazel_dep_with_local_override(module_content: str) -> str:
     # Match bazel_dep with required name and optional version
