@@ -20,20 +20,27 @@ filegroup(
     visibility = ["//visibility:public"],
 )
 
+py_library(
+    name = "sourcelinks_script_lib",
+    srcs = ["merge_sourcelinks.py", "generate_sourcelinks_cli.py"],
+    deps = [
+        "@score_docs_as_code//src/extensions/score_source_code_linker:score_source_code_linker", "@score_docs_as_code//src/extensions/score_source_code_linker:source_code_linker_helpers"] + all_requirements,
+    visibility = ["//visibility:public"],
+)
+
+
 py_binary(
     name = "generate_sourcelinks",
     srcs = ["generate_sourcelinks_cli.py"],
     main = "generate_sourcelinks_cli.py",
     visibility = ["//visibility:public"],
-    deps = [
-        "//src/extensions/score_source_code_linker",
-    ] + all_requirements,
+    deps = ["sourcelinks_script_lib"],
 )
 
 py_binary(
     name = "merge_sourcelinks",
     srcs = ["merge_sourcelinks.py"],
-    deps= [ "//src/extensions/score_source_code_linker"],
+    deps = ["sourcelinks_script_lib"],
     main = "merge_sourcelinks.py",
     visibility = ["//visibility:public"],
 )

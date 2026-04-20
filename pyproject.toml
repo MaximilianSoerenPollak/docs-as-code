@@ -103,4 +103,5 @@ filterwarnings = [
 ]
 pythonpath = [
     "src/extensions/",
+    "src/extensions/score_source_code_linker"
 ]

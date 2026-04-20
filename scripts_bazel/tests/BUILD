@@ -18,8 +18,8 @@ score_pytest(
     name = "generate_sourcelinks_cli_test",
     srcs = ["generate_sourcelinks_cli_test.py"],
     deps = [
-        "//scripts_bazel:generate_sourcelinks",
-        "//src/extensions/score_source_code_linker",
+        "@score_docs_as_code//scripts_bazel:generate_sourcelinks",
+        "@score_docs_as_code//src/extensions/score_source_code_linker:score_source_code_linker",
     ] + all_requirements,
     pytest_config = "//:pyproject.toml",
 )
@@ -28,7 +28,7 @@ score_pytest(
     name = "merge_sourcelinks_test",
     srcs = ["merge_sourcelinks_test.py"],
     deps = [
-        "//scripts_bazel:merge_sourcelinks",
+        "@score_docs_as_code//scripts_bazel:merge_sourcelinks",
     ] + all_requirements,
     pytest_config = "//:pyproject.toml",
 )
