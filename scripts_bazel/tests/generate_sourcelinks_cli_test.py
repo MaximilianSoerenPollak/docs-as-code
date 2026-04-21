@@ -62,12 +62,7 @@ def assert_json_internal_types(input: list[dict[str, str | int]]):
 )
 def test_clean_external_prefix(input_path: Path, expected_output: Path):
     output = scripts_bazel.generate_sourcelinks_cli.clean_external_prefix(input_path)
-    print(f"{input_path} => {output}")
-
-    assert (
-        scripts_bazel.generate_sourcelinks_cli.clean_external_prefix(input_path)
-        == expected_output
-    )
+    assert output == expected_output
 
 
 def test_generate_sourcelinks_cli_basic(

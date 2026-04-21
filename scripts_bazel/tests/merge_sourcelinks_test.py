@@ -175,7 +175,7 @@ def test_merge_sourcelinks_with_one_empty_file(
     ]
     file1.write_text(json.dumps(file1_text))
     file2 = tmp_path / "links2.json"
-    file2.write_text(json.dumps({}))
+    file2.write_text(json.dumps([]))
     output_file = tmp_path / "merged.json"
     test_args: list[Path | str] = [
         _MY_PATH.parent
