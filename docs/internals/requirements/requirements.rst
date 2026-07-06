@@ -70,10 +70,10 @@ This section provides an overview of current process requirements and their clar
   :tags: Common Attributes
   :version: 1
   :satisfies:
-     gd_req__req_attr_uid,
-     gd_req__tool_attr_uid,
-     gd_req__arch_attribute_uid,
-     gd_req__saf_attr_uid,
+     gd_req__req_attr_uid[version==1],
+     gd_req__tool_attr_uid[version==1],
+     gd_req__arch_attribute_uid[version==1],
+     gd_req__saf_attr_uid[version==1]
   :parent_covered: NO
 
   Docs-as-Code shall enforce that all Need IDs are globally unique across all included
@@ -89,13 +89,13 @@ This section provides an overview of current process requirements and their clar
   :tags: Common Attributes
   :version: 1
   :satisfies:
-    gd_req__req_attr_uid,
-    gd_req__arch_attribute_uid,
-    gd_req__saf_attr_uid,
-    gd_req__req_check_mandatory,
-    gd_req__impl_diagram_uid,
-    gd_req__impl_unit_uid,
-    gd_req__impl_interface_uid,
+    gd_req__req_attr_uid[version==1],
+    gd_req__arch_attribute_uid[version==1],
+    gd_req__saf_attr_uid[version==1],
+    gd_req__req_check_mandatory[version==1],
+    gd_req__impl_diagram_uid[version==1],
+    gd_req__impl_unit_uid[version==1],
+    gd_req__impl_interface_uid[version==1]
   :parent_covered: NO: cannot check non-existent "doc__naming_conventions" in gd_req__req_attr_uid
 
   Enforce that Need IDs follow the following naming scheme:
@@ -118,9 +118,9 @@ This section provides an overview of current process requirements and their clar
   :tags: Common Attributes
   :version: 1
   :satisfies:
-    gd_req__req_attr_title,
-    gd_req__saf_attr_title,
-    gd_req__impl_diagram_title
+    gd_req__req_attr_title[version==1],
+    gd_req__saf_attr_title[version==1],
+    gd_req__impl_diagram_title[version==1]
   :parent_covered: NO: Can not ensure summary
 
   Enforce that all needs have titles and titles do not contain the following words:
@@ -157,7 +157,7 @@ This section provides an overview of current process requirements and their clar
   :implemented: YES
   :version: 1
   :satisfies:
-    gd_req__req_desc_weak,
+    gd_req__req_desc_weak[version==1]
   :parent_covered: YES
 
   Docs-as-Code shall enforce that requirement descriptions do not contain the following weak words:
@@ -180,9 +180,9 @@ This section provides an overview of current process requirements and their clar
   :tags: Common Attributes
   :version: 1
   :satisfies:
-     gd_req__req_attr_security,
-     gd_req__arch_attr_security,
-     gd_req__req_check_mandatory,
+     gd_req__req_attr_security[version==1],
+     gd_req__arch_attr_security[version==1],
+     gd_req__req_check_mandatory[version==1],
 
   Docs-as-Code shall enforce that the ``security`` attribute has one of the following values:
 
@@ -208,9 +208,9 @@ This section provides an overview of current process requirements and their clar
   :parent_covered: YES
   :version: 1
   :satisfies:
-     gd_req__req_check_mandatory,
-     gd_req__req_attr_safety,
-     gd_req__arch_attr_safety
+     gd_req__req_check_mandatory[version==1],
+     gd_req__req_attr_safety[version==1],
+     gd_req__arch_attr_safety[version==1]
 
   Docs-as-Code shall enforce that the ``safety`` attribute has one of the following values:
 
@@ -236,10 +236,10 @@ This section provides an overview of current process requirements and their clar
   :parent_covered: NO: gd_req__saf_attr_status has additional constraints
   :version: 1
   :satisfies:
-    gd_req__req_attr_status,
-    gd_req__arch_attr_status,
-    gd_req__saf_attr_status,
-    gd_req__req_check_mandatory,
+    gd_req__req_attr_status[version==1],
+    gd_req__arch_attr_status[version==1],
+    gd_req__saf_attr_status[version==1],
+    gd_req__req_check_mandatory[version==1],
 
   Docs-as-Code shall enforce that the ``status`` attribute has one of the following values:
 
@@ -263,8 +263,8 @@ Versioning
    :tags: Common Attributes
    :implemented: PARTIAL
    :version: 1
-   :parent_covered: NO: to be checked after demo
-   :satisfies: gd_req__req_attr_version
+   :parent_covered: YES
+   :satisfies: gd_req__req_attr_version[version==1]
 
    Docs-As-Code shall enable and enforce a versioning attribute for all needs.
 
@@ -280,7 +280,7 @@ Versioning
    :implemented: NO
    :version: 1
    :parent_covered: NO: parent talks about setting covered to false, but we want to issue a build error.
-   :satisfies: gd_req__req_suspicious
+   :satisfies: gd_req__req_suspicious[version==1]
    :status: invalid
 
    Docs-as-Code shall check if linked parent needs have different versions, compared to
@@ -298,7 +298,7 @@ Versioning
   :implemented: YES
   :version: 1
   :parent_covered: YES
-  :satisfies: gd_req__doc_types
+  :satisfies: gd_req__doc_types[version==1]
 
   Docs-as-Code shall support the following document types:
 
@@ -324,76 +324,6 @@ Versioning
   * safety
   * realizes
 
-.. tool_req:: Mandatory Document attributes
-  :id: tool_req__docs_doc_attr
-  :tags: Documents
-  :implemented: NO
-  :version: 1
-  :satisfies:
-   gd_req__doc_author,
-   gd_req__doc_approver,
-   gd_req__doc_reviewer,
-   gd_req__change_attr_title,
-  :parent_covered: NO, process requirement has changed and we do not understand the new wording.
-  :status: invalid
-
-  Docs-as-Code shall enforce that each :need:`tool_req__docs_doc_types` has the
-  following attributes:
-
-  * title (implicitly enforced by sphinx-needs)
-  * author
-  * approver
-  * reviewer
-
-
-.. tool_req:: Document author is autofilled
-  :id: tool_req__docs_doc_attr_author_autofill
-  :tags: Documents
-  :implemented: NO
-  :version: 1
-  :satisfies: gd_req__doc_author
-  :parent_covered: NO, process requirement has changed and we do not understand the new wording.
-  :status: invalid
-
-  Docs-as-Code shall provide an automatic mechanism to determine document authors.
-
-  Contributors responsible for more than 50% of the content shall be considered the
-  document author. Contributors are accumulated over all commits to the file containing
-  the document.
-
-  .. note::
-    The requirement is currently invalid as it's currently unclear how the contribution
-    % are counted and how to accumulate %.
-
-.. tool_req:: Document approver is autofilled
-  :id: tool_req__docs_doc_attr_approver_autofill
-  :tags: Documents
-  :implemented: NO
-  :version: 1
-  :satisfies: gd_req__doc_approver
-  :parent_covered: NO, process requirement has changed and we do not understand the new wording.
-  :status: invalid
-
-  Docs-as-Code shall provide an automatic mechanism to determine the document approver.
-
-  The approver shall be the approvers listed in *CODEOWNERS* of the last pull request of
-  the file containing the document.
-
-
-.. tool_req:: Document reviewer is autofilled
-  :id: tool_req__docs_doc_attr_reviewer_autofill
-  :tags: Documents
-  :implemented: NO
-  :version: 1
-  :satisfies: gd_req__doc_reviewer
-  :parent_covered: NO, process requirement has changed and we do not understand the new wording.
-  :status: invalid
-
-  Docs-as-Code shall provide an automatic mechanism to determine the document reviewers.
-
-  The reviewer shall be the approvers NOT listed in *CODEOWNERS* of the last pull
-  request of the file containing the document.
-
 
 --------
  Mapping
@@ -418,7 +348,7 @@ Versioning
   :tags: Requirements
   :implemented: YES
   :version: 1
-  :satisfies: gd_req__req_structure
+  :satisfies: gd_req__req_structure[version==1]
   :parent_covered: YES: Together with tool_req__docs_linkage
 
   Docs-as-Code shall support the following requirement types:
@@ -440,7 +370,7 @@ Versioning
   :version: 1
   :implemented: YES
   :parent_covered: NO: Can not ensure correct reasoning
-  :satisfies: gd_req__req_attr_rationale, gd_req__req_check_mandatory
+  :satisfies: gd_req__req_attr_rationale[version==1], gd_req__req_check_mandatory[version==1]
 
   Docs-as-Code shall enforce that each stakeholder requirement (stkh_req) contains a ``rationale`` attribute.
 
@@ -449,7 +379,7 @@ Versioning
   :tags: Requirements
   :implemented: YES
   :version: 1
-  :satisfies: gd_req__req_attr_type
+  :satisfies: gd_req__req_attr_type[version==1]
 
   Docs-as-Code shall enforce that each need of type :need:`tool_req__docs_req_types`
   except process and tool requirements has a ``reqtype`` attribute with one of the
