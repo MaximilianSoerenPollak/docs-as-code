@@ -35,6 +35,7 @@
 .. std_wp:: This is a test
    :id: std_wp__test_options__abce
    :status: active
+   :version: 1
    :expect_not: attribute
 
 
@@ -558,6 +559,7 @@
 
 .. feat_sec_threat:: Valid threat
    :id: feat_sec_threat__test_options__ok_3
+   :version: 1
    :threat_id: MT_01_03
    :status: valid
    :expect_not: feat_sec_threat__test_options__ok_3
@@ -621,6 +623,7 @@
 
 .. feat_sec_ana:: Valid threat scenario
    :id: feat_sec_ana__test_options__ok_8
+   :version: 1
    :threat_scenario_id: SC_01_02
    :status: valid
    :sufficient: yes
@@ -634,6 +637,7 @@
 
 .. feat_sec_ana:: Valid threat scenario with optional mitigation_issue
    :id: feat_sec_ana__test_options__ok_9
+   :version: 1
    :threat_scenario_id: SC_01_03
    :status: invalid
    :sufficient: no
