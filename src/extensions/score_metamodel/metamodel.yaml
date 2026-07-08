@@ -19,6 +19,7 @@ needs_types_base_options:
     testlink: ^https://github.com/.*
     # Version will be mandatory global option in future releases
     # For now giving grace periods to consumers
+  mandatory_options:
     # req-Id: tool_req__docs_common_attr_version
     version: ^[0-9]*$
 
