@@ -71,9 +71,9 @@ http_file(
 
 bazel_dep(name = "score_process", version = "2.0.1")
 git_override(
-    module_name="score_process",
-    commit="292ec1c913a88ed1b724e33fdae658df6dc7b033",
-    remote="https://github.com/eclipse-score/process_description"
+    module_name = "score_process",
+    commit = "292ec1c913a88ed1b724e33fdae658df6dc7b033",
+    remote = "https://github.com/eclipse-score/process_description",
 )
 
 # Provide the tools from the devcontainer to Bazel

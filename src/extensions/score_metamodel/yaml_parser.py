@@ -227,9 +227,6 @@ def load_metamodel_data(yaml_path: Path | None = None) -> MetaModelData:
     global_base_options_mandatory_opts = data.get("needs_types_base_options", {}).get(
         "mandatory_options", {}
     )
-    global_base_options = (
-        global_base_options_optional_opts | global_base_options_mandatory_opts
-    )
 
     # Get the stop_words and weak_words as separate lists
     prohibited_words_checks = _parse_prohibited_words(
@@ -238,7 +235,9 @@ def load_metamodel_data(yaml_path: Path | None = None) -> MetaModelData:
 
     # Convert "types" from {directive_name: {...}, ...} to a list of dicts
     needs_types = _parse_needs_types(
-        data.get("needs_types", {}), global_base_options_optional_opts, global_base_options_mandatory_opts
+        data.get("needs_types", {}),
+        global_base_options_optional_opts,
+        global_base_options_mandatory_opts,
     )
 
     return MetaModelData(
