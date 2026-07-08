@@ -35,6 +35,7 @@
 .. std_wp:: This is a test
    :id: std_wp__test_options__abce
    :status: active
+   :version: 1
    :expect_not: attribute
 
 
