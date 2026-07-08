@@ -1,5 +1,6 @@
 :::{dec_rec} Decision Record 001: Test results in Docs-As-Code Workflows
 :id: dec_rec__dac__001_test_results_in_workflows
+:version: 1
 :status: accepted
 :context: Need to embed test results into docs, but tests are slow.
 :decision: Run quick docs checks and tests in parallel, then full docs generation sequentially.

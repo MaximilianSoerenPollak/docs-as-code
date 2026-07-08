@@ -67,7 +67,8 @@ def default_options():
 def _parse_need_type(
     directive_name: str,
     yaml_data: dict[str, Any],
-    global_base_opts: dict[str, Any],
+    global_base_optional_opts: dict[str, Any],
+    global_base_mandatory_opts: dict[str, Any],
 ):
     """Build a single ScoreNeedType dict from the metamodel entry, incl defaults."""
 
@@ -77,14 +78,15 @@ def _parse_need_type(
     optional_options = yaml_data.get("optional_options", {})
     mandatory_links = yaml_data.get("mandatory_links", {})
     optional_links = yaml_data.get("optional_links", {})
+    global_opts = global_base_optional_opts | global_base_mandatory_opts
 
     overlap_checks: list[tuple[str, dict[str, Any], str, dict[str, Any]]] = [
         ("mandatory_options", mandatory_options, "optional_options", optional_options),
-        ("mandatory_options", mandatory_options, "global_base_opts", global_base_opts),
-        ("optional_options", optional_options, "global_base_opts", global_base_opts),
+        ("mandatory_options", mandatory_options, "global_base_opts", global_opts),
+        ("optional_options", optional_options, "global_base_opts", global_opts),
         ("mandatory_links", mandatory_links, "optional_links", optional_links),
-        ("mandatory_links", mandatory_links, "global_base_opts", global_base_opts),
-        ("optional_links", optional_links, "global_base_opts", global_base_opts),
+        ("mandatory_links", mandatory_links, "global_base_opts", global_opts),
+        ("optional_links", optional_links, "global_base_opts", global_opts),
     ]
     errors: list[str] = []
     for a_name, a, b_name, b in overlap_checks:
@@ -99,8 +101,8 @@ def _parse_need_type(
         "prefix": yaml_data.get("prefix", f"{directive_name}__"),
         "tags": yaml_data.get("tags", []),
         "parts": yaml_data.get("parts", 3),
-        "mandatory_options": mandatory_options,
-        "optional_options": optional_options | global_base_opts,
+        "mandatory_options": mandatory_options | global_base_mandatory_opts,
+        "optional_options": optional_options | global_base_optional_opts,
         "mandatory_links_str": mandatory_links,
         "mandatory_links": None,
         "optional_links_str": optional_links,
@@ -123,6 +125,7 @@ def _parse_need_type(
 def _parse_needs_types(
     types_dict: dict[str, Any],
     global_base_options_optional_opts: dict[str, Any],
+    global_base_mandatory_options: dict[str, Any],
 ) -> dict[str, ScoreNeedType]:
     """Parse the 'needs_types' section of the metamodel.yaml."""
 
@@ -133,7 +136,10 @@ def _parse_needs_types(
         assert isinstance(directive_data, dict)
 
         needs_types[directive_name], parsing_errors = _parse_need_type(
-            directive_name, directive_data, global_base_options_optional_opts
+            directive_name,
+            directive_data,
+            global_base_options_optional_opts,
+            global_base_mandatory_options,
         )
         all_errors.extend(parsing_errors)
 
@@ -218,6 +224,12 @@ def load_metamodel_data(yaml_path: Path | None = None) -> MetaModelData:
     global_base_options_optional_opts = data.get("needs_types_base_options", {}).get(
         "optional_options", {}
     )
+    global_base_options_mandatory_opts = data.get("needs_types_base_options", {}).get(
+        "mandatory_options", {}
+    )
+    global_base_options = (
+        global_base_options_optional_opts | global_base_options_mandatory_opts
+    )
 
     # Get the stop_words and weak_words as separate lists
     prohibited_words_checks = _parse_prohibited_words(
@@ -226,7 +238,7 @@ def load_metamodel_data(yaml_path: Path | None = None) -> MetaModelData:
 
     # Convert "types" from {directive_name: {...}, ...} to a list of dicts
     needs_types = _parse_needs_types(
-        data.get("needs_types", {}), global_base_options_optional_opts
+        data.get("needs_types", {}), global_base_options_optional_opts, global_base_options_mandatory_opts
     )
 
     return MetaModelData(

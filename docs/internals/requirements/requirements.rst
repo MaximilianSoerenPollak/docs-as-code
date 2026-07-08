@@ -460,21 +460,6 @@ Versioning
   * Process
   * Non-Functional
 
-.. tool_req:: Enables marking requirements as "covered"
-  :id: tool_req__docs_req_attr_reqcov
-  :tags: Requirements
-  :implemented: PARTIAL
-  :version: 1
-  :satisfies: gd_req__req_attr_req_cov
-
-  Docs as code shall shall enable marking requirements as covered by their linked children.
-
-  Attribute ``reqcov`` must be one of the following values:
-      * Yes
-      * No
-
-  .. note::
-     No concept yet, as parents are generally not aware of their children.
 
 .. tool_req:: Support requirements test coverage
   :id: tool_req__docs_req_attr_testcov
