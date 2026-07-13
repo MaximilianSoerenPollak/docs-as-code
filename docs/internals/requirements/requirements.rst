@@ -264,7 +264,7 @@ Versioning
    :implemented: YES
    :version: 1
    :parent_covered: YES
-   :satisfies: gd_req__req_attr_version[version==1]
+   :satisfies: gd_req__req_attr_version[version==2]
 
    Docs-As-Code shall enable and enforce a versioning attribute for all needs.
 
@@ -280,7 +280,7 @@ Versioning
    :implemented: YES
    :version: 1
    :parent_covered: NO: parent talks about setting covered to false, but we want to issue a build error.
-   :satisfies: gd_req__req_suspicious[version==1]
+   :satisfies: gd_req__req_suspicious[version==2]
    :status: invalid
 
    Docs-as-Code shall check if linked parent needs have different versions, compared to
