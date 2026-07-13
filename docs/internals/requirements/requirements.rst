@@ -270,7 +270,7 @@ Versioning
 
    .. note::
      Current implementation is handled mainly by sphinx-needs.
-     In our enviroment it supports numbers (1, 1.2, 10,...)
+     In our enviroment it supports whole numbers e.g. (1,2,10,34)
 
 
 
@@ -531,7 +531,7 @@ Architecture Attributes
       gd_req__arch_attr_fulfils[version==1],
    :implemented: YES
    :parent_covered: YES
-   :parent_has_problem: YES
+   :parent_has_problem: NO
 
    Docs-as-Code shall enforce that the following attributes are present in all needs of type :need:`tool_req__docs_arch_types`
 
@@ -703,17 +703,18 @@ but for ease of traceability this is a separate one.
   :parent_covered: YES
 
   .. csv-table::
-     :header: "Link source", "Relation", "Link Target", "Mandatory", "Implemented"
+     :header: "Link source", "Relation", "Link Target", "Mandatory"
 
-     feat, includes, logic_arc_int, yes, yes
-     mod, includes, comp, yes, yes
-     real_arc_int_op, included_by, real_arc_int, yes, yes
-     real_arc_int_op, implements, logic_arc_int_op, no, yes
-     logic_arc_int, includes, logic_arc_int_op, no, yes
-     comp, implements, logic_arc_int, no, yes
-     comp, belongs_to, feat, yes, yes
-     comp, uses, logic_arc_int, no, yes
-     comp, consists_of, comp, no, yes
+     feat, includes, logic_arc_int, yes
+     mod, includes, comp, yes
+     comp, implements, logic_arc_int, no
+     comp, belongs_to, feat, yes
+     comp, uses, logic_arc_int, no
+     comp, consists_of, comp, no
+     real_arc_int_op, included_by, real_arc_int, yes
+     real_arc_int_op, implements, logic_arc_int_op, no
+     logic_arc_int, includes, logic_arc_int_op, no
+     logic_arc_int_op, included_by, logic_arc_int, yes
 
 
 💻 Detailed Design & Code
