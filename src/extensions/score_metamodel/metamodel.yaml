@@ -939,6 +939,7 @@ needs_types:
       decision: ^.*$
     optional_options:
       consequences: ^.*$
+      tracking: ^https://github\.com/[^/]+/[^/]+/issues/\d+$
     optional_links:
       affects: ANY
 
