@@ -142,11 +142,6 @@ def docs(source_dir = "docs", data = [], deps = [], scan_code = [], known_good =
                  file instead of the default metamodel shipped with score_metamodel.
     """
 
-    call_path = native.package_name()
-
-    if call_path != "":
-        fail("docs() must be called from the root package. Current package: " + call_path)
-
     metamodel_data = []
     metamodel_env = {}
     metamodel_opts = []
