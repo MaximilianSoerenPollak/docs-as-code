@@ -160,9 +160,7 @@ def get_external_needs_source(
     else:
         # This is the path taken for anything that doesn't
         # run via `bazel`  e.g. esbonio or other direct executions
-        external_needs = parse_external_needs_sources_from_bazel_query(
-            docs_target_name
-        )  # pyright: ignore[reportAny]
+        external_needs = parse_external_needs_sources_from_bazel_query(docs_target_name)  # pyright: ignore[reportAny]
     return external_needs
 
 

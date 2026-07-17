@@ -19,7 +19,7 @@ from typing import Any
 
 from python.runfiles import Runfiles
 from sphinx.application import Sphinx
-from sphinx.config import Config
+from sphinx.config import Config, _ConfigRebuild  # pyright: ignore [reportPrivateUsage]
 from sphinx_needs.logging import get_logger
 
 LOGGER = get_logger(__name__)
@@ -36,7 +36,7 @@ def config_setdefault(config: Config, name: str, value: Any) -> None:
 
 
 def add_config_value_if_absent(
-    app: Sphinx, name: str, default: Any, rebuild: str
+    app: Sphinx, name: str, default: Any, rebuild: _ConfigRebuild
 ) -> None:
     """Register a Sphinx config value, unless another extension already has.
 
