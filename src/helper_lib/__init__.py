@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any
 
 from python.runfiles import Runfiles
+from sphinx.application import Sphinx
 from sphinx.config import Config
 from sphinx_needs.logging import get_logger
 
@@ -32,6 +33,22 @@ def config_setdefault(config: Config, name: str, value: Any) -> None:
     # ever adds a public alternative, update this single function.
     if name not in config._raw_config:  # pyright: ignore [reportPrivateUsage]
         setattr(config, name, value)
+
+
+def add_config_value_if_absent(
+    app: Sphinx, name: str, default: Any, rebuild: str
+) -> None:
+    """Register a Sphinx config value, unless another extension already has.
+
+    Several of our extensions may be used either standalone or bundled together via
+    score_sphinx_bundle, in either load order, and may each want the same config value
+    registered. Sphinx raises if `add_config_value` is called twice for the same name,
+    so this guards the registration to make it safe to call from multiple extensions.
+    """
+    # Sphinx has no public API for this check either; `_options` is the internal dict
+    # `Config.add` itself consults to reject duplicate registrations.
+    if name not in app.config._options:  # pyright: ignore [reportPrivateUsage]
+        app.add_config_value(name, default, rebuild=rebuild)
 
 
 def find_ws_root() -> Path | None:
@@ -187,10 +204,15 @@ def get_current_git_hash(git_root: Path) -> str:
         raise
 
 
-def get_runfiles_dir() -> Path:
+def get_runfiles_dir(docs_target_name: str = "docs") -> Path:
     """
     Find the Bazel runfiles directory using bazel_runfiles convention,
     fallback to RUNFILES_DIR or relative traversal if needed.
+
+    Args:
+        docs_target_name: The `name` the local repo's docs() Bazel macro invocation uses
+            (see docs.bzl). Defaults to "docs", the macro's own default. Only relevant for
+            the non-Bazel fallback below, to find the correctly-named `ide_support` runfiles.
     """
     if (r := Runfiles.Create()) and (rd := r.EnvVars().get("RUNFILES_DIR")):
         runfiles_dir = Path(rd)
@@ -207,7 +229,12 @@ def get_runfiles_dir() -> Path:
         if git_root is None:
             sys.exit("Could not find git root.")
 
-        runfiles_dir = git_root / "bazel-bin" / "ide_support.runfiles"
+        ide_support_name = (
+            "ide_support"
+            if docs_target_name == "docs"
+            else docs_target_name + "_ide_support"
+        )
+        runfiles_dir = git_root / "bazel-bin" / (ide_support_name + ".runfiles")
 
     if not runfiles_dir.exists():
         sys.exit(

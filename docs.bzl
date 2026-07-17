@@ -46,24 +46,36 @@ load("@docs_as_code_hub_env//:requirements.bzl", "all_requirements")
 load("@rules_python//sphinxdocs:sphinx.bzl", "sphinx_build_binary", "sphinx_docs")
 
 def _rewrite_needs_json_to_docs_sources(labels):
-    """Replace '@repo//:needs_json' -> '@repo//:docs_sources' for every item."""
+    """Replace '@repo//:needs_json' -> '@repo//:docs_sources' for every item.
+
+    Also handles a producer using a custom docs() `name`
+    (e.g. '@repo//:foo_needs_json' -> '@repo//:foo_docs_sources').
+    """
     out = []
     for x in labels:
         s = str(x)
         if s.endswith("//:needs_json"):
             out.append(s.replace("//:needs_json", "//:docs_sources"))
+        elif "//:" in s and s.endswith("_needs_json"):
+            out.append(s[:-len("needs_json")] + "docs_sources")
         else:
             out.append(s)
     return out
 
 def _rewrite_needs_json_to_sourcelinks(labels):
-    """Replace '@repo//:needs_json' -> '@repo//:sourcelinks_json' for every item."""
+    """Replace '@repo//:needs_json' -> '@repo//:sourcelinks_json' for every item.
+
+    Also handles a producer using a custom docs() `name`
+    (e.g. '@repo//:foo_needs_json' -> '@repo//:foo_sourcelinks_json').
+    """
     out = []
     for x in labels:
         s = str(x)
         if s.endswith("//:needs_json"):
             out.append(s.replace("//:needs_json", "//:sourcelinks_json"))
-        #Items which do not end up with '//:needs_json' shall not be appended to 'out'.
+        elif "//:" in s and s.endswith("_needs_json"):
+            out.append(s[:-len("needs_json")] + "sourcelinks_json")
+        #Items which do not end up with a 'needs_json' target shall not be appended to 'out'.
         #They are treated separately and are not related to source code linking.
     return out
 
