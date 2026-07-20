@@ -18,8 +18,7 @@ from pathlib import Path
 from typing import Any
 
 from python.runfiles import Runfiles
-from sphinx.application import Sphinx
-from sphinx.config import Config, _ConfigRebuild  # pyright: ignore [reportPrivateUsage]
+from sphinx.config import Config
 from sphinx_needs.logging import get_logger
 
 LOGGER = get_logger(__name__)
@@ -33,7 +32,6 @@ def config_setdefault(config: Config, name: str, value: Any) -> None:
     # ever adds a public alternative, update this single function.
     if name not in config._raw_config:  # pyright: ignore [reportPrivateUsage]
         setattr(config, name, value)
-
 
 
 def find_ws_root() -> Path | None:
