@@ -33,7 +33,7 @@ from src.extensions.score_metamodel.yaml_parser import (
     default_options as default_options,
     load_metamodel_data as load_metamodel_data,
 )
-from src.helper_lib import add_config_value_if_absent, config_setdefault
+from src.helper_lib import config_setdefault
 
 logger = logging.get_logger(__name__)
 
@@ -239,7 +239,6 @@ def setup(app: Sphinx) -> dict[str, str | bool]:
     app.add_config_value("required_in_id", [], rebuild="env")
     # Registered here too (guarded) so score_metamodel also works when used standalone,
     # without score_sphinx_bundle (e.g. this extension's own file-based test fixtures).
-    add_config_value_if_absent(app, "docs_target_name", "docs", rebuild="env")
     config_setdefault(app.config, "needs_id_required", True)
     config_setdefault(app.config, "needs_id_regex", "^[A-Za-z0-9_-]{6,}")
 

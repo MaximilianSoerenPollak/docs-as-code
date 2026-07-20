@@ -35,21 +35,6 @@ def config_setdefault(config: Config, name: str, value: Any) -> None:
         setattr(config, name, value)
 
 
-def add_config_value_if_absent(
-    app: Sphinx, name: str, default: Any, rebuild: _ConfigRebuild
-) -> None:
-    """Register a Sphinx config value, unless another extension already has.
-
-    Several of our extensions may be used either standalone or bundled together via
-    score_sphinx_bundle, in either load order, and may each want the same config value
-    registered. Sphinx raises if `add_config_value` is called twice for the same name,
-    so this guards the registration to make it safe to call from multiple extensions.
-    """
-    # Sphinx has no public API for this check either; `_options` is the internal dict
-    # `Config.add` itself consults to reject duplicate registrations.
-    if name not in app.config._options:  # pyright: ignore [reportPrivateUsage]
-        app.add_config_value(name, default, rebuild=rebuild)
-
 
 def find_ws_root() -> Path | None:
     """

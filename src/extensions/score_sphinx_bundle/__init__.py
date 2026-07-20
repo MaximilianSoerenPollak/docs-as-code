@@ -12,7 +12,7 @@
 # *******************************************************************************
 from sphinx.application import Sphinx
 
-from src.helper_lib import add_config_value_if_absent, config_setdefault
+from src.helper_lib import config_setdefault
 
 # Note: order matters!
 # Extensions are loaded in this order.
@@ -39,11 +39,8 @@ def setup(app: Sphinx) -> dict[str, object]:
     # The `name` used for this repo's own docs() Bazel macro invocation (see docs.bzl).
     # Defaults to "docs", matching the macro's own default. Repos that call
     # docs(name="something_else") must set `docs_target_name = "something_else"` in their
-    # conf.py, so that IDE/esbonio (non-Bazel) execution can resolve the correctly-named
-    # local targets (e.g. `<name>_ide_support`) instead of the default `ide_support`.
-    # Registered here (guarded, since score_metamodel also registers it when used
-    # standalone) so it's available before score_plantuml, loaded first below, needs it.
-    add_config_value_if_absent(app, "docs_target_name", "docs", rebuild="env")
+    # conf.py, so that IDE/esbonio (non-Bazel) execution can resolve the correctly-named things
+    app.add_config_value("docs_target_name", "docs","env")
 
     config_setdefault(app.config, "html_copy_source", False)
     config_setdefault(app.config, "html_show_sourcelink", False)
