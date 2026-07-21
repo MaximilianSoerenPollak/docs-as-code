@@ -18,31 +18,33 @@ on:
     types: [opened, reopened, synchronize]
   merge_group:
     types: [checks_requested]
+  push:
+    branches:
+      - main
+
 
 jobs:
-  pre-commit:
-    name: Run pre-commit checks
+  # Common S-CORE Workflow
+
+  common:
+    uses: eclipse-score/cicd-workflows/.github/workflows/on-pr.yml@88cb460c47cb49efeb25cd7b73c8945dd1c5bce2 # on-pr/v0.0.0
+    permissions:
+      contents: read
+
+  # score repo specific additions:
+
+  lint-commits:
+    name: check-commit-messages
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
-
-      - name: 🛡️ Harden Runner
-        if: github.repository_owner == 'eclipse-score'
-        uses: step-security/harden-runner@v2.18.0
-        with:
-          egress-policy: audit
-
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v6
-
-      - name: Setup Bazel
-        uses: bazel-contrib/setup-bazel@0.19.0
         with:
-          disk-cache: true
-          repository-cache: true
-          bazelisk-cache: true
+          fetch-depth: 0
 
-      - name: Install pre-commit
-        run: pip install pre-commit
-
-      - name: Run pre-commit checks
-        run: pre-commit run -a
+      - name: Run Gitlint Action
+        uses: ./.github/actions/gitlint
+        with:
+          pr-number: ${{ github.event.number }}
+          base-branch: ${{ github.event.pull_request.base.ref }}
