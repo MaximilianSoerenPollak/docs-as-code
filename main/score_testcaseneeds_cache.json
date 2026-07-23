@@ -2814,20 +2814,6 @@
     "FullyVerifies": null
   },
   {
-    "name": "test_rules_file_based__test_rst_files[graph/test_workproduct_aspice_40.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/graph/test_workproduct_aspice_40.rst",
-    "line": "16",
-    "result": "passed",
-    "repo_name": "local_repo",
-    "hash": "",
-    "url": "",
-    "TestType": "requirements_based",
-    "DerivationTechnique": "requirements_based",
-    "result_text": "",
-    "PartiallyVerifies": "tool_req__docs_stdwp_types",
-    "FullyVerifies": null
-  },
-  {
     "name": "test_rules_file_based__test_rst_files[graph/test_metamodel_graph.rst]",
     "file": "src/extensions/score_metamodel/tests/rst/graph/test_metamodel_graph.rst",
     "line": "15",
@@ -2839,6 +2825,20 @@
     "DerivationTechnique": "requirements_based",
     "result_text": "",
     "PartiallyVerifies": "tool_req__docs_common_attr_safety_link_check",
+    "FullyVerifies": null
+  },
+  {
+    "name": "test_rules_file_based__test_rst_files[graph/test_workproduct_aspice_40.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/graph/test_workproduct_aspice_40.rst",
+    "line": "16",
+    "result": "passed",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": "",
+    "TestType": "requirements_based",
+    "DerivationTechnique": "requirements_based",
+    "result_text": "",
+    "PartiallyVerifies": "tool_req__docs_stdwp_types",
     "FullyVerifies": null
   },
   {
@@ -2870,20 +2870,6 @@
     "FullyVerifies": null
   },
   {
-    "name": "test_rules_file_based__test_rst_files[options/gd_req_comp.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/options/gd_req_comp.rst",
-    "line": "16",
-    "result": "passed",
-    "repo_name": "local_repo",
-    "hash": "",
-    "url": "",
-    "TestType": "requirements_based",
-    "DerivationTechnique": "requirements_based",
-    "result_text": "",
-    "PartiallyVerifies": "tool_req__docs_req_types",
-    "FullyVerifies": null
-  },
-  {
     "name": "test_rules_file_based__test_rst_files[options/test_options_options.rst]",
     "file": "src/extensions/score_metamodel/tests/rst/options/test_options_options.rst",
     "line": "16",
@@ -2895,6 +2881,34 @@
     "DerivationTechnique": "requirements_based",
     "result_text": "",
     "PartiallyVerifies": "tool_req__docs_common_attr_status, tool_req__docs_req_types",
+    "FullyVerifies": null
+  },
+  {
+    "name": "test_rules_file_based__test_rst_files[options/wp_comp.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/options/wp_comp.rst",
+    "line": "16",
+    "result": "passed",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": "",
+    "TestType": "requirements_based",
+    "DerivationTechnique": "requirements_based",
+    "result_text": "",
+    "PartiallyVerifies": "tool_req__docs_stdwp_types, tool_req__docs_wp_types",
+    "FullyVerifies": null
+  },
+  {
+    "name": "test_rules_file_based__test_rst_files[options/gd_req_comp.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/options/gd_req_comp.rst",
+    "line": "16",
+    "result": "passed",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": "",
+    "TestType": "requirements_based",
+    "DerivationTechnique": "requirements_based",
+    "result_text": "",
+    "PartiallyVerifies": "tool_req__docs_req_types",
     "FullyVerifies": null
   },
   {
@@ -2912,8 +2926,8 @@
     "FullyVerifies": null
   },
   {
-    "name": "test_rules_file_based__test_rst_files[options/wp_comp.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/options/wp_comp.rst",
+    "name": "test_rules_file_based__test_rst_files[options/test_options_failure_effect.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/options/test_options_failure_effect.rst",
     "line": "16",
     "result": "passed",
     "repo_name": "local_repo",
@@ -2922,7 +2936,7 @@
     "TestType": "requirements_based",
     "DerivationTechnique": "requirements_based",
     "result_text": "",
-    "PartiallyVerifies": "tool_req__docs_stdwp_types, tool_req__docs_wp_types",
+    "PartiallyVerifies": "tool_req__docs_saf_attr_fmea_failure_effect",
     "FullyVerifies": null
   },
   {
@@ -2968,20 +2982,6 @@
     "FullyVerifies": null
   },
   {
-    "name": "test_rules_file_based__test_rst_files[attributes/test_attributes_format_id_format.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/attributes/test_attributes_format_id_format.rst",
-    "line": "16",
-    "result": "passed",
-    "repo_name": "local_repo",
-    "hash": "",
-    "url": "",
-    "TestType": "requirements_based",
-    "DerivationTechnique": "requirements_based",
-    "result_text": "",
-    "PartiallyVerifies": "tool_req__docs_common_attr_id_scheme",
-    "FullyVerifies": null
-  },
-  {
     "name": "test_rules_file_based__test_rst_files[attributes/test_attributes_format_id_length.rst]",
     "file": "src/extensions/score_metamodel/tests/rst/attributes/test_attributes_format_id_length.rst",
     "line": "16",
@@ -3010,6 +3010,20 @@
     "FullyVerifies": null
   },
   {
+    "name": "test_rules_file_based__test_rst_files[attributes/test_validity.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/attributes/test_validity.rst",
+    "line": "16",
+    "result": "passed",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": "",
+    "TestType": "requirements_based",
+    "DerivationTechnique": "requirements_based",
+    "result_text": "",
+    "PartiallyVerifies": "tool_req__docs_sec_attr_stride_threat_id, tool_req__docs_sec_attrs_mandatory",
+    "FullyVerifies": null
+  },
+  {
     "name": "test_rules_file_based__test_rst_files[attributes/test_attributes_external_prefix.rst]",
     "file": "src/extensions/score_metamodel/tests/rst/attributes/test_attributes_external_prefix.rst",
     "line": "16",
@@ -3024,8 +3038,8 @@
     "FullyVerifies": null
   },
   {
-    "name": "test_rules_file_based__test_rst_files[attributes/test_validity.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/attributes/test_validity.rst",
+    "name": "test_rules_file_based__test_rst_files[attributes/test_attributes_format_id_format.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/attributes/test_attributes_format_id_format.rst",
     "line": "16",
     "result": "passed",
     "repo_name": "local_repo",
@@ -3034,7 +3048,7 @@
     "TestType": "requirements_based",
     "DerivationTechnique": "requirements_based",
     "result_text": "",
-    "PartiallyVerifies": "tool_req__docs_sec_attr_stride_threat_id, tool_req__docs_sec_attrs_mandatory",
+    "PartiallyVerifies": "tool_req__docs_common_attr_id_scheme",
     "FullyVerifies": null
   },
   {

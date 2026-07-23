@@ -384,18 +384,6 @@
     "url": ""
   },
   {
-    "name": "test_rules_file_based__test_rst_files[graph/test_workproduct_aspice_40.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/graph/test_workproduct_aspice_40.rst",
-    "line": 16,
-    "need": "tool_req__docs_stdwp_types",
-    "verify_type": "partially",
-    "result": "passed",
-    "result_text": "",
-    "repo_name": "local_repo",
-    "hash": "",
-    "url": ""
-  },
-  {
     "name": "test_rules_file_based__test_rst_files[graph/test_metamodel_graph.rst]",
     "file": "src/extensions/score_metamodel/tests/rst/graph/test_metamodel_graph.rst",
     "line": 15,
@@ -408,10 +396,10 @@
     "url": ""
   },
   {
-    "name": "test_rules_file_based__test_rst_files[options/gd_req_comp.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/options/gd_req_comp.rst",
+    "name": "test_rules_file_based__test_rst_files[graph/test_workproduct_aspice_40.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/graph/test_workproduct_aspice_40.rst",
     "line": 16,
-    "need": "tool_req__docs_req_types",
+    "need": "tool_req__docs_stdwp_types",
     "verify_type": "partially",
     "result": "passed",
     "result_text": "",
@@ -436,30 +424,6 @@
     "file": "src/extensions/score_metamodel/tests/rst/options/test_options_options.rst",
     "line": 16,
     "need": "tool_req__docs_req_types",
-    "verify_type": "partially",
-    "result": "passed",
-    "result_text": "",
-    "repo_name": "local_repo",
-    "hash": "",
-    "url": ""
-  },
-  {
-    "name": "test_rules_file_based__test_rst_files[options/test_options_extra_option.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/options/test_options_extra_option.rst",
-    "line": 16,
-    "need": "tool_req__docs_req_types",
-    "verify_type": "partially",
-    "result": "passed",
-    "result_text": "",
-    "repo_name": "local_repo",
-    "hash": "",
-    "url": ""
-  },
-  {
-    "name": "test_rules_file_based__test_rst_files[options/test_options_extra_option.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/options/test_options_extra_option.rst",
-    "line": 16,
-    "need": "tool_req__docs_common_attr_status",
     "verify_type": "partially",
     "result": "passed",
     "result_text": "",
@@ -492,10 +456,10 @@
     "url": ""
   },
   {
-    "name": "test_rules_file_based__test_rst_files[id_contains_feature/test_id_contains_feature.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/id_contains_feature/test_id_contains_feature.rst",
+    "name": "test_rules_file_based__test_rst_files[options/gd_req_comp.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/options/gd_req_comp.rst",
     "line": 16,
-    "need": "tool_req__docs_common_attr_id_scheme",
+    "need": "tool_req__docs_req_types",
     "verify_type": "partially",
     "result": "passed",
     "result_text": "",
@@ -504,8 +468,44 @@
     "url": ""
   },
   {
-    "name": "test_rules_file_based__test_rst_files[attributes/test_attributes_format_id_format.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/attributes/test_attributes_format_id_format.rst",
+    "name": "test_rules_file_based__test_rst_files[options/test_options_extra_option.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/options/test_options_extra_option.rst",
+    "line": 16,
+    "need": "tool_req__docs_req_types",
+    "verify_type": "partially",
+    "result": "passed",
+    "result_text": "",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": ""
+  },
+  {
+    "name": "test_rules_file_based__test_rst_files[options/test_options_extra_option.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/options/test_options_extra_option.rst",
+    "line": 16,
+    "need": "tool_req__docs_common_attr_status",
+    "verify_type": "partially",
+    "result": "passed",
+    "result_text": "",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": ""
+  },
+  {
+    "name": "test_rules_file_based__test_rst_files[options/test_options_failure_effect.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/options/test_options_failure_effect.rst",
+    "line": 16,
+    "need": "tool_req__docs_saf_attr_fmea_failure_effect",
+    "verify_type": "partially",
+    "result": "passed",
+    "result_text": "",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": ""
+  },
+  {
+    "name": "test_rules_file_based__test_rst_files[id_contains_feature/test_id_contains_feature.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/id_contains_feature/test_id_contains_feature.rst",
     "line": 16,
     "need": "tool_req__docs_common_attr_id_scheme",
     "verify_type": "partially",
@@ -552,18 +552,6 @@
     "url": ""
   },
   {
-    "name": "test_rules_file_based__test_rst_files[attributes/test_attributes_external_prefix.rst]",
-    "file": "src/extensions/score_metamodel/tests/rst/attributes/test_attributes_external_prefix.rst",
-    "line": 16,
-    "need": "tool_req__docs_common_attr_id_scheme",
-    "verify_type": "partially",
-    "result": "passed",
-    "result_text": "",
-    "repo_name": "local_repo",
-    "hash": "",
-    "url": ""
-  },
-  {
     "name": "test_rules_file_based__test_rst_files[attributes/test_validity.rst]",
     "file": "src/extensions/score_metamodel/tests/rst/attributes/test_validity.rst",
     "line": 16,
@@ -580,6 +568,30 @@
     "file": "src/extensions/score_metamodel/tests/rst/attributes/test_validity.rst",
     "line": 16,
     "need": "tool_req__docs_sec_attrs_mandatory",
+    "verify_type": "partially",
+    "result": "passed",
+    "result_text": "",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": ""
+  },
+  {
+    "name": "test_rules_file_based__test_rst_files[attributes/test_attributes_external_prefix.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/attributes/test_attributes_external_prefix.rst",
+    "line": 16,
+    "need": "tool_req__docs_common_attr_id_scheme",
+    "verify_type": "partially",
+    "result": "passed",
+    "result_text": "",
+    "repo_name": "local_repo",
+    "hash": "",
+    "url": ""
+  },
+  {
+    "name": "test_rules_file_based__test_rst_files[attributes/test_attributes_format_id_format.rst]",
+    "file": "src/extensions/score_metamodel/tests/rst/attributes/test_attributes_format_id_format.rst",
+    "line": 16,
+    "need": "tool_req__docs_common_attr_id_scheme",
     "verify_type": "partially",
     "result": "passed",
     "result_text": "",
