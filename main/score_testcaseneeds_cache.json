@@ -2100,9 +2100,37 @@
     "FullyVerifies": null
   },
   {
+    "name": "test_external_needs__test_extend_needs_json_exporter_uses_configured_value",
+    "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
+    "line": "39",
+    "result": "passed",
+    "repo_name": null,
+    "hash": null,
+    "url": null,
+    "TestType": null,
+    "DerivationTechnique": null,
+    "result_text": "",
+    "PartiallyVerifies": null,
+    "FullyVerifies": null
+  },
+  {
+    "name": "test_external_needs__test_extend_needs_json_exporter_can_override_bundle_export_metadata",
+    "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
+    "line": "56",
+    "result": "passed",
+    "repo_name": null,
+    "hash": null,
+    "url": null,
+    "TestType": null,
+    "DerivationTechnique": null,
+    "result_text": "",
+    "PartiallyVerifies": null,
+    "FullyVerifies": null
+  },
+  {
     "name": "test_external_needs__test_empty_list",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "36",
+    "line": "78",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2116,7 +2144,7 @@
   {
     "name": "test_external_needs__test_external_str_is_neither_at_nor_slash",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "40",
+    "line": "82",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2130,7 +2158,7 @@
   {
     "name": "test_external_needs__test_same_repo_entry_with_path",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "45",
+    "line": "87",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2144,7 +2172,7 @@
   {
     "name": "test_external_needs__test_same_repo_root_entry",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "59",
+    "line": "101",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2158,7 +2186,7 @@
   {
     "name": "test_external_needs__test_cross_module_sub_package_entry",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "71",
+    "line": "113",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2172,7 +2200,7 @@
   {
     "name": "test_external_needs__test_single_entry_with_path_non_target",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "85",
+    "line": "127",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2186,7 +2214,7 @@
   {
     "name": "test_external_needs__test_single_entry_no_path",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "91",
+    "line": "133",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2200,7 +2228,7 @@
   {
     "name": "test_external_needs__test_single_entry_json_no_path",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "97",
+    "line": "139",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2214,7 +2242,7 @@
   {
     "name": "test_external_needs__test_multiple_entries",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "104",
+    "line": "146",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2228,7 +2256,7 @@
   {
     "name": "test_external_needs__test_multiple_entries_2",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "118",
+    "line": "160",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2242,7 +2270,7 @@
   {
     "name": "test_external_needs__test_invalid_entry",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "137",
+    "line": "179",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2256,7 +2284,7 @@
   {
     "name": "test_external_needs__test_add_external_needs_json_appends_entry",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "142",
+    "line": "184",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2270,7 +2298,7 @@
   {
     "name": "test_external_needs__test_add_external_needs_json_appends_entry_local",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "172",
+    "line": "214",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2284,7 +2312,7 @@
   {
     "name": "test_external_needs__test_add_needs_json_file_appends_entry",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "206",
+    "line": "248",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2298,7 +2326,7 @@
   {
     "name": "test_external_needs__test_add_external_needs_json_missing_file_keeps_list_empty",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "241",
+    "line": "283",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2312,7 +2340,7 @@
   {
     "name": "test_external_needs__test_add_external_docs_sources_adds_collection",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "260",
+    "line": "302",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2326,7 +2354,7 @@
   {
     "name": "test_external_needs__test_add_external_docs_sources_local_sub_package",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "282",
+    "line": "324",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2340,7 +2368,7 @@
   {
     "name": "test_external_needs__test_add_external_docs_sources_local_root_key_fallback",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "316",
+    "line": "358",
     "result": "passed",
     "repo_name": null,
     "hash": null,
@@ -2354,7 +2382,7 @@
   {
     "name": "test_external_needs__test_add_external_docs_sources_ide_support_returns_without_changes",
     "file": "src/extensions/score_metamodel/tests/test_external_needs.py",
-    "line": "346",
+    "line": "388",
     "result": "passed",
     "repo_name": null,
     "hash": null,
