@@ -212,6 +212,7 @@ def check_metamodel_graph(
                 for parent_id in parent_ids_list:
                     parent_need = needs_dict_all.get(parent_id)
                     if parent_need is None:
+                        continue
                         msg = f"Parent need `{parent_id}` not found in needs_dict."
                         log.warning_for_need(need, msg)
                         continue
