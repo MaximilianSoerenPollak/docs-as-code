@@ -1330,6 +1330,12 @@ Safety Analysis (DFA + FMEA) Process to Tool Requirement Mapping
   * ``mitigated_by``: link to ``aou_req``
 
 
+.. std_wp:: management_test123
+ :id: std_wp__iso26262__management_test
+ :status: valid
+ :version: 1
+
+
 🗺️ Full Mapping
 ################
 
