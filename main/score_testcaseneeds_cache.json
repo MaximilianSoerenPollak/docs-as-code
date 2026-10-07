@@ -2380,7 +2380,7 @@
     "FullyVerifies": null
   },
   {
-    "name": "test_testlink__test_datafortestlink_enncoder_fallback",
+    "name": "test_testlink__test_datafortestlink_encoder_fallback",
     "file": "src/extensions/score_source_code_linker/tests/test_testlink.py",
     "line": "388",
     "result": "passed",
