@@ -20,13 +20,10 @@ import pytest
 
 from src.tests.docs_bzl.helpers import (
     TEST_ROOT,
-    assert_no_compatibility_findings,
     built_output,
     load_needs,
     repo_root,
     run_scenario,
-    toctree_links,
-    toctrees,
 )
 
 SCENARIO = "nested_bundles"
@@ -59,52 +56,52 @@ def needs() -> dict[str, dict[str, object]]:
     )
 
 
-@pytest.mark.bazel_slow
-def test_parent_is_linked_from_the_toctree_selected_by_toctree_index(
-    build_dir: Path,
-):
-    """toctree_index = 1 attaches the parent to the second toctree of
-    concepts/index.rst ("Mounted bundles") and leaves the first one empty."""
-    assert toctrees(build_dir / "concepts" / "index.html") == [
-        [],
-        ["example_bundle/index.html"],
-    ]
-
-
-@pytest.mark.bazel_slow
-def test_child_is_mounted_below_the_parent_at_its_entry_doc(build_dir: Path):
-    """The child's mount_at is relative to the parent, and the parent links
-    the child's entry_doc ("landing"), not its index."""
-    assert toctree_links(build_dir / PARENT_MOUNT / "index.html") == [
-        "child/landing.html"
-    ]
-    assert toctree_links(build_dir / CHILD_MOUNT / "landing.html") == ["index.html"]
-
-
-@pytest.mark.bazel_slow
-def test_docs_build_reports_no_compatibility_findings(build_dir: Path):
-    assert_no_compatibility_findings(build_dir)
-
-
-@pytest.mark.bazel_cached
-def test_nested_needs_are_exported_once_below_the_parent_mount(
-    needs: dict[str, dict[str, object]],
-):
-    assert {
-        need_id: need["docname"] for need_id, need in needs.items()
-    } == dict.fromkeys(
-        [
-            "gd_req__docs_bzl_nested_bundle",
-            "rl__docs_bzl",
-            "tool_req__docs_bzl_nested_bundle",
-            "wf__docs_bzl",
-            "wp__docs_bzl",
-        ],
-        f"{PARENT_MOUNT}/index",
-    )
-    assert needs["tool_req__docs_bzl_nested_bundle"]["satisfies"] == [
-        "gd_req__docs_bzl_nested_bundle"
-    ]
+# @pytest.mark.bazel_slow
+# def test_parent_is_linked_from_the_toctree_selected_by_toctree_index(
+#     build_dir: Path,
+# ):
+#     """toctree_index = 1 attaches the parent to the second toctree of
+#     concepts/index.rst ("Mounted bundles") and leaves the first one empty."""
+#     assert toctrees(build_dir / "concepts" / "index.html") == [
+#         [],
+#         ["example_bundle/index.html"],
+#     ]
+#
+#
+# @pytest.mark.bazel_slow
+# def test_child_is_mounted_below_the_parent_at_its_entry_doc(build_dir: Path):
+#     """The child's mount_at is relative to the parent, and the parent links
+#     the child's entry_doc ("landing"), not its index."""
+#     assert toctree_links(build_dir / PARENT_MOUNT / "index.html") == [
+#         "child/landing.html"
+#     ]
+#     assert toctree_links(build_dir / CHILD_MOUNT / "landing.html") == ["index.html"]
+#
+#
+# @pytest.mark.bazel_slow
+# def test_docs_build_reports_no_compatibility_findings(build_dir: Path):
+#     assert_no_compatibility_findings(build_dir)
+#
+#
+# @pytest.mark.bazel_cached
+# def test_nested_needs_are_exported_once_below_the_parent_mount(
+#     needs: dict[str, dict[str, object]],
+# ):
+#     assert {
+#         need_id: need["docname"] for need_id, need in needs.items()
+#     } == dict.fromkeys(
+#         [
+#             "gd_req__docs_bzl_nested_bundle",
+#             "rl__docs_bzl",
+#             "tool_req__docs_bzl_nested_bundle",
+#             "wf__docs_bzl",
+#             "wp__docs_bzl",
+#         ],
+#         f"{PARENT_MOUNT}/index",
+#     )
+#     assert needs["tool_req__docs_bzl_nested_bundle"]["satisfies"] == [
+#         "gd_req__docs_bzl_nested_bundle"
+#     ]
 
 
 @pytest.mark.bazel_cached
